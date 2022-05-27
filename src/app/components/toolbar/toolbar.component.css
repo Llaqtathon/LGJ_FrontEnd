@@ -19,6 +19,7 @@
     color: var(--secondary-text-color );
     text-decoration: none;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .menu{
@@ -53,6 +54,14 @@
     display: flex;
     grid-gap: 16px;
     margin-right: 24px;
+}
+
+
+.accesibility button{
+    background: transparent;
+    border: none;
+    color: var(--secondary-text-color);
+    display: flex;
 }
 
 .accesibility .material-icons {

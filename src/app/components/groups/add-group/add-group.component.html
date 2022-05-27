@@ -1,28 +1,34 @@
 <mat-card class="header">
     <mat-card-title>
         Nuevo grupo
-        <button mat-button color="warn" (click)="onBack()">
-            <span class="material-icons">
-                close
+        <button class="back" mat-button (click)="onBack()">
+            <span class="button-content">
+                <span class="material-icons material-icons--outline">
+                    close
+                </span>
+                ESC.
             </span>
-            ESC.
         </button>
     </mat-card-title>
 </mat-card>
 <div class="content">
+    <form [formGroup]="uploadForm" class="form" (ngSubmit)="onSubmit()">
+
     <div>
-        <form [formGroup]="uploadForm" (ngSubmit)="submit()" class="form">
-            <mat-form-field class="input-container">
-              <input matInput placeholder="Nombre">
-            </mat-form-field>
-            <div class="imagePreview">
-                <img [src]="imageURL">
-            </div>
-        
-            <mat-form-field class="input-container">
-                <input matInput placeholder="Url imagen del Grupo" type="url" (change)="showPreview($event)">
-            </mat-form-field>
-        </form>
+        <mat-form-field class="input-container">
+            <input matInput placeholder="Nombre" type="text"
+            formControlName="name"
+            >
+        </mat-form-field>
+        <div class="imagePreview">
+            <img [src]="imageURL">
+        </div>
+    
+        <mat-form-field class="input-container">
+            <input matInput placeholder="Url imagen del Grupo" type="url" (change)="showPreview($event)"
+            formControlName="photoUrl"
+            >
+        </mat-form-field>
 
         <div class="participants-section">
             <p>Participantes</p>
@@ -82,12 +88,12 @@
         </mat-card>
     </div>
 
-    <button mat-button color="gradient" class="participant-action" 
-        (click)="submit()">
+    <button mat-button color="gradient" class="participant-action" type="submit">
         <span class="material-icons">
             check
         </span>
         Aceptar
     </button>
+</form>
 </div>
 

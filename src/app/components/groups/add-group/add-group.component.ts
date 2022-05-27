@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { Group } from 'src/app/models/group.model';
+import { GroupService } from 'src/app/services/groups.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-group',
@@ -7,26 +10,52 @@ import { FormBuilder, FormGroup } from "@angular/forms";
   styleUrls: ['./add-group.component.css']
 })
 
+//Validate that Input is not empty
+
 export class AddGroupComponent implements OnInit {
+  @Input () imageURL: string = initialImage;
+  @Input () crrGroup: Group = {
+    name: '',
+    photoUrl: '',
+    users: []
+  }
   uploadForm: FormGroup;
-  imageURL = initialImage;
 
   participants: {name: string; image: string }[] = [
     { name: 'Juan', image: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50' },
-    { name: 'Pedro', image: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50' },
-    { name: 'Maria', image: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50' },
-    { name: 'Danie', image: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50' },
+    { name: 'Pedro', image: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50' }
   ]
 
 
-  constructor(public fb: FormBuilder) { 
+  constructor(public fb: FormBuilder, private groupService: GroupService, private _location: Location) { 
     this.uploadForm = this.fb.group({
-      image: [''],
-      name: [''],
+      photoUrl: '',
+      name: '',
     });
+
+    this.getGroup('1')
+  }
+  ngOnInit(): void {
   }
 
-  ngOnInit(): void {
+
+  getGroup = (id: string): void => {
+    this.groupService.get(id).subscribe({
+      next: (data: Group) => {
+        this.crrGroup = data;
+        console.log(this.crrGroup)
+      },
+      error: (err) => { console.log(err) }
+    })
+  }
+
+  createGroup() {
+    this.groupService.create(this.crrGroup).subscribe({
+      next: (data: Group) => {
+        console.log(data)
+      },
+      error: (err) => { console.log(err) }
+    })
   }
 
   showPreview(event: Event) {
@@ -39,17 +68,19 @@ export class AddGroupComponent implements OnInit {
     }
   }
 
-
   removeParticipant(index: number) {
     this.participants.splice(index, 1);
   }
 
   onBack() {
-    this.imageURL = initialImage;
+    this._location.back();
   }
   
-  submit() {
-    console.log(this.uploadForm.value)
+  onSubmit() {
+    const group = {...this.uploadForm.value, editionId: 2};
+
+    this.crrGroup = group;
+    this.createGroup();
   }
 }
 

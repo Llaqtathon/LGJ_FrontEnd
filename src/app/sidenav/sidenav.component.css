@@ -1,0 +1,19 @@
+.title{
+    font-size: 18px;
+    padding: 24px 16px 0;
+    text-align: center;
+    color: var(--navbar-background-color);
+}
+
+.link{
+    color: var(--secondary-text-color);
+    font-size: 14px;
+}
+
+.link > span{
+    padding: 0;
+}
+
+.link mat-list-text{
+    padding-left: 12px;
+}

@@ -41,3 +41,7 @@ $LGJ_FrontEnd-theme: mat.define-light-theme((
   background: var(--primary-background-color);
   color: var(--secondary-text-color);
 }
+
+.mat-success {
+  color: #70D36D;
+}

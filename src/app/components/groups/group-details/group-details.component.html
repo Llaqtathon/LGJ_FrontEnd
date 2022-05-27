@@ -1,1 +1,31 @@
-<p>group-details works!</p>
+<mat-card class="header">
+    <mat-card-title>
+        {{ group?.name }}
+        <button class="back" mat-button (click)="onBack()">
+            <span class="button-content">
+                <span class="material-icons material-icons--outline">
+                    close
+                </span>
+                ESC.
+            </span>
+        </button>
+    </mat-card-title>
+</mat-card>
+<div class="content">
+    <div class="participants-section">
+        <img class="group-image" [src]="group?.photoUrl">
+        <p>Desarolladores</p>
+        <div class="">
+        <mat-chip-list aria-label="Participantes" class="participants" 
+            *ngFor="let user of group?.users;">
+            <mat-chip class="participant-label" color="#DCEBEB">
+                <mat-chip-avatar>
+                    <img class="avatar" [src]="user?.nombres"/>
+                </mat-chip-avatar>
+                {{user?.nombres}}
+            </mat-chip>
+        </mat-chip-list>
+    </div>
+    </div>
+
+</div>  
