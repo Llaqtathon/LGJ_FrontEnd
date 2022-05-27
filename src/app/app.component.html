@@ -8,14 +8,21 @@
     -moz-osx-font-smoothing: grayscale;
   }
 </style>
-<app-navbar></app-navbar>
+
+<!-- Toolbar -->
+<app-toolbar></app-toolbar>
 
 <div class="container">
-  <!-- //TODO: Add left menu to separete component ? -->
-  <div class="left-menu">
-    <p class="title">Lima Board Game Jam 2022</p>
+  <!-- Sidenav -->
+  <mat-sidenav-container class="sidenav">
+    <mat-sidenav>Lima Board Game Jam 2022</mat-sidenav>
+    <mat-sidenav-content>
+      <p class="title">Lima Board Game Jam 2022</p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
-  </div>
+
+  <!-- Main content -->
   <div class="inner-container">
     <router-outlet></router-outlet>
   </div>
