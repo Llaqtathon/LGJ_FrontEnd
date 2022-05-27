@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~normalize.css';
+
+* {
+    --primary-color: #333D41;
+    --secondary-color: #00CC9C;;
+    --primary-text-color: #333D41;
+    --secondary-text-color: #ffffff;
+    --states-rejected-color: #FF5A69;
+    --states-confirmed-color: #70D36D;
+    --states-pending-color: #FFE792;
+    --states-done-color: #18A0FB    ;
+
+    --primary-background-color: linear-gradient(103.34deg, #006991 9.41%, #00CC9C 90.24%);
+
+    --navbar-background-color: #2C3846;
+}
+
+body {
+    background: var(--primary-background-color);
+}

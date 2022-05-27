@@ -1,0 +1,36 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
+})
+export class NavbarComponent implements OnInit {
+  crrMenu: { path: string; label: string; }[] = []; // make type
+  isLoggedIn() {
+    return false;
+  }
+
+  constructor() {
+    
+  }
+
+  ngOnInit(): void {
+    const menuOrg = [
+      {path: '/', label: 'Eventos activos'},
+      {path: '/stats', label: 'Estadisticas'},
+      {path: '/participants', label: 'Participantes'},
+      {path: '/pastEditions', label: 'Ediciones pasadas'},
+      {path: '/games', label: 'Juegos'}
+    ]
+
+    const menuPar = [
+      {path: '/', label: 'Eventos activos'},
+      {path: '/pastEditions', label: 'Ediciones pasadas'},
+      {path: '/games', label: 'Juegos'},
+    ]
+
+    this.crrMenu = menuOrg;
+  }
+
+}

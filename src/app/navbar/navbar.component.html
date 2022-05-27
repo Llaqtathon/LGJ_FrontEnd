@@ -1,0 +1,27 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+    <img
+      width="60"
+      alt="LGJ Logo"
+      src="https://limagamejam.com/assets/images/logo_lgj.svg"
+    />
+    <ul class="menu">
+        <li *ngFor="let link of crrMenu" class="link" 
+            [ngClass]="{'active': '/' === link.path}"
+        >
+            <a [routerLink]="link.path">{{ link.label }}</a>
+        </li>
+    </ul>
+
+    <div class="spacer"></div>
+
+
+    <ul class="menu login-menu">
+        <li class="link" >
+            <a [routerLink]="['/login']">Login</a>
+        </li>
+        <li class="link">
+            <a [routerLink]="['/register']">Register</a>
+        </li>
+    </ul>
+</div>

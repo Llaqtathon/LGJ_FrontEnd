@@ -1,0 +1,47 @@
+.toolbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: var(--navbar-background-color);
+    color: white;
+    font-weight: 600;
+}
+
+.toolbar img {
+    margin: 0 16px;
+}
+
+.spacer {
+    flex: 1;
+  }
+
+.toolbar a{
+    color: var(--secondary-text-color );
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.menu .link {
+    padding: 0 24px;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.menu .link:hover, .menu .link.active{
+    background-color: var(--secondary-color);
+}
+
+.menu .link.active a{
+    color: var(--primary-text-color);
+}
+
