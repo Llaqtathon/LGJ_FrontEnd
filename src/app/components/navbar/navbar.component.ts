@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
       {path: '/participants', label: 'Participantes'},
       {path: '/pastEditions', label: 'Ediciones pasadas'},
       {path: '/games', label: 'Juegos'},
+      {path: '/addGroup', label: 'Agregar grupo'},
     ]
 
     const menuPar = [

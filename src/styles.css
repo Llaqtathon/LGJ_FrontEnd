@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~normalize.css';
 @import 'material-icons/iconfont/material-icons.css';
 
 * {
@@ -7,10 +6,11 @@
     --secondary-color: #00CC9C;;
     --primary-text-color: #333D41;
     --secondary-text-color: #ffffff;
-    --states-rejected-color: #FF5A69;
-    --states-confirmed-color: #70D36D;
-    --states-pending-color: #FFE792;
-    --states-done-color: #18A0FB    ;
+
+    --corporative-lightest: #DCEBEB;
+    --corporative-light: #B2C1C1;
+    --corporative-dark: #8B979A;
+    --corporative-normal: #00A596;
 
     --primary-background-color: linear-gradient(103.34deg, #006991 9.41%, #00CC9C 90.24%);
     --secondary-background-color: linear-gradient(0deg, #006991 0%, #00CC9C 100%);
@@ -22,4 +22,4 @@ body {
     background: var(--primary-background-color);
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; }
