@@ -1,24 +1,24 @@
-.left-menu{
-    background: var(--secondary-background-color);
-    width: 140px;
-}
-
 .container{
     display: flex;
     width: 100%;
     min-height: 100%;
 }
 
+.sidenav{
+    background: var(--secondary-background-color);
+    width: 140px;
+}
+.sidenav .title{
+    font-size: 18px;
+    padding: 0 16px;
+    text-align: center;
+}
+
 .inner-container{
     background-color: white;
     width: 100%;
     padding-bottom: 24px;
-}
 
-.left-menu .title{
-    font-size: 18px;
-    padding: 0 16px;
-    text-align: center;
 }
 
 .inner-container .header{

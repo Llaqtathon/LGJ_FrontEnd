@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-toolbar',
+  templateUrl: './toolbar.component.html',
+  styleUrls: ['./toolbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class ToolbarComponent implements OnInit {
   crrMenu: { path: string; label: string; }[] = []; // make type
   isLoggedIn() {
     return false;
