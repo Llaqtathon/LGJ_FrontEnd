@@ -1,0 +1,46 @@
+.mat-grid-tile{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 1px 1px rgba(51, 61, 65, 0.25);
+    border-radius: 8px;
+    gap: 8px;
+    width: 100%;
+}
+
+.mat-grid-list a{
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--primary-text-color);
+    text-decoration: none;
+}
+
+.mat-grid-list a:hover{
+    color: var(--primary-text-color);
+}
+
+.header mat-card-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.back{
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.back .button-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+

@@ -9,13 +9,16 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { AddGroupComponent, GroupDetailsComponent } from './components/groups';
+import { AddGroupComponent, GroupDetailsComponent, GroupsListComponent } from './components/groups';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     ToolbarComponent,
     AddGroupComponent,
     GroupDetailsComponent,
-    SidenavComponent
+    SidenavComponent,
+    GroupsListComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
