@@ -33,3 +33,11 @@ $LGJ_FrontEnd-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($LGJ_FrontEnd-theme);
 
+.mat-corporative-normal{
+  color: var(--corporative-normal);
+}
+
+.mat-gradient{
+  background: var(--primary-background-color);
+  color: var(--secondary-text-color);
+}

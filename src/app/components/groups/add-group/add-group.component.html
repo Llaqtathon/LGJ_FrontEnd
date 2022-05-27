@@ -1,5 +1,93 @@
-<h1 class="header">
-    Nuevo grupo
-</h1>
-<hr class="separator">
-<div></div>
+<mat-card class="header">
+    <mat-card-title>
+        Nuevo grupo
+        <button mat-button color="warn" (click)="onBack()">
+            <span class="material-icons">
+                close
+            </span>
+            ESC.
+        </button>
+    </mat-card-title>
+</mat-card>
+<div class="content">
+    <div>
+        <form [formGroup]="uploadForm" (ngSubmit)="submit()" class="form">
+            <mat-form-field class="input-container">
+              <input matInput placeholder="Nombre">
+            </mat-form-field>
+            <div class="imagePreview">
+                <img [src]="imageURL">
+            </div>
+        
+            <mat-form-field class="input-container">
+                <input matInput placeholder="Url imagen del Grupo" type="url" (change)="showPreview($event)">
+            </mat-form-field>
+        </form>
+
+        <div class="participants-section">
+            <p>Participantes</p>
+            <mat-chip-list aria-label="Participantes" class="participants" *ngFor="let participant of participants; let i = index">
+                <mat-chip class="participant-label" color="#DCEBEB">
+                    <mat-chip-avatar>
+                        <img class="avatar" [src]="participant.image"/>
+                    </mat-chip-avatar>
+                    {{participant.name}}
+                    </mat-chip>
+                
+                <ng-container *ngIf="i === 0;else action">
+                    <mat-chip class="creator-label">
+                        CREADOR
+                    </mat-chip>
+                </ng-container>
+
+                <ng-template #action>
+                <button mat-button color="warn" class="participant-action" (click)="removeParticipant(i)">
+                    <span class="material-icons">
+                        remove
+                    </span>
+                    Retirar
+                </button>
+                </ng-template>
+            </mat-chip-list>
+        </div>
+    </div>
+
+    <div>
+        <mat-card class="game-card">
+            <mat-card-header>
+              <mat-card-title>Nombre Juego</mat-card-title>
+              <mat-card-subtitle>
+                Groupname: Usuario1, Usuario2, Usuario3, Usuario4, Usuario5, Usuario6, Usuario7, Usuario8
+              </mat-card-subtitle>
+            </mat-card-header>
+            <img class="mat-card-image" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-actions>
+                <a href="http://localhost:4200/addGroup" 
+                    target="_blank" mat-button color="corporative-normal">
+                    <span class="material-icons">
+                        play_arrow
+                    </span>
+                    GGJ
+                </a>
+                <a mat-button color="corporative-normal" target="_blank">
+                    <span class="material-icons" >
+                        play_arrow
+                    </span>
+                    itch.io
+                </a>
+            </mat-card-actions>
+            <mat-card-content>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <button mat-button color="gradient" class="participant-action" 
+        (click)="submit()">
+        <span class="material-icons">
+            check
+        </span>
+        Aceptar
+    </button>
+</div>
+

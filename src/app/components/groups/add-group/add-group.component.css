@@ -1,7 +1,84 @@
-.header{
-    padding: 0 24px;
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
 }
 
-.divider{
-    margin: 0 24px;
+.content > div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.form {
+    min-width: 150px;
+    max-width: 320px;
+    width: 100%;
+}
+  
+.input-container {
+    width: 100%;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 0 4px;
+}
+
+.form .imagePreview {
+    width: 100%;
+    min-height: 160px;
+}
+
+.form .imagePreview img{
+    width: 100%;
+    height: auto;
+}
+
+.participants-section{
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.participants-section .participants{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.participants .participant-label{
+    width: 100%;
+    max-width: 198px;
+    background: #DCEBEB;
+}
+
+.creator-label{
+    font-size: 10px;
+    padding: 0 24px;
+    min-height: 18px;
+    background: var(--corporative-lightest);
+}
+
+.game-card {
+    max-width: 400px;
+    margin-bottom: 24px;
+}
+
+.mat-card-actions{
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+.mat-card-image{
+    height: 200px;
+    object-fit: cover;
 }
