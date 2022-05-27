@@ -8,7 +8,7 @@
 }
 
 .toolbar img {
-    margin: 0 16px;
+    margin: 0 24px;
 }
 
 .spacer {
@@ -26,6 +26,7 @@
     display: flex;
     align-items: center;
     height: 100%;
+    padding: 0;
 }
 
 .menu .link {
@@ -43,5 +44,19 @@
 
 .menu .link.active a{
     color: var(--primary-text-color);
+}
+
+.accesibility {
+    background: var(--primary-background-color);
+    padding: 6px 18px;
+    border-radius: 24px;
+    display: flex;
+    grid-gap: 16px;
+    margin-right: 24px;
+}
+
+.accesibility .material-icons {
+    font-size: 20px;
+    cursor: pointer;
 }
 

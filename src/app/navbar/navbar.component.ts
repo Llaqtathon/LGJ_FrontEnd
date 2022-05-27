@@ -33,4 +33,16 @@ export class NavbarComponent implements OnInit {
     this.crrMenu = menuOrg;
   }
 
+  decreaseFontSize() {
+    document.body.style.fontSize = '12px';
+  }
+
+  increaseFontSize() {
+    document.body.style.fontSize = '16px';
+  }
+
+  toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+  }
 }
