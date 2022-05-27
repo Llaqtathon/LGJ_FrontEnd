@@ -1,0 +1,28 @@
+.left-menu{
+    background: var(--secondary-background-color);
+    width: 140px;
+}
+
+.container{
+    display: flex;
+    height: calc(100vh - 60px);
+    width: 100%;
+}
+
+.inner-container{
+    background-color: white;
+    width: 100%;
+}
+
+.left-menu .title{
+    font-size: 18px;
+    padding: 0 16px;
+    text-align: center;
+}
+
+.inner-container .header{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+
+}

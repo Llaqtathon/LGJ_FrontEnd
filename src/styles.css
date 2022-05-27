@@ -13,6 +13,7 @@
     --states-done-color: #18A0FB    ;
 
     --primary-background-color: linear-gradient(103.34deg, #006991 9.41%, #00CC9C 90.24%);
+    --secondary-background-color: linear-gradient(0deg, #006991 0%, #00CC9C 100%);
 
     --navbar-background-color: #2C3846;
 }
@@ -20,3 +21,5 @@
 body {
     background: var(--primary-background-color);
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

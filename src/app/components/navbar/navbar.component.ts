@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
       {path: '/stats', label: 'Estadisticas'},
       {path: '/participants', label: 'Participantes'},
       {path: '/pastEditions', label: 'Ediciones pasadas'},
-      {path: '/games', label: 'Juegos'}
+      {path: '/games', label: 'Juegos'},
     ]
 
     const menuPar = [
@@ -33,6 +33,7 @@ export class NavbarComponent implements OnInit {
     this.crrMenu = menuOrg;
   }
 
+  //TODO: Move accebility menu to a separate component
   decreaseFontSize() {
     document.body.style.fontSize = '12px';
   }
