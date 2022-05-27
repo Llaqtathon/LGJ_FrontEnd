@@ -20,6 +20,7 @@
 
 body {
     background: var(--primary-background-color);
+    font-size: 14px;
 }
 html, body { height: 100%; }
 body { margin: 0; }

@@ -4,7 +4,7 @@ import { AddGroupComponent, GroupDetailsComponent } from './components/groups';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'group', component: AddGroupComponent },
+  { path: 'groups', component: AddGroupComponent },
   { path: 'groups/:id', component: GroupDetailsComponent }
 ];
 

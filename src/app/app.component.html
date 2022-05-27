@@ -12,18 +12,16 @@
 <!-- Toolbar -->
 <app-toolbar></app-toolbar>
 
-<div class="container">
-  <!-- Sidenav -->
-  <mat-sidenav-container class="sidenav">
-    <mat-sidenav>Lima Board Game Jam 2022</mat-sidenav>
+<mat-sidenav-container class="container">
+    <!-- Sidenav -->
+    <mat-sidenav mode="side" opened [disableClose]="true" #sidenav> 
+      <app-sidenav></app-sidenav>
+    </mat-sidenav>
+
+    <!-- Main content -->
     <mat-sidenav-content>
-      <p class="title">Lima Board Game Jam 2022</p>
+      <div class="inner-container">
+        <router-outlet></router-outlet>
+      </div>
     </mat-sidenav-content>
-  </mat-sidenav-container>
-
-
-  <!-- Main content -->
-  <div class="inner-container">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+</mat-sidenav-container>

@@ -4,22 +4,6 @@
     min-height: 100%;
 }
 
-.sidenav{
-    background: var(--secondary-background-color);
-    width: 140px;
-}
-.sidenav .title{
-    font-size: 18px;
-    padding: 0 16px;
-    text-align: center;
-}
-
-.inner-container{
-    background-color: white;
-    width: 100%;
-    padding-bottom: 24px;
-}
-
 .inner-container{
     background-color: white;
     width: 100%;
@@ -30,4 +14,14 @@
     font-style: normal;
     font-weight: 600;
     font-size: 32px;
+}
+
+mat-sidenav {
+    width: 170px;
+    background: var(--secondary-background-color);
+    padding: 12px 0;
+}
+
+mat-sidenav-content{
+    width: 100%;
 }

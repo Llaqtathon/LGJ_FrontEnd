@@ -8,19 +8,22 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button'
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AddGroupComponent, GroupDetailsComponent } from './components/groups';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     AddGroupComponent,
-    GroupDetailsComponent
+    GroupDetailsComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     MatButtonModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

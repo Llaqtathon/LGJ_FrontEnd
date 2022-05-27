@@ -15,6 +15,24 @@
     gap: 30px;
 }
 
+.header mat-card-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.back{
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.back .button-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+}
+
 .form {
     min-width: 150px;
     max-width: 320px;
