@@ -1,20 +1,18 @@
 <!-- Toolbar -->
-<mat-toolbar class="toolbar" role="heading">
+<mat-toolbar class="toolbar dark-mode" role="heading">
     <img
+      class="logo"
       width="60"
       alt="LGJ Logo"
       src="https://limagamejam.com/assets/images/logo_lgj.svg"
     />
-    <ul class="menu">
+    <ul class="menu sitemap">
         <li *ngFor="let link of crrMenu" class="link" 
             [ngClass]="{'active': '/' === link.path}"
         >
             <a [routerLink]="link.path">{{ link.label }}</a>
         </li>
     </ul>
-
-    <div class="spacer"></div>
-
     <div class="accesibility">
         <button (click)="increaseFontSize()">
             <span class="material-icons">

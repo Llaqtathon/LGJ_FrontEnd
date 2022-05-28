@@ -35,11 +35,11 @@ export class ToolbarComponent implements OnInit {
 
   //TODO: Move accebility menu to a separate component
   decreaseFontSize() {
-    document.body.style.fontSize = '12px';
+    document.body.style.fontSize = (parseInt(document.body.style.fontSize)-1) + "pt";
   }
 
   increaseFontSize() {
-    document.body.style.fontSize = '16px';
+    document.body.style.fontSize = (parseInt(document.body.style.fontSize)+1) + "pt";
   }
 
   toggleDarkMode() {

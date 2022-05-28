@@ -2,25 +2,67 @@
 @import 'material-icons/iconfont/material-icons.css';
 
 * {
-    --primary-color: #333D41;
-    --secondary-color: #00CC9C;;
-    --primary-text-color: #333D41;
-    --secondary-text-color: #ffffff;
-
-    --corporative-lightest: #DCEBEB;
-    --corporative-light: #B2C1C1;
-    --corporative-dark: #8B979A;
-    --corporative-normal: #00A596;
-
-    --primary-background-color: linear-gradient(103.34deg, #006991 9.41%, #00CC9C 90.24%);
+    --corporative-color-lightest: #DCEBEB;
+    --corporative-color-darkest: #006991;
+    --corporative-color-darkest-25: #00699140;
+    --corporative-color-darkest-50: #00699180;
+    --accent-color: #F7BF7E;
+    
+    --primary-background-color: linear-gradient(90deg, #006991 0%, #00CC9C 100%);
     --secondary-background-color: linear-gradient(0deg, #006991 0%, #00CC9C 100%);
-
+    --special-background-color: linear-gradient(103.34deg, #006991 9.41%, #00CC9C 90.24%);
     --navbar-background-color: #2C3846;
+
+    --status-color-inprogress: #FFE792;
+    --status-color-confirmed: #70D36D;
+    --status-color-confirmed-dark: #70D36D;
+    --status-color-rejected: #FF5A69;
+    --status-color-rejected-dark: #45A06F;
+    --status-color-done: #18A0FB;
+    --status-color-cancelled: #8299A5; /*text disabled*/
+
+    --font-family: 'Urbanist', -apple-system, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font : 400 11pt / 12pt var(--font-family);
 }
 
-body {
-    background: var(--primary-background-color);
-    font-size: 14px;
+.light-mode * {
+    --primary-color: #00A596;
+    --primary-color-dark: #007E8E;
+
+    --text-color-primary: #333D41;
+    --text-color-secondary: #6F838B;
+
+    --background-paper: #FFFFFF;
+    --shadow-lvl1: 0px 1px 1px rgba(51, 61, 65, 0.25);
+    --shadow-lvl2: 0px 2px 2px rgba(51, 61, 65, 0.25);
 }
+.dark-mode * {
+    --primary-color: #00CC9C;
+    --primary-color-dark: #00A596;
+
+    --text-color-primary: #FFFFFF;
+    --text-color-secondary: #C6D4DD;
+
+    --background-paper: #1E2430;
+    --shadow-lvl1: 0px 1px 1px rgba(33, 41, 44, 0.33);
+    --shadow-lvl2: 0px 2px 2px rgba(33, 41, 44, 0.33);
+}
+
 html, body { height: 100%; }
-body { margin: 0; }
+body {
+    font-family: var(--font-family);
+    margin: 0;
+}
+
+
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background: var(--primary-color);
+}
+::-webkit-scrollbar-track {
+	background: var(--background-paper);
+}

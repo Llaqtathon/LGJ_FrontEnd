@@ -1,28 +1,35 @@
+/* :host {
+    font-size: 1rem;
+    font-family: inherit;
+} */
 .toolbar {
-    height: 60px;
+    height: 3.5em;
+    max-width: 100%;
+    padding: 0px;
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    grid-gap: 1rem;
     background-color: var(--navbar-background-color);
-    color: white;
+    /* font: var(--font); */
     font-weight: 600;
+    font-size: 1em;
+    box-shadow: var(--shadow-lvl1);
+    position: fixed;
+    z-index: 9999;
 }
 
-.toolbar img {
-    margin: 0 24px;
+.toolbar .logo {
+    margin-left: 0.5rem;
 }
 
-.spacer {
-    flex: 1;
-  }
-
-.toolbar a{
-    color: var(--secondary-text-color );
+.toolbar a {
+    color: var(--text-color-secondary );
     text-decoration: none;
     font-weight: bold;
-    font-size: 14px;
 }
 
-.menu{
+.menu {
     list-style: none;
     display: flex;
     align-items: center;
@@ -30,8 +37,13 @@
     padding: 0;
 }
 
+.toolbar .sitemap {
+    flex: 1;
+    overflow-x: auto;
+}
+
 .menu .link {
-    padding: 0 24px;
+    padding: 0 1em;
     cursor: pointer;
     height: 100%;
     display: flex;
@@ -39,29 +51,34 @@
     align-items: center;  
 }
 
-.menu .link:hover, .menu .link.active{
-    background-color: var(--secondary-color);
+.menu .link:hover {
+    background-color: var(--corporative-color-darkest-50);
+}
+.menu .link.active {
+    background-color: var(--primary-color);
 }
 
-.menu .link.active a{
-    color: var(--primary-text-color);
+.menu .link.active a {
+    color: var(--navbar-background-color);
 }
 
 .accesibility {
     background: var(--primary-background-color);
-    padding: 6px 18px;
-    border-radius: 24px;
+    padding: 0.5rem 1rem;
+    border-radius: 2em;
     display: flex;
-    grid-gap: 16px;
-    margin-right: 24px;
+    grid-gap: 0.5em;
 }
 
 
-.accesibility button{
+.accesibility button {
     background: transparent;
     border: none;
-    color: var(--secondary-text-color);
+    color: var(--text-color-secondary);
     display: flex;
+}
+.accesibility button:hover, .accesibility button:active {
+    color: var(--text-color-primary);
 }
 
 .accesibility .material-icons {
