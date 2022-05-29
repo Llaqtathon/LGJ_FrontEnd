@@ -27,5 +27,8 @@
         </mat-chip-list>
     </div>
     </div>
-
+    <app-card-game 
+        *ngIf="group && group.game" 
+        [game]="group.game">
+    </app-card-game>
 </div>  

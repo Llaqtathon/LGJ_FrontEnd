@@ -96,22 +96,6 @@ mat-card-content{
     min-height: 18px;
     background: var(--corporative-lightest);
 }
-
-.game-card {
-    max-width: 400px;
-    margin-bottom: 24px;
-}
-
-.mat-card-actions{
-    padding: 0;
-    margin-bottom: 8px;
-}
-
-.mat-card-image{
-    height: 200px;
-    object-fit: cover;
-}
-
 .content{
     margin-top: 24px;
 }

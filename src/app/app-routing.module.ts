@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'groups/add/game', component: GameAddComponent },
   { path: 'groups/:id', component: GroupDetailsComponent },
   { path: 'groups/:id/edit', component: GroupAddComponent },
-  { path: 'groups/:id/game', component: GameAddComponent }
+  { path: 'groups/:id/game', component: GameAddComponent },
 ];
 
 @NgModule({

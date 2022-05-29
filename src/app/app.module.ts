@@ -21,6 +21,7 @@ import { GroupAddComponent, GroupDetailsComponent, GroupsListComponent } from '.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { GameAddComponent } from './components/groups/game-add/game-add.component';
+import { CardGameComponent } from './components/components/card-game/card-game.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GameAddComponent } from './components/groups/game-add/game-add.componen
     GroupDetailsComponent,
     SidenavComponent,
     GroupsListComponent,
-    GameAddComponent
+    GameAddComponent,
+    CardGameComponent
   ],
   imports: [
     BrowserModule,

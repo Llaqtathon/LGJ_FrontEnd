@@ -36,13 +36,18 @@
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     width: 100%;
+    align-items: center;
 }
 
 .form > div {
     min-width: 150px;
     max-width: 320px;
     width: 100%;
-    justify-self: center;
+    justify-self: flex-start;
+}
+
+.form > div:first-child{
+    justify-self: flex-end;
 }
 
 .form .imagePreview {
@@ -62,6 +67,12 @@
 .input-container > * {
     width: 100%;
     padding: 0 4px;
+}
+
+.checkboxes{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 button {

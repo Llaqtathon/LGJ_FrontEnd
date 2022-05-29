@@ -11,21 +11,26 @@ import { Game } from 'src/app/models/game.model';
   styleUrls: ['./game-add.component.css']
 })
 
-
 export class GameAddComponent implements OnInit {
   @Input () imageURL: string = '';
   @Input () crrGame: Game = {}
+
   uploadForm: FormGroup;
   initialImage: string;
-  platforms: string[] = [];
+  platforms: string[] = ['Window', 'Mac', 'Web', 'Linux', 'iOS', 'Android', 'Other'];
   checkboxes: boolean[] = [];
 
   constructor(public fb: FormBuilder, private groupService: GroupService, private _location: Location, private route: ActivatedRoute) { 
     this.initialImage = "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876";
 
     this.uploadForm = this.fb.group({
-      photoUrl: '',
       name: '',
+      urlGGJ: '',
+      urlIcht: '',
+      urlAdditional: '',
+      description: '',
+      platforms: [],
+      fotoUrl: ''
     });
   }
 
@@ -40,13 +45,23 @@ export class GameAddComponent implements OnInit {
   }
 
   onSubmit() {
-    this.groupService.create(this.crrGame).subscribe({
+    console.log( this.uploadForm.value)
+    this.crrGame = this.uploadForm.value;
+    this.addGame();
+  }
+    
+
+  addGame() {
+    this.groupService.addGame(1, this.crrGame).subscribe({
       next: (data: Game) => {
         console.log(data)
       },
       error: (err) => { console.log(err) }
     })
+
+    this.onBack();
   }
+
 
   showPreview(event: Event) {
     const url = (event.target as HTMLInputElement).value;

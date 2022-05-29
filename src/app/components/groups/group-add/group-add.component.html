@@ -59,8 +59,8 @@
     </div>
 
     <div>
-        <mat-card class="game-card">
-        <ng-container *ngIf="!crrGroup.game;else action">
+        <ng-container *ngIf="!crrGroup.game">
+            <mat-card class="game-card">
             <mat-card-content>
                 <a mat-button color="corporative-normal"
                    [routerLink]="['game']">
@@ -69,37 +69,14 @@
                 </a>
                 Solo será visible en la página de LGJ aquellos grupos que tengan un juego
             </mat-card-content>
+            </mat-card>
         </ng-container>
-
-        <ng-template #action>
-            <mat-card-header>
-                <mat-card-title>Nombre Juego</mat-card-title>
-                <mat-card-subtitle>
-                  Groupname: Usuario1, Usuario2, Usuario3, Usuario4, Usuario5, Usuario6, Usuario7, Usuario8
-                </mat-card-subtitle>
-            </mat-card-header>
-            <img class="mat-card-image" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-actions>
-                <a href="http://localhost:4200/addGroup" 
-                    target="_blank" mat-button color="corporative-normal">
-                    <span class="material-icons">
-                        play_arrow
-                    </span>
-                    GGJ
-                </a>
-                <a mat-button color="corporative-normal" target="_blank">
-                    <span class="material-icons" >
-                        play_arrow
-                    </span>
-                    itch.io
-                </a>
-            </mat-card-actions>
-            <mat-card-content>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            </mat-card-content>
-        </ng-template>
+        
+        <app-card-game 
+            *ngIf="crrGroup.game" 
+            [game]="crrGroup.game">
+        </app-card-game>
             
-        </mat-card>
     </div>
 
     <button mat-button color="gradient" class="participant-action" (click)="onSubmit()">
