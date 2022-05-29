@@ -24,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { GameAddComponent } from './components/groups/game-add/game-add.component';
 import { CardGameComponent } from './components/components/card-game/card-game.component';
-=======
+
 import { MentorsComponent, MentorsListComponent, MentorsTimelineComponent,
     MentorsAvailabEditComponent, MentorsNewComponent, MentorsSearchComponent,
     MentorsDetailSmComponent } from './components/mentors';
@@ -44,18 +44,14 @@ import {MatMenuModule} from '@angular/material/menu';
     SidenavComponent,
     GroupsListComponent,
     GameAddComponent,
-    CardGameComponent
-    SidenavComponent,
-    AddGroupComponent,
-    GroupDetailsComponent,
-    GroupsListComponent,
+    CardGameComponent,
     MentorsComponent,
     MentorsListComponent,
     MentorsTimelineComponent,
     MentorsAvailabEditComponent,
     MentorsNewComponent,
     MentorsSearchComponent,
-    MentorsDetailSmComponent,
+    MentorsDetailSmComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +68,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatListModule,
     HttpClientModule,
     MatGridListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
     MatDatepickerModule,
     // MatFormFieldModule,
     MatNativeDateModule,
