@@ -1,0 +1,25 @@
+<mat-card class="game-card">
+<mat-card-header>
+    <mat-card-title>
+        {{ game.name }}
+    </mat-card-title>
+</mat-card-header>
+<img class="mat-card-image" mat-card-image *ngIf="game.fotoUrl" src="{{ game.fotoUrl }}" >
+<mat-card-actions>
+    <a href="{{ game.urlGGJ }}" *ngIf="game.urlGGJ" mat-button color="corporative-normal"  target="_blank">
+        <span class="material-icons">
+            play_arrow
+        </span>
+        GGJ
+    </a>
+    <a href="{{ game.urlIcht }}" *ngIf="game.urlIcht" mat-button color="corporative-normal" target="_blank">
+        <span class="material-icons" >
+            play_arrow
+        </span>
+        itch.io
+    </a>
+</mat-card-actions>
+<mat-card-content *ngIf="game.description">
+    {{ game.description }}
+</mat-card-content>
+</mat-card>

@@ -10,17 +10,21 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { AddGroupComponent, GroupDetailsComponent, GroupsListComponent } from './components/groups';
+import { GroupAddComponent, GroupDetailsComponent, GroupsListComponent } from './components/groups';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { GameAddComponent } from './components/groups/game-add/game-add.component';
+import { CardGameComponent } from './components/components/card-game/card-game.component';
+=======
 import { MentorsComponent, MentorsListComponent, MentorsTimelineComponent,
     MentorsAvailabEditComponent, MentorsNewComponent, MentorsSearchComponent,
     MentorsDetailSmComponent } from './components/mentors';
@@ -35,6 +39,12 @@ import {MatMenuModule} from '@angular/material/menu';
   declarations: [
     AppComponent,
     ToolbarComponent,
+    GroupAddComponent,
+    GroupDetailsComponent,
+    SidenavComponent,
+    GroupsListComponent,
+    GameAddComponent,
+    CardGameComponent
     SidenavComponent,
     AddGroupComponent,
     GroupDetailsComponent,
@@ -62,6 +72,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatListModule,
     HttpClientModule,
     MatGridListModule,
+    MatCheckboxModule
     MatDatepickerModule,
     // MatFormFieldModule,
     MatNativeDateModule,

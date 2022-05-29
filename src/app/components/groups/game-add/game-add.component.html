@@ -1,0 +1,69 @@
+<mat-card class="header">
+    <mat-card-title>
+        <span style="display: flex; align-items: center;">
+            <span class="sub-route">Nuevo grupo ></span>
+             Juego
+        </span> 
+        <button class="back" mat-button (click)="onBack()">
+            <span class="button-content">
+                <span class="material-icons material-icons--outline">
+                    close
+                </span>
+                ESC.
+            </span>
+        </button>
+    </mat-card-title>
+</mat-card>
+<form [formGroup]="uploadForm" class="form" (ngSubmit)="onSubmit()">
+    <div>
+        <mat-form-field class="input-container">
+            <input matInput placeholder="Nombre del Juego" type="text"
+            formControlName="name"
+            >
+        </mat-form-field>
+        <div class="imagePreview">
+            <img [src]="imageURL">
+        </div>
+    
+        <mat-form-field class="input-container">
+            <input matInput placeholder="Url imagen del Grupo" type="url" (change)="showPreview($event)"
+            formControlName="fotoUrl"
+            >
+        </mat-form-field>
+    
+        <mat-form-field class="input-container">
+            <textarea  matInput placeholder="Descripción" type="text"
+            formControlName="description" rows="8" style="resize:none;"></textarea>
+        </mat-form-field>
+    </div>
+    <div>
+        <h3 class>Plataforma(s)</h3>
+        <section class="checkboxes" > 
+            <mat-checkbox color="primary" class="example-margin" *ngFor="let platform of platforms; let i = index">
+                {{ platform }}
+            </mat-checkbox>
+        </section>
+
+        <h3 class="example-h2">Enlace para jugarlo</h3>
+        <mat-form-field class="input-container">
+            <input matInput placeholder="Enlace del GGJ" type="text"
+            formControlName="urlGGJ">
+        </mat-form-field>
+        <mat-form-field class="input-container">
+            <input matInput placeholder="Enlace de Itch.io" type="text"
+            formControlName="urlIcht">
+        </mat-form-field>
+        <mat-form-field class="input-container">
+            <input matInput placeholder="Enlace adicional" type="text"
+            formControlName="urlAdditional">
+        </mat-form-field>
+    </div>
+
+    <button mat-button color="gradient" class="participant-action" type="submit">
+        <span class="material-icons">
+            check
+        </span>
+        Aceptar
+    </button>
+</form>
+

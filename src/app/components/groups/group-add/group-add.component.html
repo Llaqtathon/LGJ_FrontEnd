@@ -1,0 +1,89 @@
+<mat-card class="header">
+    <mat-card-title>
+        Nuevo grupo
+        <button class="back" mat-button (click)="onBack()">
+            <span class="button-content">
+                <span class="material-icons material-icons--outline">
+                    close
+                </span>
+                ESC.
+            </span>
+        </button>
+    </mat-card-title>
+</mat-card>
+<div class="content">
+    <div>
+        <form [formGroup]="uploadForm" class="form">
+            <mat-form-field class="input-container">
+                <input matInput placeholder="Nombre" type="text"
+                formControlName="name"
+                >
+            </mat-form-field>
+            <div class="imagePreview">
+                <img [src]="imageURL">
+            </div>
+        
+            <mat-form-field class="input-container">
+                <input matInput placeholder="Url imagen del Grupo" type="url" (change)="showPreview($event)"
+                formControlName="photoUrl"
+                >
+            </mat-form-field>
+        </form>
+
+        <div class="participants-section">
+            <p>Participantes</p>
+            <mat-chip-list aria-label="Participantes" class="participants" *ngFor="let participant of participants; let i = index">
+                <mat-chip class="participant-label" color="#DCEBEB">
+                    <mat-chip-avatar>
+                        <img class="avatar" [src]="participant.image"/>
+                    </mat-chip-avatar>
+                    {{participant.name}}
+                </mat-chip>
+                
+                <ng-container *ngIf="i === 0;else action">
+                    <mat-chip class="creator-label">
+                        CREADOR
+                    </mat-chip>
+                </ng-container>
+
+                <ng-template #action>
+                <button mat-button color="warn" class="participant-action" (click)="removeParticipant(i)">
+                    <span class="material-icons">
+                        remove
+                    </span>
+                    Retirar
+                </button>
+                </ng-template>
+            </mat-chip-list>
+        </div>
+    </div>
+
+    <div>
+        <ng-container *ngIf="!crrGroup.game">
+            <mat-card class="game-card">
+            <mat-card-content>
+                <a mat-button color="corporative-normal"
+                   [routerLink]="['game']">
+                    <span class="material-icons">add</span>
+                    Agregar juego
+                </a>
+                Solo será visible en la página de LGJ aquellos grupos que tengan un juego
+            </mat-card-content>
+            </mat-card>
+        </ng-container>
+        
+        <app-card-game 
+            *ngIf="crrGroup.game" 
+            [game]="crrGroup.game">
+        </app-card-game>
+            
+    </div>
+
+    <button mat-button color="gradient" class="participant-action" (click)="onSubmit()">
+        <span class="material-icons">
+            check
+        </span>
+        Aceptar
+    </button>
+</div>
+
