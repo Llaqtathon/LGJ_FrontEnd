@@ -1,3 +1,4 @@
+import { MentorsComponent } from './components/mentors';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { 
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'groups/:id', component: GroupDetailsComponent },
   { path: 'groups/:id/edit', component: GroupAddComponent },
   { path: 'groups/:id/game', component: GameAddComponent },
+  { path: 'mentors', component: MentorsComponent },
 ];
 
 @NgModule({

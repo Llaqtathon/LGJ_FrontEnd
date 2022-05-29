@@ -11,6 +11,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -22,6 +24,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { GameAddComponent } from './components/groups/game-add/game-add.component';
 import { CardGameComponent } from './components/components/card-game/card-game.component';
+=======
+import { MentorsComponent, MentorsListComponent, MentorsTimelineComponent,
+    MentorsAvailabEditComponent, MentorsNewComponent, MentorsSearchComponent,
+    MentorsDetailSmComponent } from './components/mentors';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+
+import {MatMenuModule} from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
@@ -33,12 +45,24 @@ import { CardGameComponent } from './components/components/card-game/card-game.c
     GroupsListComponent,
     GameAddComponent,
     CardGameComponent
+    SidenavComponent,
+    AddGroupComponent,
+    GroupDetailsComponent,
+    GroupsListComponent,
+    MentorsComponent,
+    MentorsListComponent,
+    MentorsTimelineComponent,
+    MentorsAvailabEditComponent,
+    MentorsNewComponent,
+    MentorsSearchComponent,
+    MentorsDetailSmComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatIconModule,
     MatInputModule,
     MatChipsModule,
     MatCardModule,
@@ -49,8 +73,15 @@ import { CardGameComponent } from './components/components/card-game/card-game.c
     HttpClientModule,
     MatGridListModule,
     MatCheckboxModule
+    MatDatepickerModule,
+    // MatFormFieldModule,
+    MatNativeDateModule,
+    MatMenuModule,
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+    {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

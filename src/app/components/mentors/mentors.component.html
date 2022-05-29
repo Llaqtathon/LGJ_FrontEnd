@@ -1,0 +1,26 @@
+<mat-card class="header">
+  <mat-card-title> Mentorías </mat-card-title>
+
+  <mat-form-field appearance="fill" class="no-padding">
+    <mat-label>¡Fechas del Game Jam!</mat-label>
+    <mat-date-range-input disabled [formGroup]="eventDates">
+      <input matStartDate placeholder="Fecha de inicio" formControlName="start">
+      <input matEndDate placeholder="Fecha de fin" formControlName="end">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix></mat-datepicker-toggle>
+  </mat-form-field>
+
+  <!-- FILTER BY AREA -->
+  <mat-form-field class="example-full-width no-padding" appearance="fill">
+    <mat-label>Filtrar por nombre</mat-label>
+    <input type="text" matInput>
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</mat-card>
+
+
+<div class="content">
+  <app-mentors-list *ngIf="editable" [mentors]="mentorsPending"></app-mentors-list>
+  <app-mentors-timeline></app-mentors-timeline>
+
+</div>

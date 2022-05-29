@@ -18,7 +18,7 @@
     color: var(--primary-text-color);
 }
 
-.header mat-card-title{
+.header mat-card-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
