@@ -1,6 +1,7 @@
+import { UserGlobalService } from './../../services/user-global.service';
 import { MentorAvailab } from './../../models/mentor-ailab.model';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Mentor } from 'src/app/models/mentor.model';
 import { MentorsService } from 'src/app/services/mentors.service';
 
@@ -14,16 +15,20 @@ export class MentorsComponent implements OnInit {
   eventDates: FormGroup = new FormGroup({});
   mentorsPending: MentorAvailab[] = [];
   mentorsAvailables: MentorAvailab[] = [];
+  editable: boolean = false;
 
-  constructor(private mentorsService: MentorsService) {
-  }
-
-  ngOnInit(): void {
+  constructor(
+    private ugs: UserGlobalService,
+    private mentorsService: MentorsService
+    ) {
+    }
+    
+    ngOnInit(): void {
+    this.editable = this.ugs.isOrg;
     this.setEventDates();
     // this.getMentors();
     this.mentorsPending = [
-      {id:1, nombres:"Juan", apellidos:"Perez", areas:["ARTE", "NARRATIVA"], status:"PENDIENTE"},
-    ];
+      {id:1, nombres:"Juan", apellidos:"Perez", areas:["ARTE", "NARRATIVA"], status:"PENDIENTE", tiempo:{inicio:"2020-01-01", fin:"2020-01-01"}},    ];
   }
   
   setEventDates() {
@@ -42,7 +47,7 @@ export class MentorsComponent implements OnInit {
       .subscribe((_mentors: Mentor[]) => (
         _mentors.forEach((m: Mentor) => {
           if (m.tiempos === undefined || m.tiempos.length === 0) {
-            this.mentorsPending.push( this.mToMAvailab(m) );
+            if (this.ugs.isOrg) this.mentorsPending.push( this.mToMAvailab(m) );
           } else {
             m.tiempos.forEach(t => {
               this.mentorsAvailables.push( this.mToMAvailab(m, t) );
@@ -54,13 +59,13 @@ export class MentorsComponent implements OnInit {
 
   mToMAvailab(mentor: Mentor, tiempo?: {inicio: string, fin: string}) {
     if (tiempo === undefined) {
-      return {id:mentor.id,
-        nombres:mentor.nombres, apellidos:mentor.apellidos,
-        areas:mentor.areas, status:mentor.status};
+      return {id:mentor.id, nombres:mentor.nombres,
+        apellidos:mentor.apellidos, areas:mentor.areas,
+        status:mentor.status};
     }
-    return {id:mentor.id,
-      nombres:mentor.nombres, apellidos:mentor.apellidos,
-      areas:mentor.areas, status:mentor.status, tiempo:tiempo};
+    return {id:mentor.id, nombres:mentor.nombres,
+      apellidos:mentor.apellidos, areas:mentor.areas,
+      status:mentor.status, tiempo:tiempo};
   }
 
 }

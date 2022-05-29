@@ -1,7 +1,6 @@
 import { MentorAvailab } from './../../../models/mentor-ailab.model';
 import { Areas } from './../../../common/areas-icons';
 import { Component, Input, OnInit } from '@angular/core';
-import { Mentor } from 'src/app/models/mentor.model';
 import { Status } from 'src/app/common/status';
 
 @Component({
@@ -11,9 +10,9 @@ import { Status } from 'src/app/common/status';
 })
 export class MentorsDetailSmComponent implements OnInit {
 
-  @Input() mentor?: MentorAvailab;
-  @Input() time?:string;
+  @Input() mentor: MentorAvailab = new MentorAvailab();
   @Input() editable:boolean = false;
+  @Input() time?:string;
   areaIcons:string[] = [];
   statusClass:string = "";
 

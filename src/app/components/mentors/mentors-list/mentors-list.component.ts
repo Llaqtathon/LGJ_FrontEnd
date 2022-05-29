@@ -1,5 +1,5 @@
+import { MentorAvailab } from './../../../models/mentor-ailab.model';
 import { Component, OnInit, Input } from '@angular/core';
-import { Mentor } from 'src/app/models/mentor.model';
 
 @Component({
   selector: 'app-mentors-list',
@@ -7,10 +7,10 @@ import { Mentor } from 'src/app/models/mentor.model';
   styleUrls: ['./mentors-list.component.css']
 })
 export class MentorsListComponent implements OnInit {
-  @Input() mentors?: Mentor[];
+  @Input() mentors?: MentorAvailab[];
+  //siempre es editable //solo aparece a los Orgs
 
   constructor() {
-    console.log('COMPS',this.mentors);
   }
 
   ngOnInit(): void {

@@ -1,9 +1,10 @@
-<mat-card matRipple class="mentor-card {{mentor?.status}}">
+<mat-card matRipple class="mentor-card {{mentor?.status}}" 
+  [routerLink]="editable ? ['/'] : []">
   <mat-card-subtitle *ngIf=" time !== undefined ">
-    <span>HH:SS</span> - <span>HH:SS</span>
+    <span>{{mentor.tiempo?.inicio}}</span> - <span>{{mentor.tiempo?.inicio}}</span>
   </mat-card-subtitle>
   <mat-card-content>
-    <p>Nombres Apellidos</p>
+    <p>{{mentor.nombres}} {{mentor.apellidos}}</p>
     <p>
       <mat-icon *ngFor="let icon of areaIcons" >
         {{icon}}

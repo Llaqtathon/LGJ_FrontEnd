@@ -1,3 +1,4 @@
+import { UserGlobalService } from './../../services/user-global.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +10,7 @@ export class SidenavComponent implements OnInit {
   links: { path: string; label: string; icon: string; }[] = []; // make type
   crrMenu: { path: string; label: string; }[] = []; // make type
 
-  constructor() {
+  constructor(private ugs: UserGlobalService) {
     // const menuPar = [
     //   {path: '/', label: 'General'},
     //   {path: '/cronogram', label: 'Cronograma'},
@@ -50,7 +51,8 @@ export class SidenavComponent implements OnInit {
       {path: '/media', label: 'Media', icon: 'camera_alt'},
     ]
 
-    this.links = menuOrg;
+    this.links = this.ugs.isOrg ? menuOrg :
+                  this.ugs.isLogged ? menuPar : gral;
   }
 
 }
