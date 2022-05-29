@@ -12,23 +12,23 @@
     </mat-card-title>
 </mat-card>
 <div class="content">
-    <form [formGroup]="uploadForm" class="form" (ngSubmit)="onSubmit()">
-
     <div>
-        <mat-form-field class="input-container">
-            <input matInput placeholder="Nombre" type="text"
-            formControlName="name"
-            >
-        </mat-form-field>
-        <div class="imagePreview">
-            <img [src]="imageURL">
-        </div>
-    
-        <mat-form-field class="input-container">
-            <input matInput placeholder="Url imagen del Grupo" type="url" (change)="showPreview($event)"
-            formControlName="photoUrl"
-            >
-        </mat-form-field>
+        <form [formGroup]="uploadForm" class="form">
+            <mat-form-field class="input-container">
+                <input matInput placeholder="Nombre" type="text"
+                formControlName="name"
+                >
+            </mat-form-field>
+            <div class="imagePreview">
+                <img [src]="imageURL">
+            </div>
+        
+            <mat-form-field class="input-container">
+                <input matInput placeholder="Url imagen del Grupo" type="url" (change)="showPreview($event)"
+                formControlName="photoUrl"
+                >
+            </mat-form-field>
+        </form>
 
         <div class="participants-section">
             <p>Participantes</p>
@@ -38,7 +38,7 @@
                         <img class="avatar" [src]="participant.image"/>
                     </mat-chip-avatar>
                     {{participant.name}}
-                    </mat-chip>
+                </mat-chip>
                 
                 <ng-container *ngIf="i === 0;else action">
                     <mat-chip class="creator-label">
@@ -60,11 +60,23 @@
 
     <div>
         <mat-card class="game-card">
+        <ng-container *ngIf="!crrGroup.game;else action">
+            <mat-card-content>
+                <a mat-button color="corporative-normal"
+                   [routerLink]="['game']">
+                    <span class="material-icons">add</span>
+                    Agregar juego
+                </a>
+                Solo será visible en la página de LGJ aquellos grupos que tengan un juego
+            </mat-card-content>
+        </ng-container>
+
+        <ng-template #action>
             <mat-card-header>
-              <mat-card-title>Nombre Juego</mat-card-title>
-              <mat-card-subtitle>
-                Groupname: Usuario1, Usuario2, Usuario3, Usuario4, Usuario5, Usuario6, Usuario7, Usuario8
-              </mat-card-subtitle>
+                <mat-card-title>Nombre Juego</mat-card-title>
+                <mat-card-subtitle>
+                  Groupname: Usuario1, Usuario2, Usuario3, Usuario4, Usuario5, Usuario6, Usuario7, Usuario8
+                </mat-card-subtitle>
             </mat-card-header>
             <img class="mat-card-image" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
             <mat-card-actions>
@@ -85,15 +97,16 @@
             <mat-card-content>
                 The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
             </mat-card-content>
+        </ng-template>
+            
         </mat-card>
     </div>
 
-    <button mat-button color="gradient" class="participant-action" type="submit">
+    <button mat-button color="gradient" class="participant-action" (click)="onSubmit()">
         <span class="material-icons">
             check
         </span>
         Aceptar
     </button>
-</form>
 </div>
 

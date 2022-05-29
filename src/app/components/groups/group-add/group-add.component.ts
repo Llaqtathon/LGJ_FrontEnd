@@ -3,16 +3,17 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { Group } from 'src/app/models/group.model';
 import { GroupService } from 'src/app/services/groups.service';
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-add-group',
-  templateUrl: './add-group.component.html',
-  styleUrls: ['./add-group.component.css']
+  selector: 'app-group-add',
+  templateUrl: './group-add.component.html',
+  styleUrls: ['./group-add.component.css']
 })
 
 //Validate that Input is not empty
 
-export class AddGroupComponent implements OnInit {
+export class GroupAddComponent implements OnInit {
   @Input () imageURL: string = initialImage;
   @Input () crrGroup: Group = {
     name: '',
@@ -27,15 +28,17 @@ export class AddGroupComponent implements OnInit {
   ]
 
 
-  constructor(public fb: FormBuilder, private groupService: GroupService, private _location: Location) { 
+  constructor(public fb: FormBuilder, private groupService: GroupService, private _location: Location, private route: ActivatedRoute) {
     this.uploadForm = this.fb.group({
       photoUrl: '',
       name: '',
     });
+   }
+
+  ngOnInit(): void {
+    
 
     this.getGroup('1')
-  }
-  ngOnInit(): void {
   }
 
 
@@ -81,6 +84,10 @@ export class AddGroupComponent implements OnInit {
 
     this.crrGroup = group;
     this.createGroup();
+  }
+
+  onSelectGame() {
+    console.log('game add')
   }
 }
 

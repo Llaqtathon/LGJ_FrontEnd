@@ -1,7 +1,7 @@
     <mat-card class="header">
         <mat-card-title>
             Grupos
-            <a [routerLink]="'/groups/add'" mat-button color="gradient" class="participant-action">
+            <a [routerLink]="['add']" mat-button color="gradient" class="participant-action">
                 <span class="material-icons">
                     add
                 </span>
@@ -15,7 +15,7 @@
         <mat-grid-tile *ngFor="let group of groups"
             style="background-color: #fff; border-radius: 5px;">
             <div class="mat-grid-tile">
-                <a class="title" [routerLink]="['/groups', group.id]">
+                <a class="title" [routerLink]="[group.id]">
                     {{ group.name }}
                 </a>
                 <span *ngFor="let user of group.users"> 
@@ -40,3 +40,4 @@
             </div>
         </mat-grid-tile>
     </mat-grid-list>
+

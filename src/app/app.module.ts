@@ -10,24 +10,27 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { AddGroupComponent, GroupDetailsComponent, GroupsListComponent } from './components/groups';
+import { GroupAddComponent, GroupDetailsComponent, GroupsListComponent } from './components/groups';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { GameAddComponent } from './components/groups/game-add/game-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    AddGroupComponent,
+    GroupAddComponent,
     GroupDetailsComponent,
     SidenavComponent,
-    GroupsListComponent
+    GroupsListComponent,
+    GameAddComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     MatToolbarModule,
     MatListModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
