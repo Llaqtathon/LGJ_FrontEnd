@@ -43,6 +43,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { TimelineCardComponent } from './components/timeline/timeline-card/timeline-card.component';
+import { RegisterUserComponent } from './components/users';
 
 
 @NgModule({
