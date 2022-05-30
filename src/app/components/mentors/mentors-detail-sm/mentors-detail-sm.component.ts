@@ -1,4 +1,5 @@
-import { MentorAvailab } from './../../../models/mentor-ailab.model';
+import { Mentor } from 'src/app/models/mentor.model';
+import { MentorAvailab } from '../../../models/mentor-time.model';
 import { Areas } from './../../../common/areas-icons';
 import { Component, Input, OnInit } from '@angular/core';
 import { Status } from 'src/app/common/status';
@@ -10,13 +11,14 @@ import { Status } from 'src/app/common/status';
 })
 export class MentorsDetailSmComponent implements OnInit {
 
-  @Input() mentor: MentorAvailab = new MentorAvailab();
   @Input() editable:boolean = false;
-  @Input() time?:string;
+  // @Input() time:{inicio:string, fin:string} = {inicio: "", fin: ""};
+  @Input() mentor: Mentor = new Mentor();
   areaIcons:string[] = [];
   statusClass:string = "";
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.getAreaIcons();
@@ -30,7 +32,7 @@ export class MentorsDetailSmComponent implements OnInit {
   }
   getAreaIcons() {
     this.mentor?.areas?.forEach(mentor_area => {
-      this.areaIcons.push(Areas.area_icons[mentor_area]);
+      this.areaIcons.push(Areas.areaIcons[mentor_area]);
     });
   }
 

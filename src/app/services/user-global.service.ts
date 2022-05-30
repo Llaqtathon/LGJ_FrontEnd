@@ -7,6 +7,7 @@ export class UserGlobalService {
   public isLogged = true;
   public isOrg = true;
   public areEvntActs = true;
+  public currentPag = 'home';
 
   constructor() { }
 }

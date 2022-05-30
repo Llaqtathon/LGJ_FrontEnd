@@ -25,13 +25,13 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { GameAddComponent } from './components/groups/game-add/game-add.component';
 import { CardGameComponent } from './components/components/card-game/card-game.component';
 
-import { MentorsComponent, MentorsListComponent, MentorsTimelineComponent,
+import { MentorsComponent, MentorsListComponent, 
     MentorsAvailabEditComponent, MentorsNewComponent, MentorsSearchComponent,
     MentorsDetailSmComponent } from './components/mentors';
-    import { 
-      GroupAddComponent, GroupDetailsComponent, 
-      GroupsListComponent, GroupsComponent 
-    } from './components/groups';
+import { 
+  GroupAddComponent, GroupDetailsComponent, 
+  GroupsListComponent, GroupsComponent 
+} from './components/groups';
 
 // import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
@@ -39,6 +39,8 @@ import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapte
 
 import { MatMenuModule } from '@angular/material/menu';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
+import { TimelineComponent } from './components/timeline/timeline.component';
+import { TimelineCardComponent } from './components/timeline/timeline-card/timeline-card.component';
 
 
 @NgModule({
@@ -54,12 +56,13 @@ import { PastEditionsComponent } from './components/past-editions/past-editions.
     CardGameComponent,
     MentorsComponent,
     MentorsListComponent,
-    MentorsTimelineComponent,
     MentorsAvailabEditComponent,
     MentorsNewComponent,
     MentorsSearchComponent,
     MentorsDetailSmComponent,
-    PastEditionsComponent
+    PastEditionsComponent,
+    TimelineComponent,
+    TimelineCardComponent,
   ],
   imports: [
     BrowserModule,

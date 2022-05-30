@@ -66,8 +66,13 @@ body {
 }
 
 
+.text-center { text-align: center; }
 .row {
     display: flex;
+    justify-content: center;
+}
+.mat-icon {
+    font-size: 1.5em;
 }
 mat-card.header {
     display: flex;
@@ -90,3 +95,45 @@ mat-card.header mat-card-title {
     gap: 24px;
     padding: 32px;
 }
+
+
+table {
+    border-collapse: collapse;
+}
+
+.s-null {
+    background-color: var(--background-paper);
+    color: var(--text-color-primary);
+}
+.s-pending, .s-consulting, .s-confirmed {
+    color: var(--navbar-background-color);
+}
+.s-pending { background-color: var(--corporative-color-lightest); }
+.s-consulting { background-color: var(--status-color-inprogress); }
+.s-confirmed { background-color: var(--status-color-confirmed); }
+.s-rejected, .s-completed, .s-canceled {
+    color: var(--corporative-color-lightest);
+}
+.s-rejected { background-color: var(--status-color-rejected); }
+.s-canceled { background-color: var(--status-color-cancelled); }
+.s-completed { background-color: var(--status-color-done); }
+
+
+app-timeline .cards > * {
+    display: block;
+}
+app-timeline .cards app-timeline-card mat-card {
+    width: calc(100% - 1em);
+    height: calc(100% - 1em);
+    padding: 0.5em;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.ncols-1 > * { width: 100%; }
+.ncols-2 > * { width: 50%; }
+.ncols-3 > * { width: 33.33%; }
+.ncols-4 > * { width: 25%; }
+.ncols-5 > * { width: 20%; }
+.ncols-6 > * { width: 16.66%; }
+.ncols-7 > * { width: 14.28%; }

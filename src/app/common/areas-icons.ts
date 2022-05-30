@@ -1,5 +1,5 @@
 export class Areas {
-  public static area_icons:any = {
+  public static areaIcons:any = {
     'GAME DESIGN'  : 'extension',
     'PROGRAMACION' : 'code',
     'ARTE'         : 'color_lens',
@@ -7,5 +7,8 @@ export class Areas {
     'PRODUCCION'   : 'trending_up',
     'NARRATIVA'    : 'edit_note',
     'OTROS'        : 'alt_route',
+  }
+  public static getAreaIcon(area:string):string {
+    return this.areaIcons[area];
   }
 }
