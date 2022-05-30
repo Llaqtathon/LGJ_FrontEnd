@@ -1,16 +1,3 @@
-<mat-card class="header">
-    <mat-card-title>
-        Nuevo grupo
-        <button class="back" mat-button (click)="onBack()">
-            <span class="button-content">
-                <span class="material-icons material-icons--outline">
-                    close
-                </span>
-                ESC.
-            </span>
-        </button>
-    </mat-card-title>
-</mat-card>
 <div class="content">
     <div>
         <form [formGroup]="uploadForm" class="form">
@@ -62,11 +49,11 @@
         <ng-container *ngIf="!crrGroup.game">
             <mat-card class="game-card">
             <mat-card-content>
-                <a mat-button color="corporative-normal"
-                   [routerLink]="['game']">
+                <button mat-button color="corporative-normal"
+                    (click)="addGame()">
                     <span class="material-icons">add</span>
                     Agregar juego
-                </a>
+                </button>
                 Solo será visible en la página de LGJ aquellos grupos que tengan un juego
             </mat-card-content>
             </mat-card>

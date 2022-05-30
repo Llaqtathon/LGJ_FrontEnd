@@ -1,5 +1,6 @@
 import { UserGlobalService } from './../../services/user-global.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,13 +10,23 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ToolbarComponent implements OnInit {
   @Input() org: boolean = false;
   @Input() logged: boolean = false;
+  activeTab: string;
   crrMenu: { path: string; label: string; }[] = []; // make type
 
   isLoggedIn() {
     return false;
   }
 
-  constructor(private ugs: UserGlobalService) {
+  constructor(private ugs: UserGlobalService, private router: Router) { 
+    this.activeTab = this.router.url === '/' ? '/' : this.router.url.split('/')[1];
+    router.
+
+    this.router.events.subscribe(event =>{
+      if (event instanceof NavigationStart){
+         console.log(event.url)
+         this.routerChangeMethod(event.url);
+      }
+   })
   }
 
   ngOnInit(): void {
@@ -39,11 +50,15 @@ export class ToolbarComponent implements OnInit {
 
   //TODO: Move accebility menu to a separate component
   decreaseFontSize() {
-    document.body.style.fontSize = (parseInt(document.body.style.fontSize)-1) + "pt";
+    if (parseInt(document.body.style.fontSize) > 10) {
+      document.body.style.fontSize = (parseInt(document.body.style.fontSize) - 2) + 'px';
+    }
   }
 
   increaseFontSize() {
-    document.body.style.fontSize = (parseInt(document.body.style.fontSize)+1) + "pt";
+    if (parseInt(document.body.style.fontSize) < 20) {
+      document.body.style.fontSize = (parseInt(document.body.style.fontSize) + 2) + 'px';
+    }
   }
 
   toggleDarkMode() {

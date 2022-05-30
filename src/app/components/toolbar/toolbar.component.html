@@ -8,7 +8,7 @@
     />
     <ul class="menu sitemap">
         <li *ngFor="let link of crrMenu" class="link" 
-            [ngClass]="{'active': '/' === link.path}"
+            [ngClass]="{'active': link.path === activeTab}"
         >
             <a [routerLink]="link.path">{{ link.label }}</a>
         </li>

@@ -7,24 +7,6 @@
     gap: 24px;
 }
 
-.header mat-card-title{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.back{
-    font-size: 10px;
-    line-height: 1.5;
-}
-
-.back .button-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    cursor: pointer;
-}
-
 .content > div{
     width: 100%;
     display: flex;
@@ -95,7 +77,4 @@ mat-card-content{
     padding: 0 24px;
     min-height: 18px;
     background: var(--corporative-lightest);
-}
-.content{
-    margin-top: 24px;
 }
