@@ -31,6 +31,7 @@
 
     --text-color-primary: #333D41;
     --text-color-secondary: #6F838B;
+    --text-color-terciary: #6F838B80;
 
     --background-paper: #FFFFFF;
     --shadow-lvl1: 0px 1px 1px rgba(51, 61, 65, 0.25);
@@ -42,6 +43,7 @@
 
     --text-color-primary: #FFFFFF;
     --text-color-secondary: #C6D4DD;
+    --text-color-terciary: #C6D4DD20;
 
     --background-paper: #1E2430;
     --shadow-lvl1: 0px 1px 1px rgba(33, 41, 44, 0.33);
@@ -73,6 +75,8 @@ body {
 }
 .mat-icon {
     font-size: 1.5em;
+    height: 1.1em !important;
+    width: 1.1em !important;
 }
 mat-card.header {
     display: flex;

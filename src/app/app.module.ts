@@ -1,3 +1,4 @@
+import { UserGlobalService } from './services/user-global.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -90,6 +91,6 @@ import { TimelineCardComponent } from './components/timeline/timeline-card/timel
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
     {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, UserGlobalService]
 })
 export class AppModule { }

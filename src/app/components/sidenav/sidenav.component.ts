@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit {
-  links: { path: string; label: string; icon: string; }[] = []; // make type
-  crrMenu: { path: string; label: string; }[] = []; // make type
-
+  links: { path: string; label: string; icon: string; active?:boolean; }[] = []; // make type
+  // crrMenu: { path: string; label: string}[] = []; // make type
+  activeTab: string = '/';
+  
   constructor(private ugs: UserGlobalService) {
     // const menuPar = [
     //   {path: '/', label: 'General'},
@@ -23,6 +24,7 @@ export class SidenavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getCurrTab();
 
     const gral = [
       {path: '/', label: 'General', icon: 'info'},
@@ -55,4 +57,21 @@ export class SidenavComponent implements OnInit {
                   this.ugs.isLogged ? menuPar : gral;
   }
 
+  getCurrTab = (): void => {
+    this.ugs.globalVarUpdate?.subscribe({
+      next: (data: any) => {
+        this.activeTab = data.currentTab;
+        console.log('SN', this.ugs.currentTab);
+      },
+      error: (err) => { console.log(err) }
+    });
+  }
+
+  onTabClick(tab: {path: string; label: string; icon: string; active?:boolean;}) {
+    // this.router.navigate([tab]);
+    this.links.forEach(tab => { tab.active = false; });
+    tab.active = true;
+    this.activeTab = tab.path;
+    this.ugs.updateCurrTab(tab.path);
+  }
 }

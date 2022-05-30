@@ -11,7 +11,7 @@ export class ToolbarComponent implements OnInit {
   @Input() org: boolean = false;
   @Input() logged: boolean = false;
   activeTab: string = '/';
-  crrMenu: { path: string; label: string; }[] = []; // make type
+  crrMenu: { path: string; label: string, active?:boolean; }[] = []; // make type
 
   isLoggedIn() {
     return false;
@@ -21,6 +21,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getCurrPage();
 
     const menuOrg = [
       {path: '/', label: 'Eventos activos'},
@@ -38,22 +39,45 @@ export class ToolbarComponent implements OnInit {
 
     this.crrMenu = this.ugs.isOrg ? menuOrg : menuPar;
   }
+  
+  getCurrPage = (): void => {
+    this.ugs.globalVarUpdate?.subscribe({
+      next: (data: any) => {
+        this.activeTab = data.currentTab;
+        console.log('T', this.ugs.currentPag);
+      },
+      error: (err) => { console.log(err) }
+    });
+  }
 
   //TODO: Move accebility menu to a separate component
   decreaseFontSize() {
     if (parseInt(document.body.style.fontSize) > 10) {
-      document.body.style.fontSize = (parseInt(document.body.style.fontSize) - 2) + 'px';
+      document.body.style.fontSize = (parseInt(document.body.style.fontSize) - 2) + 'pt';
     }
   }
 
   increaseFontSize() {
     if (parseInt(document.body.style.fontSize) < 20) {
-      document.body.style.fontSize = (parseInt(document.body.style.fontSize) + 2) + 'px';
+      document.body.style.fontSize = (parseInt(document.body.style.fontSize) + 2) + 'pt';
     }
   }
 
   toggleDarkMode() {
     const body = document.body;
     body.classList.toggle('dark-mode');
+  }
+
+  // setActiveAttr() {
+  //   this.crrMenu.forEach(tab => {
+  //     tab.path === this.activeTab ? tab.active = true : tab.active = false;
+  //   });
+  // }
+  onTabClick(tab: {path:string, label:string, active?:boolean}) {
+    // this.router.navigate([tab]);
+    this.crrMenu.forEach(tab => { tab.active = false; });
+    tab.active = true;
+    this.activeTab = tab.path;
+    this.ugs.updateCurrPag(tab.path);
   }
 }

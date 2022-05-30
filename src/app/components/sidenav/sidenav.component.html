@@ -2,7 +2,10 @@
 <p class="mat-title title">Lima Board Game Jam 2022</p>
 <mat-nav-list class="light-mode">
     <a *ngFor="let link of links" mat-list-item class="link"
-         [routerLink]="link.path">
+         [routerLink]="link.path"
+         [ngClass]="{'active': link.path === activeTab || link.active}"
+            (click)="onTabClick(link)"
+         >
         <span mat-list-icon class="material-icons">
             {{ link.icon }}
         </span>

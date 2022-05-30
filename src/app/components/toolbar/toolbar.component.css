@@ -76,13 +76,14 @@
     border: none;
     color: var(--text-color-secondary);
     display: flex;
+    font-size: 1em;
 }
 .accesibility button:hover, .accesibility button:active {
     color: var(--text-color-primary);
 }
 
 .accesibility .material-icons {
-    font-size: 20px;
+    /* font-size: 20px; */
     cursor: pointer;
 }
 

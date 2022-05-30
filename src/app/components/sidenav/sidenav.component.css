@@ -19,3 +19,7 @@
 .link mat-list-text {
     padding-left: 0.8rem;
 }
+.link.active {
+    background-color: var(--navbar-background-color);
+    color: var(--primary-color);
+}
