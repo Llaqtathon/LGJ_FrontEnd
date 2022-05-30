@@ -11,9 +11,6 @@
     </div>
     <div>
         <form class="form" #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
-            {{userForm.value | json}}
-            <hr />
-            {{userModel | json}}
             <div class="inputBox">
                 <input type="text" id="username" name="username" required [(ngModel)]="userModel.username" />
                 <span>Nombre de usuario</span>

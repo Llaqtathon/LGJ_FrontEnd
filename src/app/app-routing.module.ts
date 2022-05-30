@@ -24,12 +24,12 @@ const routes: Routes = [
       { path: ':id', component: GroupDetailsComponent },
       { path: ':id/edit', component: GroupAddComponent },
       { path: ':id/game', component: GameAddComponent },
-      { path: 'users', component: RegisterUserComponent}
+      
     ]
   },
   { path: 'pastEditions', component: PastEditionsComponent },
   { path: 'mentors', component: MentorsComponent },
-
+  { path: 'users', component: RegisterUserComponent}
 ];
 
 @NgModule({
