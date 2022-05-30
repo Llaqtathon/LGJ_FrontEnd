@@ -1,0 +1,171 @@
+
+.titulo{
+    width: 389px;
+    height: 76px;
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+    letter-spacing: 0.05em; 
+    color: #DCEBEB;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px;
+    gap: 56px;
+    
+    width: 720px;
+    height: 1238px;
+    left: calc(50% - 720px/2);
+    top: 96px;
+    position:sticky;
+    /* other/darker 25 */
+    
+    background: rgba(0, 105, 145, 0.25);
+    border-radius: 12px;
+}
+
+.text1{
+width: 355px;
+height: 3px;
+
+/* LGJ/Body/Body */
+
+font-family: 'Urbanist';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+letter-spacing: 0.05em;
+
+/* LGJ/lightest */
+
+color: #DCEBEB;
+
+}
+.text2{
+width: 410px;
+height: 1px;
+
+/* Header/H3 */
+
+font-family: 'Urbanist';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 20px;
+/* identical to box height */
+
+letter-spacing: 0.05em;
+
+color: #FFFFFF;
+
+}
+
+form{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.inputBox{
+    position: relative;
+    width: 300px;
+    height: 46px;
+    margin-bottom: 25px;   
+}
+
+.inpuBox:last-child{
+    margin-bottom: 0;
+}
+.inputBox input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    padding: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    font-weight: 300;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color:#fff;
+    font-family: 'Urbanist';
+}
+.inputBox span{
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    padding: 10px;
+    display: inline-block;
+    transition: 0.5s;
+    pointer-events: none;
+    font-size: 16px;
+    color:#FFFFFF;
+    font-weight: 300;
+    font-family: 'Urbanist';
+}
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span{
+    transform: translateX(-10px) translateY(-32px);
+    font-size: 12px;
+
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+    color: #fff !important;
+}
+.radiogroup{
+    display:flex;
+    flex-direction: column;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.radiogroup div{
+    padding: 5px;
+    
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+.distrito{
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Urbanist';
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.distrito select{
+    background:transparent;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    font-size: 16px;
+    font-family: 'Urbanist';
+}
+.distrito option{
+    background: black;   
+}
+
+button{
+padding: 12px;
+width: 144px;
+height: 43px;
+background: #FFFFFF;
+box-shadow: 0px 1px 1px rgba(33, 41, 44, 0.33);
+border-radius: 4px;
+}

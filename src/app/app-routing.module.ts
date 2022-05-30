@@ -1,6 +1,7 @@
 import { MentorsComponent } from './components/mentors';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { 
   GroupAddComponent, 
   GroupDetailsComponent, 
@@ -21,10 +22,12 @@ const routes: Routes = [
       { path: ':id', component: GroupDetailsComponent },
       { path: ':id/edit', component: GroupAddComponent },
       { path: ':id/game', component: GameAddComponent },
+      { path: 'users', component: RegisterUserComponent}
     ]
   },
   { path: 'pastEditions', component: PastEditionsComponent },
   { path: 'mentors', component: MentorsComponent },
+
 ];
 
 @NgModule({

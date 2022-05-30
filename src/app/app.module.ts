@@ -1,7 +1,7 @@
 import { UserGlobalService } from './services/user-global.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
@@ -22,6 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { GameAddComponent } from './components/groups/game-add/game-add.component';
 import { CardGameComponent } from './components/components/card-game/card-game.component';
@@ -53,6 +54,7 @@ import { TimelineCardComponent } from './components/timeline/timeline-card/timel
     GroupsComponent,
     SidenavComponent,
     GroupsListComponent,
+    RegisterUserComponent,
     GameAddComponent,
     CardGameComponent,
     MentorsComponent,
@@ -80,6 +82,7 @@ import { TimelineCardComponent } from './components/timeline/timeline-card/timel
     MatListModule,
     HttpClientModule,
     MatGridListModule,
+    FormsModule,
     MatCheckboxModule,
     MatDatepickerModule,
     // MatFormFieldModule,
