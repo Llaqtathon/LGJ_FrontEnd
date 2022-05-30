@@ -9,7 +9,10 @@ export class User {
     email?: string;
     nacimiento?: Date;
     telefono?: string;
-    distrito?: Distrito;
+    distrito?: Distrito[];
     dni?: string;
     genero?: string;
+    rol?: string;
+    descripcion?: string;
+    foto_perfil_url?: string;
 }
