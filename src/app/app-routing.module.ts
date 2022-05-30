@@ -11,8 +11,7 @@ import {
 } 
 from './components/groups';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
-import { RegisterUserComponent } from './components/users';
-
+import { RegisterUserComponent } from './components/users/register-user/register-user.component';
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'groups', component: GroupsComponent, 
