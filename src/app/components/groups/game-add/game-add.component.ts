@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Location } from '@angular/common';
 import { GroupService } from 'src/app/services/groups.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterStateSnapshot } from '@angular/router';
 import { Game } from 'src/app/models/game.model';
+import { GroupFormsService } from 'src/app/services/group-forms.service';
 
 @Component({
   selector: 'app-game-add',
@@ -20,17 +21,28 @@ export class GameAddComponent implements OnInit {
   platforms: string[] = ['Window', 'Mac', 'Web', 'Linux', 'iOS', 'Android', 'Other'];
   checkboxes: boolean[] = [];
 
-  constructor(public fb: FormBuilder, private groupService: GroupService, private _location: Location, private route: ActivatedRoute) { 
+  constructor(public fb: FormBuilder, private groupService: GroupService, private _location: Location, private route: ActivatedRoute, private service: GroupFormsService) { 
     this.initialImage = "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876";
 
+
+    console.log(this.route.url)
     this.uploadForm = this.fb.group({
-      name: '',
+      name: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+      ]),
+      fotoUrl: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+      ]),
       urlGGJ: '',
       urlIcht: '',
       urlAdditional: '',
-      description: '',
-      platforms: [],
-      fotoUrl: ''
+      description: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+      ]),
+      platforms: []
     });
   }
 
@@ -45,19 +57,23 @@ export class GameAddComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log( this.uploadForm.value)
-    this.crrGame = this.uploadForm.value;
-    this.addGame();
-  }
-    
+    if (this.uploadForm.valid) {
+      this.crrGame = this.uploadForm.value;
+      this.service._state.game = this.uploadForm.value;
+      this.service._modified = true;
+      this.addGame();
 
+      console.log('Servicio: ', this.service._state.game)
+    }
+  }
+  
   addGame() {
-    this.groupService.addGame(1, this.crrGame).subscribe({
+    /*this.groupService.addGame(1, this.crrGame).subscribe({
       next: (data: Game) => {
         console.log(data)
       },
       error: (err) => { console.log(err) }
-    })
+    })*/
 
     this.onBack();
   }

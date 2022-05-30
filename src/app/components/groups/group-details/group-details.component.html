@@ -1,16 +1,3 @@
-<mat-card class="header">
-    <mat-card-title>
-        {{ group?.name }}
-        <button class="back" mat-button (click)="onBack()">
-            <span class="button-content">
-                <span class="material-icons material-icons--outline">
-                    close
-                </span>
-                ESC.
-            </span>
-        </button>
-    </mat-card-title>
-</mat-card>
 <div class="content">
     <div class="participants-section">
         <img class="group-image" [src]="group?.photoUrl">
@@ -26,9 +13,14 @@
             </mat-chip>
         </mat-chip-list>
     </div>
-    </div>
-    <app-card-game 
-        *ngIf="group && group.game" 
-        [game]="group.game">
-    </app-card-game>
-</div>  
+</div>
+<div>
+<h3> Juego </h3>
+<h4 *ngIf="!group?.game" >No se ha agregado un Juego!</h4>
+
+<app-card-game 
+    *ngIf="group && group.game" 
+    [game]="group.game">
+</app-card-game>
+
+</div>

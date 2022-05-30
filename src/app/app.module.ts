@@ -13,13 +13,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { GroupAddComponent, GroupDetailsComponent, GroupsListComponent } from './components/groups';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { GameAddComponent } from './components/groups/game-add/game-add.component';
@@ -28,11 +28,17 @@ import { CardGameComponent } from './components/components/card-game/card-game.c
 import { MentorsComponent, MentorsListComponent, MentorsTimelineComponent,
     MentorsAvailabEditComponent, MentorsNewComponent, MentorsSearchComponent,
     MentorsDetailSmComponent } from './components/mentors';
+    import { 
+      GroupAddComponent, GroupDetailsComponent, 
+      GroupsListComponent, GroupsComponent 
+    } from './components/groups';
+
 // import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
+import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 
 
 @NgModule({
@@ -41,6 +47,7 @@ import {MatMenuModule} from '@angular/material/menu';
     ToolbarComponent,
     GroupAddComponent,
     GroupDetailsComponent,
+    GroupsComponent,
     SidenavComponent,
     GroupsListComponent,
     GameAddComponent,
@@ -51,7 +58,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MentorsAvailabEditComponent,
     MentorsNewComponent,
     MentorsSearchComponent,
-    MentorsDetailSmComponent
+    MentorsDetailSmComponent,
+    PastEditionsComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +79,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatCheckboxModule,
     MatDatepickerModule,
     // MatFormFieldModule,
+    MatTabsModule,
     MatNativeDateModule,
     MatMenuModule,
   ],

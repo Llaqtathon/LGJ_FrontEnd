@@ -10,8 +10,6 @@ export class CardGameComponent implements OnInit {
   @Input () game: Game = {}
 
   constructor() {
-
-    console.log(this.game)
   }
 
   ngOnInit(): void {

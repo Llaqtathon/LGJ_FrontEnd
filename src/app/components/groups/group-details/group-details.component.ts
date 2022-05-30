@@ -15,7 +15,6 @@ export class GroupDetailsComponent implements OnInit {
 
   ngOnInit(): void { 
     this.route.params.subscribe(params => {
-      console.log(params) //log the entire params object
       this.getGroup(params['id']) //log the value of id
     });
   }
@@ -26,6 +25,8 @@ export class GroupDetailsComponent implements OnInit {
     this.groupService.get(groupId).subscribe({
       next: (data: Group) => {
         this.group = data;
+        
+        console.log(data)
       },
       error: (err) => { console.log(err) }
     })

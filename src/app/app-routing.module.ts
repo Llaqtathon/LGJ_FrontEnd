@@ -5,17 +5,25 @@ import {
   GroupAddComponent, 
   GroupDetailsComponent, 
   GroupsListComponent, 
-  GameAddComponent } 
+  GameAddComponent, 
+  GroupsComponent
+} 
 from './components/groups';
+import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'groups', component: GroupsListComponent},
-  { path: 'groups/add', component: GroupAddComponent },
-  { path: 'groups/add/game', component: GameAddComponent },
-  { path: 'groups/:id', component: GroupDetailsComponent },
-  { path: 'groups/:id/edit', component: GroupAddComponent },
-  { path: 'groups/:id/game', component: GameAddComponent },
+  { path: 'groups', component: GroupsComponent, 
+    children: [
+      { path: '', component: GroupsListComponent },
+      { path: 'add', component: GroupAddComponent, data: { title: 'Nuevo Grupo' } },
+      { path: 'add/game', component: GameAddComponent, data: { title: 'Juego' } },
+      { path: ':id', component: GroupDetailsComponent },
+      { path: ':id/edit', component: GroupAddComponent },
+      { path: ':id/game', component: GameAddComponent },
+    ]
+  },
+  { path: 'pastEditions', component: PastEditionsComponent },
   { path: 'mentors', component: MentorsComponent },
 ];
 
