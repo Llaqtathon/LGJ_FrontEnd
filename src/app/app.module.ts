@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
@@ -19,6 +19,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AddGroupComponent, GroupDetailsComponent, GroupsListComponent } from './components/groups';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { RegisterUserComponent } from './components/users';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     AddGroupComponent,
     GroupDetailsComponent,
     SidenavComponent,
-    GroupsListComponent
+    GroupsListComponent,
+    RegisterUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatToolbarModule,
     MatListModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
