@@ -2,25 +2,142 @@
 @import 'material-icons/iconfont/material-icons.css';
 
 * {
-    --primary-color: #333D41;
-    --secondary-color: #00CC9C;;
-    --primary-text-color: #333D41;
-    --secondary-text-color: #ffffff;
-
-    --corporative-lightest: #DCEBEB;
-    --corporative-light: #B2C1C1;
-    --corporative-dark: #8B979A;
-    --corporative-normal: #00A596;
-
-    --primary-background-color: linear-gradient(103.34deg, #006991 9.41%, #00CC9C 90.24%);
+    --corporative-color-lightest: #DCEBEB;
+    --corporative-color-darkest: #006991;
+    --corporative-color-darkest-25: #00699140;
+    --corporative-color-darkest-50: #00699180;
+    --accent-color: #F7BF7E;
+    
+    --primary-background-color: linear-gradient(90deg, #006991 0%, #00CC9C 100%);
     --secondary-background-color: linear-gradient(0deg, #006991 0%, #00CC9C 100%);
-
+    --special-background-color: linear-gradient(103.34deg, #006991 9.41%, #00CC9C 90.24%);
     --navbar-background-color: #2C3846;
+
+    --status-color-inprogress: #FFE792;
+    --status-color-confirmed: #70D36D;
+    --status-color-confirmed-dark: #70D36D;
+    --status-color-rejected: #FF5A69;
+    --status-color-rejected-dark: #45A06F;
+    --status-color-done: #18A0FB;
+    --status-color-cancelled: #8299A5; /*text disabled*/
+
+    --font-family: 'Urbanist', -apple-system, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font : 400 11pt / 12pt var(--font-family);
 }
 
-body {
-    background: var(--primary-background-color);
-    font-size: 14px;
+.light-mode * {
+    --primary-color: #00A596;
+    --primary-color-dark: #007E8E;
+
+    --text-color-primary: #333D41;
+    --text-color-secondary: #6F838B;
+    --text-color-terciary: #6F838B80;
+
+    --background-paper: #FFFFFF;
+    --shadow-lvl1: 0px 1px 1px rgba(51, 61, 65, 0.25);
+    --shadow-lvl2: 0px 2px 2px rgba(51, 61, 65, 0.25);
 }
+.dark-mode * {
+    --primary-color: #00CC9C;
+    --primary-color-dark: #00A596;
+
+    --text-color-primary: #FFFFFF;
+    --text-color-secondary: #C6D4DD;
+    --text-color-terciary: #C6D4DD20;
+
+    --background-paper: #1E2430;
+    --shadow-lvl1: 0px 1px 1px rgba(33, 41, 44, 0.33);
+    --shadow-lvl2: 0px 2px 2px rgba(33, 41, 44, 0.33);
+}
+
 html, body { height: 100%; }
-body { margin: 0; }
+body {
+    font-family: var(--font-family);
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background: var(--primary-color);
+}
+::-webkit-scrollbar-track {
+	background: var(--background-paper);
+}
+
+
+.text-center { text-align: center; }
+.row {
+    display: flex;
+    justify-content: center;
+}
+.mat-icon {
+    font-size: 1.5em;
+    height: 1.1em !important;
+    width: 1.1em !important;
+}
+mat-card.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 1rem;
+}
+mat-card.header mat-card-title {
+    flex-grow: 1;
+}
+.mat-form-field.no-padding > .mat-form-field-wrapper {
+    margin-bottom: -1.25em;
+    /* padding-bottom: 0; */
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 32px;
+}
+
+
+table {
+    border-collapse: collapse;
+}
+
+.s-null {
+    background-color: var(--background-paper);
+    color: var(--text-color-primary);
+}
+.s-pending, .s-consulting, .s-confirmed {
+    color: var(--navbar-background-color);
+}
+.s-pending { background-color: var(--corporative-color-lightest); }
+.s-consulting { background-color: var(--status-color-inprogress); }
+.s-confirmed { background-color: var(--status-color-confirmed); }
+.s-rejected, .s-completed, .s-canceled {
+    color: var(--corporative-color-lightest);
+}
+.s-rejected { background-color: var(--status-color-rejected); }
+.s-canceled { background-color: var(--status-color-cancelled); }
+.s-completed { background-color: var(--status-color-done); }
+
+
+app-timeline .cards > * {
+    display: block;
+}
+app-timeline .cards app-timeline-card mat-card {
+    width: calc(100% - 1em);
+    height: calc(100% - 1em);
+    padding: 0.5em;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.ncols-1 > * { width: 100%; }
+.ncols-2 > * { width: 50%; }
+.ncols-3 > * { width: 33.33%; }
+.ncols-4 > * { width: 25%; }
+.ncols-5 > * { width: 20%; }
+.ncols-6 > * { width: 16.66%; }
+.ncols-7 > * { width: 14.28%; }

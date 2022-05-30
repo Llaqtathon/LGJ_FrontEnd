@@ -1,0 +1,26 @@
+<mat-card class="header">
+    <mat-card-title>
+        {{ title }}
+
+        <a *ngIf="action === 'add'" 
+            [routerLink]="['add']" mat-button color="gradient" class="participant-action">
+            <span class="material-icons">
+                add
+            </span>
+            Nuevo
+        </a>
+
+        <button *ngIf="action === 'back'" class="back" mat-button (click)="onBack()">
+            <span class="button-content">
+                <span class="material-icons material-icons--outline">
+                    close
+                </span>
+                ESC.
+            </span>
+        </button>
+    </mat-card-title>
+</mat-card>
+
+<div class="group-content">
+    <router-outlet></router-outlet>
+</div>

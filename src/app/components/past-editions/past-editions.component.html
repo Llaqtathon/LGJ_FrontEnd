@@ -1,0 +1,22 @@
+<mat-tab-group color="white" backgroundColor="primary" 
+    animationDuration="0ms"
+    (selectedIndexChange)="onSelectedTabChange($event)"
+    >
+<mat-tab *ngFor="let edition of editions; let i = index"
+    [label]="tabTitles[i]"> 
+    <div class="content">
+    <div>
+        <h1>{{ edition.name }}</h1>
+    
+        <h2>¡Juegos creados!</h2>
+
+        <div class="game-cards">
+            <app-card-game
+                *ngFor="let game of games" 
+                [game]="game">
+            ></app-card-game>
+        </div>
+    </div>
+    </div>
+</mat-tab>
+</mat-tab-group>

@@ -8,7 +8,6 @@ import { GroupService } from 'src/app/services/groups.service';
   styleUrls: ['./groups-list.component.css']
 })
 export class GroupsListComponent implements OnInit {
-
   groups?: Group[];
   title = 'Groups';
 
@@ -24,7 +23,6 @@ export class GroupsListComponent implements OnInit {
     this.groupService.getAll().subscribe({
       next: (data: Group[]) => {
         this.groups = data;
-        console.log(data)
       },
       error: (err) => { console.log(err) }
     })
@@ -35,7 +33,6 @@ export class GroupsListComponent implements OnInit {
     this.groupService.join(groupId, '1').subscribe({
       next: (data: Group) => {
         this.getGroups();
-        console.log(data)
       },
       error: (err) => { console.log(err) }
     })

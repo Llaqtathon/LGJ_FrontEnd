@@ -1,0 +1,25 @@
+.title {
+    padding: 2rem 1rem 0;
+    text-align: center;
+    color: var(--navbar-background-color);
+}
+
+.link {
+    color: var(--navbar-background-color);
+    font-size: 1em;
+}
+
+.link > span{
+    padding: 0;
+}
+.link * {
+    font-weight: bold !important;
+}
+
+.link mat-list-text {
+    padding-left: 0.8rem;
+}
+.link.active {
+    background-color: var(--navbar-background-color);
+    color: var(--primary-color);
+}

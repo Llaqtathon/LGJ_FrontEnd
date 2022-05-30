@@ -1,35 +1,27 @@
 <!-- Toolbar -->
-<mat-toolbar class="toolbar" role="heading">
+<mat-toolbar class="toolbar dark-mode" role="heading">
     <img
+      class="logo"
       width="60"
       alt="LGJ Logo"
       src="https://limagamejam.com/assets/images/logo_lgj.svg"
     />
-    <ul class="menu">
+    <ul class="menu sitemap">
         <li *ngFor="let link of crrMenu" class="link" 
-            [ngClass]="{'active': '/' === link.path}"
-        >
+            [ngClass]="{'active': link.path === activeTab || link.active}"
+            (click)="onTabClick(link)">
             <a [routerLink]="link.path">{{ link.label }}</a>
         </li>
     </ul>
-
-    <div class="spacer"></div>
-
     <div class="accesibility">
         <button (click)="increaseFontSize()">
-            <span class="material-icons">
-                text_increase
-            </span>
+            <mat-icon>text_increase</mat-icon>
         </button>
         <button (click)="decreaseFontSize()">
-            <span class="material-icons">
-                text_decrease
-            </span>
+            <mat-icon>text_decrease</mat-icon>
         </button>
         <button (click)="toggleDarkMode()">
-            <span class="material-icons">
-                dark_mode
-            </span>
+            <mat-icon>dark_mode</mat-icon>
         </button>
     </div>
 

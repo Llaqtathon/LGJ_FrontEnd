@@ -1,42 +1,32 @@
-    <mat-card class="header">
-        <mat-card-title>
-            Grupos
-            <a [routerLink]="'/groups/add'" mat-button color="gradient" class="participant-action">
-                <span class="material-icons">
-                    add
-                </span>
-                Nuevo
+<mat-grid-list cols="3" rowHeight="2:1" [gutterSize]="'24px'"
+    [style]="'padding: 24px;'"
+>
+    <mat-grid-tile *ngFor="let group of groups"
+        style="background-color: #fff; border-radius: 5px;">
+        <div class="mat-grid-tile">
+            <a class="title" [routerLink]="[group.id]">
+                {{ group.name }}
             </a>
-        </mat-card-title>
-    </mat-card>
-    <mat-grid-list cols="3" rowHeight="2:1" [gutterSize]="'24px'"
-        [style]="'padding: 24px;'"
-    >
-        <mat-grid-tile *ngFor="let group of groups"
-            style="background-color: #fff; border-radius: 5px;">
-            <div class="mat-grid-tile">
-                <a class="title" [routerLink]="['/groups', group.id]">
-                    {{ group.name }}
-                </a>
-                <span *ngFor="let user of group.users"> 
-                    {{ user.nombres }},
-                </span>
-                
-                <ng-template *ngIf="userInGroup(group.id, 1); then thenBlock else elseBlock"></ng-template>
-                <ng-template #thenBlock>
-                <button mat-button color='warn'
-                    (click)="leaveGroup(group.id)">
-                    <span class="material-icons">close</span>
-                    Retirarme
-                </button>
-                </ng-template>
-                <ng-template #elseBlock>
-                <button mat-button color='success'
-                    (click)="joinGroup(group.id)">
-                    <span class="material-icons">check</span>
-                    Unirme
-                </button>
-                </ng-template>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
+            <span *ngFor="let user of group.users"> 
+                {{ user.nombres }},
+            </span>
+            
+            <ng-template *ngIf="userInGroup(group.id, 1); then thenBlock else elseBlock"></ng-template>
+            <ng-template #thenBlock>
+            <button mat-button color='warn'
+                (click)="leaveGroup(group.id)">
+                <span class="material-icons">close</span>
+                Retirarme
+            </button>
+            </ng-template>
+            <ng-template #elseBlock>
+            <button mat-button color='success'
+                (click)="joinGroup(group.id)">
+                <span class="material-icons">check</span>
+                Unirme
+            </button>
+            </ng-template>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
