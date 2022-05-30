@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class ToolbarComponent implements OnInit {
   @Input() org: boolean = false;
   @Input() logged: boolean = false;
-  activeTab: string;
+  activeTab: string = '/';
   crrMenu: { path: string; label: string; }[] = []; // make type
 
   isLoggedIn() {
@@ -18,15 +18,6 @@ export class ToolbarComponent implements OnInit {
   }
 
   constructor(private ugs: UserGlobalService, private router: Router) { 
-    this.activeTab = this.router.url === '/' ? '/' : this.router.url.split('/')[1];
-    router.
-
-    this.router.events.subscribe(event =>{
-      if (event instanceof NavigationStart){
-         console.log(event.url)
-         this.routerChangeMethod(event.url);
-      }
-   })
   }
 
   ngOnInit(): void {
