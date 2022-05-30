@@ -1,9 +1,9 @@
-<mat-card matRipple class="mentor-card {{mentor?.status}}" 
-  [routerLink]="editable ? ['/'] : []">
-  <mat-card-subtitle *ngIf=" time !== undefined ">
+<mat-card matRipple class="mentor-card {{statusClass}}" >
+  <!-- [routerLink]="editable ? ['/'] : []"> -->
+  <!-- <mat-card-subtitle *ngIf=" time.inicio !== '' ">
     <span>{{mentor.tiempo?.inicio}}</span> - <span>{{mentor.tiempo?.inicio}}</span>
-  </mat-card-subtitle>
-  <mat-card-content>
+  </mat-card-subtitle> -->
+  <mat-card-content class="text-center">
     <p>{{mentor.nombres}} {{mentor.apellidos}}</p>
     <p>
       <mat-icon *ngFor="let icon of areaIcons" >

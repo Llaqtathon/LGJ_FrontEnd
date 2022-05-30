@@ -21,6 +21,9 @@
 
 <div class="content">
   <app-mentors-list *ngIf="editable" [mentors]="mentorsPending"></app-mentors-list>
-  <app-mentors-timeline></app-mentors-timeline>
-
+  <app-timeline [items]="mentorsAvailables" [dateStart]="event.inicio" [dateEnd]="event.fin">
+    <!-- <app-mentors-detail-sm #item [mentor]="mentor" [editable]="editable"
+      *ngFor="let mentor of mentorsAvailables">
+    </app-mentors-detail-sm> -->
+  </app-timeline>
 </div>

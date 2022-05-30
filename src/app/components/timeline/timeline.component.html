@@ -1,0 +1,33 @@
+<div class="hours">
+  <span *ngFor="let hour of hours">{{hour}}</span>
+  <span>24</span>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th *ngFor="let day of days">{{day}}</th>
+    </tr>
+  </thead>
+  <tbody> 
+    <tr *ngFor="let hour of hours" class="ncols-{{days.length}}">
+      <td *ngFor="let day of days">
+        <!-- <div class="timeline-item" *ngFor="let item of items">
+        </div> -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="cards ncols-{{days.length}}">
+  <app-timeline-card *ngFor="let item of items; let i = index" [item]="item"
+    [ngStyle]="{
+      'width.%' : item.size?.w ,  'height.em' : item.size?.h,
+      'left.%'   : item.pos?.x,  'top.em'  : item.pos?.y
+    }">
+  </app-timeline-card>
+  <!-- attr.data-numdays="{{days.length}}" -->
+  <!-- <ng-content></ng-content> -->
+  <!-- <ng-container *ngFor="let item of items">
+      <app-timeline-card [item]="item">
+      </app-timeline-card>
+  </ng-container>  -->
+</div>

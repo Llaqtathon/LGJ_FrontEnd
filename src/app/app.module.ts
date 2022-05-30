@@ -21,7 +21,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AddGroupComponent, GroupDetailsComponent, GroupsListComponent } from './components/groups';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { MentorsComponent, MentorsListComponent, MentorsTimelineComponent,
+import { MentorsComponent, MentorsListComponent, 
     MentorsAvailabEditComponent, MentorsNewComponent, MentorsSearchComponent,
     MentorsDetailSmComponent } from './components/mentors';
 // import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,6 +29,8 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
 import {MatMenuModule} from '@angular/material/menu';
+import { TimelineComponent } from './components/timeline/timeline.component';
+import { TimelineCardComponent } from './components/timeline/timeline-card/timeline-card.component';
 
 
 @NgModule({
@@ -41,11 +43,12 @@ import {MatMenuModule} from '@angular/material/menu';
     GroupsListComponent,
     MentorsComponent,
     MentorsListComponent,
-    MentorsTimelineComponent,
     MentorsAvailabEditComponent,
     MentorsNewComponent,
     MentorsSearchComponent,
     MentorsDetailSmComponent,
+    TimelineComponent,
+    TimelineCardComponent,
   ],
   imports: [
     BrowserModule,
