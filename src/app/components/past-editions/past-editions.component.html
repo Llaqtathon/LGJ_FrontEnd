@@ -1,6 +1,7 @@
 <mat-tab-group color="white" backgroundColor="primary" 
     animationDuration="0ms"
     (selectedIndexChange)="onSelectedTabChange($event)"
+    style="padding-top: 3rem;"
     >
 <mat-tab *ngFor="let edition of editions; let i = index"
     [label]="tabTitles[i]"> 
@@ -10,12 +11,14 @@
     
         <h2>¡Juegos creados!</h2>
 
-        <div class="game-cards">
+        <div class="game-cards" *ngIf="games && games.length > 0">
             <app-card-game
                 *ngFor="let game of games" 
                 [game]="game">
             ></app-card-game>
         </div>
+
+        <h2 *ngIf="games && games.length == 0">No hay juegos</h2>
     </div>
     </div>
 </mat-tab>

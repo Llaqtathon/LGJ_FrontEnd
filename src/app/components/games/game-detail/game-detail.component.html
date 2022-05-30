@@ -1,0 +1,43 @@
+<div style="padding-top: 3rem;">
+    <h1>{{ game.name }}</h1>
+    <div class="game-image" style.background-image="url('{{ game.fotoUrl }}')">
+    <div>
+        <mat-card>
+            <p>{{ game.description }}</p>
+
+            <h3>Plataformas(s)</h3>
+            <ul>
+                <li *ngFor="let platform of game.platforms">
+                    
+                </li>
+            </ul>
+            <h3>Enlaces para jugar</h3>
+            <div>
+                <a href="{{ game.urlGGJ }}" *ngIf="game.urlGGJ" mat-button color="corporative-normal"  target="_blank">
+                    <span class="material-icons">
+                        play_arrow
+                    </span>
+                    GGJ
+                </a>
+                <a href="{{ game.urlIcht }}" *ngIf="game.urlIcht" mat-button color="corporative-normal" target="_blank">
+                    <span class="material-icons" >
+                        play_arrow
+                    </span>
+                    itch.io
+                </a>
+                <a href="{{ game.urlAdditional }}" *ngIf="game.urlAdditional" mat-button color="corporative-normal" target="_blank">
+                    <span class="material-icons" >
+                        play_arrow
+                    </span>
+                    Enlace independiente
+                </a>
+            </div>
+        </mat-card>
+    </div>
+    </div>
+
+    <div>
+        <h3>Desarolladores</h3>
+        
+    </div>
+</div>

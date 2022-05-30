@@ -1,0 +1,25 @@
+<mat-drawer-container class="example-container" autosize style="padding-top: 3rem;">
+    
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        Toggle sidenav
+      </button>
+
+      <h1>¡Juegos creados!</h1>
+
+        <div *ngIf="games.length > 0" class="game-cards">
+            <app-card-game
+                *ngFor="let game of games" 
+                [game]="game">
+            ></app-card-game>
+        </div>
+
+        <h2 *ngIf="games.length == 0">No hay juegos</h2>
+    </div>
+  
+  </mat-drawer-container>
+  

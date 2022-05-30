@@ -3,16 +3,15 @@
         <img class="group-image" [src]="group?.photoUrl">
         <p>Desarolladores</p>
         <div class="">
-        <mat-chip-list aria-label="Participantes" class="participants" 
-            *ngFor="let user of group?.users;">
-            <mat-chip class="participant-label" color="#DCEBEB">
+        <mat-chip-list aria-label="Participantes" class="participants">
+            <mat-chip class="participant-label" color="#DCEBEB" *ngFor="let user of group?.users;">
                 <mat-chip-avatar>
-                    <img class="avatar" [src]="user?.nombres"/>
+                    <img class="avatar" [src]="'https://i.guim.co.uk/img/media/d0105731685e5b2b3daecf2fa00c9affaba832f1/0_0_2560_1536/master/2560.jpg?width=620&quality=85&auto=format&fit=max&s=b4d412898da99d35144de08ca97d6f4d'" />
                 </mat-chip-avatar>
                 {{user?.nombres}}
             </mat-chip>
         </mat-chip-list>
-    </div>
+        </div>
 </div>
 <div>
 <h3> Juego </h3>

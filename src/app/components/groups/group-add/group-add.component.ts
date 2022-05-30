@@ -17,6 +17,7 @@ import { GroupFormsService } from 'src/app/services/group-forms.service';
 export class GroupAddComponent implements OnInit {
   @Input () imageURL: string = initialImage;
   @Input () crrGroup: Group = {
+    id: undefined,
     name: '',
     photoUrl: '',
     users: [],
@@ -59,9 +60,8 @@ export class GroupAddComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.crrGroup)
     if (this.router.url.includes('add')){
-
+      console.log('add')
     } else{
       this.route.params.subscribe(params => {
         this.getGroup(params['id']);
@@ -74,19 +74,34 @@ export class GroupAddComponent implements OnInit {
     this.groupService.get(id).subscribe({
       next: (data: Group) => {
         this.crrGroup = data;
-        console.log(this.crrGroup)
+
+        this.uploadForm.setValue({
+          name: this.crrGroup.name,
+          photoUrl: this.crrGroup.photoUrl,
+        });
       },
       error: (err) => { console.log(err) }
     })
   }
 
   createGroup() {
-    this.groupService.create(this.crrGroup).subscribe({
-      next: (data: Group) => {
-        console.log(data)
-      },
-      error: (err) => { console.log(err) }
-    })
+    console.log(this.crrGroup, this.crrGroup.id)
+    if (this.crrGroup.id) {
+      this.groupService.update(this.crrGroup.id, this.crrGroup).subscribe({
+        next: (data: Group) => {
+          this.crrGroup = data;
+          console.log(this.crrGroup)
+        },
+        error: (err) => { console.log(err) }
+      })
+    } else {
+      this.groupService.create(this.crrGroup).subscribe({
+        next: (data: Group) => {
+          console.log(data)
+        },
+        error: (err) => { console.log(err) }
+      })
+    }
   }
 
   showPreview(event: Event) {
@@ -106,12 +121,15 @@ export class GroupAddComponent implements OnInit {
   onSubmit() {
     if( this.uploadForm.valid ){
       const group = {
+        ...this.crrGroup,
         ...this.uploadForm.value, 
-        ...this.crrGroup.game, 
+        game: this.crrGroup.game, 
         editionId: 2
       };
   
       this.crrGroup = group;
+
+      console.log(this.crrGroup)
       this.createGroup();
       this.router.navigate(['/groups']);
     }

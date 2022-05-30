@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Group } from 'src/app/models/group.model';
 import { GroupService } from 'src/app/services/groups.service';
 import { Location } from '@angular/common';
@@ -11,9 +11,9 @@ import { Location } from '@angular/common';
 })
 export class GroupDetailsComponent implements OnInit {
   group?: Group;
-  constructor(private route: ActivatedRoute, private groupService: GroupService, private _location: Location) { }
+  constructor(private route: ActivatedRoute, private groupService: GroupService, private _location: Location, private router: Router) {}
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.getGroup(params['id']) //log the value of id
     });
@@ -25,8 +25,14 @@ export class GroupDetailsComponent implements OnInit {
     this.groupService.get(groupId).subscribe({
       next: (data: Group) => {
         this.group = data;
+
         
-        console.log(data)
+    this.router.navigate([], 
+      {
+        relativeTo: this.route,
+        queryParams: { name:this.group.name }, 
+        queryParamsHandling: 'preserve', // remove to replace all query params by provided
+      });
       },
       error: (err) => { console.log(err) }
     })

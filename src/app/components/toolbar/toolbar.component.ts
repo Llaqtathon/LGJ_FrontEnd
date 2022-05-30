@@ -37,7 +37,7 @@ export class ToolbarComponent implements OnInit {
       {path: '/games', label: 'Juegos'},
     ];
 
-    this.crrMenu = this.ugs.isOrg ? menuOrg : menuPar;
+    this.crrMenu = !this.ugs.isOrg ? menuOrg : menuPar;
   }
   
   getCurrPage = (): void => {
@@ -52,13 +52,13 @@ export class ToolbarComponent implements OnInit {
 
   //TODO: Move accebility menu to a separate component
   decreaseFontSize() {
-    if (parseInt(document.body.style.fontSize) > 10) {
+    if (parseInt(document.body.style.fontSize) > 12) {
       document.body.style.fontSize = (parseInt(document.body.style.fontSize) - 2) + 'pt';
     }
   }
 
   increaseFontSize() {
-    if (parseInt(document.body.style.fontSize) < 20) {
+    if (parseInt(document.body.style.fontSize) < 15) {
       document.body.style.fontSize = (parseInt(document.body.style.fontSize) + 2) + 'pt';
     }
   }
@@ -79,5 +79,6 @@ export class ToolbarComponent implements OnInit {
     tab.active = true;
     this.activeTab = tab.path;
     this.ugs.updateCurrPag(tab.path);
+    this.router.navigate([tab.path]);
   }
 }
