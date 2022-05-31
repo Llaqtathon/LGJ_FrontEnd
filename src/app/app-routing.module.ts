@@ -38,7 +38,7 @@ const routes: Routes = [
   { path: 'pastEditions', component: PastEditionsComponent },
   { path: 'mentors', component: MentorsComponent },
   { path: 'register', component: RegisterUserComponent},
-  { path: 'login', component: LoginUserComponent}
+  { path: 'login', component: LoginUserComponent},
   { path: 'games', component: GamesListComponent },
   { path: 'games/:id', component: GameDetailComponent },
   { path: '**', redirectTo: '/' }
