@@ -29,6 +29,14 @@ export class GroupService {
         return this.http.post<Group>(this.baseUrl, data);
     }
 
+    update(id: number, data: any): Observable<Group> {
+        return this.http.put<Group>(`${this.baseUrl}/${id}`, data);
+    }
+    
+    delete(id: number): Observable<any> {
+        return this.http.delete(`${this.baseUrl}/${id}`);
+    }
+
     join(groupId: number, userId: string): Observable<Group> {
         return this.http.patch<Group>(`${this.baseUrl}/${groupId}/join/${userId}`, null);
     }
@@ -40,4 +48,5 @@ export class GroupService {
     addGame(groupId: number, game: Game): Observable<Group> {
         return this.http.patch<Group>(`${this.baseUrl}/${groupId}/game`, game);
     }
+
 }
