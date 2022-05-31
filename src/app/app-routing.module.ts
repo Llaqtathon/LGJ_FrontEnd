@@ -12,6 +12,9 @@ import {
 from './components/groups';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
+import { LoginUserComponent } from './components/users/login-user/login-user.component';
+
+
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'groups', component: GroupsComponent, 
@@ -26,7 +29,8 @@ const routes: Routes = [
   },
   { path: 'pastEditions', component: PastEditionsComponent },
   { path: 'mentors', component: MentorsComponent },
-  { path: 'users', component: RegisterUserComponent}
+  { path: 'register', component: RegisterUserComponent},
+  { path: 'login', component: LoginUserComponent}
 ];
 
 @NgModule({

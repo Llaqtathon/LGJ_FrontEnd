@@ -34,7 +34,7 @@ import {
   GroupAddComponent, GroupDetailsComponent, 
   GroupsListComponent, GroupsComponent 
 } from './components/groups';
-import { RegisterUserComponent } from './components/users';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
@@ -43,6 +43,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { TimelineCardComponent } from './components/timeline/timeline-card/timeline-card.component';
+import { LoginUserComponent } from './components/users/login-user/login-user.component';
+import { RegisterUserComponent } from './components/users/register-user/register-user.component';
 
 
 
@@ -69,6 +71,7 @@ import { TimelineCardComponent } from './components/timeline/timeline-card/timel
     PastEditionsComponent,
     TimelineComponent,
     TimelineCardComponent,
+    LoginUserComponent,
   ],
   imports: [
     BrowserModule,
