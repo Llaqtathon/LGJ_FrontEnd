@@ -13,15 +13,16 @@
   <!-- FILTER BY AREA -->
   <mat-form-field class="example-full-width no-padding" appearance="fill">
     <mat-label>Filtrar por nombre</mat-label>
-    <input type="text" matInput>
+    <input type="text" matInput (change)="getByFname($event)">
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 </mat-card>
 
 
 <div class="content">
-  <app-mentors-list *ngIf="editable" [mentors]="mentorsPending"></app-mentors-list>
-  <app-timeline [items]="mentorsAvailables" [dateStart]="currEdition.dateStart" [dateEnd]="currEdition.dateEnd">
+  <app-mentors-list *ngIf="editable" [mentors]="mentorsPending" [filteredName]="nameFiltered"></app-mentors-list>
+  <app-timeline [items]="mentorsAvailables" [filteredResp]="nameFiltered"
+    [dateStart]="currEdition.dateStart" [dateEnd]="currEdition.dateEnd">
     <!-- <app-mentors-detail-sm #item [mentor]="mentor" [editable]="editable"
       *ngFor="let mentor of mentorsAvailables">
     </app-mentors-detail-sm> -->

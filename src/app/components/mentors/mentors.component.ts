@@ -3,7 +3,7 @@ import { Edition } from './../../models/edition.model';
 import { MentorAvailab } from './../../models/mentor-availab.model';
 import { Time } from './../../common/time';
 import { UserGlobalService } from './../../services/user-global.service';
-import { MentorTime } from '../../models/mentor-time.model';
+import { MentorTime } from '../../models/DELmentor-time.model';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 import { MentorEd } from 'src/app/models/mentor-edition.model';
@@ -21,8 +21,10 @@ export class MentorsComponent implements OnInit {
   currEdition: Edition = {id:0};
   eventDates: FormGroup = new FormGroup({});
   mentorsPending: MentorEd[] = [];
-  mentorsAvailables: ItemTime[] = [];
+  // mentorsAvailables: ItemTime[] = [];
+  mentorsAvailables: MentorTime[] = [];
   editable: boolean = false;
+  nameFiltered: string = '';
 
   constructor(
     private ugs: UserGlobalService,
@@ -79,8 +81,10 @@ export class MentorsComponent implements OnInit {
               if (this.ugs.isOrg) this.mentorsPending.push( m );
             } else {
               m.availabilities.forEach(t => {
-                this.mentorsAvailables.push( this.mToMTime(m, t) );
-                // console.log(m,t);
+                // this.mentorsAvailables.push( this.mToMTime(m, t) );
+                console.log('M av b', m,t);
+                this.mentorsAvailables.push( {m: m, t: t} );
+                console.log('M av a', this.mentorsAvailables);
               });
             }
           })
@@ -88,21 +92,28 @@ export class MentorsComponent implements OnInit {
     }
   }
 
-  mToMTime(mentor: MentorEd, av?: MentorAvailab) {
-    if (av !== undefined) {
-      return {
-        id:mentor.mentorId ? mentor.mentorId : 0,
-        responsible:mentor.nombres + ' ' + mentor.apellidos,
-        areas:mentor.areas ? mentor.areas : [],
-        status:mentor.status,
-        time:{
-          inicio:av.dateStart ? av.dateStart : new Date(),
-          fin:av.dateEnd ? av.dateEnd : new Date()
-        },
-        type:'MENTOR'
-      };
-    }
-    return new ItemTime();
+  mToMTime(mentor: MentorEd, av: MentorAvailab) {
+    // return ItemTime.toItemTime({m: mentor, t: av}, this.currEdition?.dateStart);
+    // if (av !== undefined) {
+      // if( this.currEdition )
+      // return {
+      //   id:mentor.mentorId ? mentor.mentorId : 0,
+      //   responsible:mentor.nombres + ' ' + mentor.apellidos,
+      //   areas:mentor.areas ? mentor.areas : [],
+      //   status:mentor.status,
+      //   time:{
+      //     inicio:av.dateStart ? av.dateStart : new Date(),
+      //     fin:av.dateEnd ? av.dateEnd : new Date()
+      //   },
+      //   type:'MENTOR'
+      // };
+    // }
+    // return new ItemTime(undefined, this.currEdition?.dateStart);
+  }
+
+  getByFname(event: any) {
+    this.nameFiltered = event.target.value;
+    console.log('M gbf',this.nameFiltered);
   }
 
 }

@@ -42,6 +42,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { TimelineCardComponent } from './components/timeline/timeline-card/timeline-card.component';
+import { MicroeventsComponent } from './components/microevents/microevents.component';
+import { MicroeventsDetailSmComponent } from './components/microevents/microevents-detail-sm/microevents-detail-sm.component';
 
 
 @NgModule({
@@ -64,6 +66,8 @@ import { TimelineCardComponent } from './components/timeline/timeline-card/timel
     PastEditionsComponent,
     TimelineComponent,
     TimelineCardComponent,
+    MicroeventsComponent,
+    MicroeventsDetailSmComponent,
   ],
   imports: [
     BrowserModule,

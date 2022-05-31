@@ -1,32 +1,37 @@
-<mat-card matRipple class="tcard {{statusClass}}" >
+<mat-card matRipple class="tcard {{statusClass}}" style="position: absolute;"
+[ngStyle]="{
+  'width.%' : size.width ,  'height.em' : size.height * 4,
+  'left.%'  : pos.x * size.width,  'top.em'  : pos.y*4
+}"
+>
   <!-- [routerLink]="editable ? ['/'] : []"> -->
   <!-- <ng-content></ng-content> -->
-  <div class="row" *ngIf="item.type!=='MENTOR'">
-    <span class="tag" class="null">{{item.type}}</span>
-    <mat-icon>{{item.type==='CHARLA' ? 'notifications_none' : 'assignment'}}</mat-icon>
+  <div class="row" *ngIf="type!=='MENTOR'">
+    <span class="tag" class="null">{{type}}</span>
+    <mat-icon>{{type==='CHARLA' ? 'notifications_none' : 'assignment'}}</mat-icon>
   </div>
   <mat-card-subtitle>
     {{rangeTime}}
   </mat-card-subtitle>
   <mat-card-content class="text-center">
-    <p class="title mat-body-1" *ngIf="item.title">{{item.title}}</p>
-    <p class="resp mat-body-2">{{item.responsible}}</p>
-    <p class="small mat-caption" *ngIf="item.assigned">
-      <span *ngFor="let a of item.assigned"></span>
+    <p class="title mat-body-1" *ngIf="title">{{title}}</p>
+    <p class="resp mat-body-2">{{responsible}}</p>
+    <p class="small mat-caption" *ngIf="assigned">
+      <span *ngFor="let a of assigned"></span>
     </p>
 
-    <p class="row" *ngIf="item.type==='MENTOR'">
+    <p class="row" *ngIf="type==='MENTOR'">
       <mat-icon *ngFor="let icon of areaIcons" >
         {{icon}}
       </mat-icon>
     </p>
-    <div class="row" *ngIf="item.type!=='MENTOR'">
+    <div class="row" *ngIf="type!=='MENTOR'">
       <div class="social-m row">
-        <span *ngFor="let s of item.social">{{s[0]}}</span>
+        <span *ngFor="let s of social">{{s[0]}}</span>
       </div>
       <div class="inscrip row">
-        <span>{{item.ninscip}}</span>
-        <mat-icon>{{item.type==='CHARLA' ? 'notifications' : 'assignment_turned_in'}}</mat-icon>
+        <span>{{ninscip}}</span>
+        <mat-icon>{{type==='CHARLA' ? 'notifications' : 'assignment_turned_in'}}</mat-icon>
       </div>
     </div>
 

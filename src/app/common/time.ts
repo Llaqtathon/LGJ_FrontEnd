@@ -57,4 +57,30 @@ export class Time {
     return { start: new Date(today.setDate(weekStart)),
               end : new Date(today.setDate(weekEnd))};
   }
+
+  public static getHHMM(d:Date) {
+    return (d.getHours()*100 + ((d.getMinutes()*10)/6))/100;
+  }
+  public static formatHHMM(hh:number, mm:number) {
+    return (hh*100 + ((mm*10)/6))/100;
+  }
+  
+  public static getDateDiff(d1:Date, d2:Date, by:string='DAY') {
+    switch (by) {
+      case 'DAY':
+        return Math.floor((d2.getTime() - d1.getTime())/(1000*60*60*24));
+      case 'HOUR':
+        return Math.floor((d2.getTime() - d1.getTime())/(1000*60*60));
+      case 'MIN':
+        return Math.floor((d2.getTime() - d1.getTime())/(1000*60));
+      case 'SEC':
+        return Math.floor((d2.getTime() - d1.getTime())/(1000));
+      case 'MONTH':
+        return Math.floor((d2.getTime() - d1.getTime())/(1000*60*60*24*30));
+      case 'YEAR':
+        return Math.floor((d2.getTime() - d1.getTime())/(1000*60*60*24*365));
+      default:
+        return 0;
+    }
+  }
 }
