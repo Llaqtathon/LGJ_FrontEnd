@@ -27,7 +27,7 @@ div.mat-grid-tile{
     flex-direction: column;
     gap: 4px;
     padding: 0 4px;
-    width: calc(100%-8px);
+    width: calc(100% - 8px);
 }
 
 .tile-head{
