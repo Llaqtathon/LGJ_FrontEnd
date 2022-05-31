@@ -12,9 +12,11 @@ import {
 from './components/groups';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
+import { LoginUserComponent } from './components/users/login-user/login-user.component';
 import { CurrentEventsComponent } from './components/current-events/current-events.component';
 import { GamesListComponent } from './components/games/games-list/games-list.component';
 import { GameDetailComponent } from './components/games/game-detail/game-detail.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -33,8 +35,10 @@ const routes: Routes = [
       { path: 'mentors', component: MentorsComponent },
     ],
   },
-  { path: 'users', component: RegisterUserComponent},
   { path: 'pastEditions', component: PastEditionsComponent },
+  { path: 'mentors', component: MentorsComponent },
+  { path: 'register', component: RegisterUserComponent},
+  { path: 'login', component: LoginUserComponent}
   { path: 'games', component: GamesListComponent },
   { path: 'games/:id', component: GameDetailComponent },
   { path: '**', redirectTo: '/' }

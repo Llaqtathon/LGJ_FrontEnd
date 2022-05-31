@@ -35,6 +35,7 @@ import {
   GroupAddComponent, GroupDetailsComponent, 
   GroupsListComponent, GroupsComponent, GroupDeleteConfirmationDialog
 } from './components/groups';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -45,7 +46,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { TimelineCardComponent } from './components/timeline/timeline-card/timeline-card.component';
-import { RegisterUserComponent } from './components/users';
+
+import { LoginUserComponent } from './components/users/login-user/login-user.component';
+import { RegisterUserComponent } from './components/users/register-user/register-user.component';
 import { CardGroupComponent } from './components/components/card-group/card-group.component';
 import { GamesListComponent } from './components/games/games-list/games-list.component';
 import { CurrentEventsComponent } from './components/current-events/current-events.component';
@@ -72,6 +75,7 @@ import { GameDetailComponent } from './components/games/game-detail/game-detail.
     PastEditionsComponent,
     TimelineComponent,
     TimelineCardComponent,
+    LoginUserComponent,
     CardGroupComponent,
     GroupDeleteConfirmationDialog,
     GamesListComponent,
