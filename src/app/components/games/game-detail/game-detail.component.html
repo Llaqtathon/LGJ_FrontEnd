@@ -6,11 +6,10 @@
             <p>{{ game.description }}</p>
 
             <h3>Plataformas(s)</h3>
-            <ul>
-                <li *ngFor="let platform of game.platforms">
-                    
-                </li>
-            </ul>
+            <span class="platform" *ngFor="let platform of game.platforms; let i = index">
+                {{ platform }} 
+                {{game.platforms && i!==game.platforms.length - 1 ? '|' : ''}} 
+            </span>
             <h3>Enlaces para jugar</h3>
             <div>
                 <a href="{{ game.urlGGJ }}" *ngIf="game.urlGGJ" mat-button color="corporative-normal"  target="_blank">

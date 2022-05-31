@@ -1,12 +1,16 @@
-<mat-drawer-container class="example-container" autosize style="padding-top: 3rem;">
+<mat-drawer-container class="example-container" autosize 
+  style="padding-top: 3rem;">
     
     <mat-drawer #drawer class="example-sidenav" mode="side">
-      <p>Auto-resizing sidenav</p>
+      <p>Filtros</p>
     </mat-drawer>
   
     <div class="example-sidenav-content">
       <button type="button" mat-button (click)="drawer.toggle()">
-        Toggle sidenav
+        <span class="material-icons">
+          filter_list
+        </span>
+        Mostrar Filtros
       </button>
 
       <h1>¡Juegos creados!</h1>
