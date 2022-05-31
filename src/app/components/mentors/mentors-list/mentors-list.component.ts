@@ -1,4 +1,4 @@
-import { Mentor } from 'src/app/models/mentor.model';
+import { MentorEd } from 'src/app/models/mentor-edition.model';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./mentors-list.component.css']
 })
 export class MentorsListComponent implements OnInit {
-  @Input() mentors?: Mentor[];
+  @Input() mentors?: MentorEd[];
   //siempre es editable //solo aparece a los Orgs
 
   constructor() {

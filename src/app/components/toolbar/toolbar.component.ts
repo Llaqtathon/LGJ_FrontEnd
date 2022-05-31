@@ -19,8 +19,9 @@ export class ToolbarComponent implements OnInit {
 
   constructor(private ugs: UserGlobalService, private router: Router) { 
   }
-
+  
   ngOnInit(): void {
+    this.ugs.updateCurrPag(this.router.url);
     this.getCurrPage();
 
     const menuOrg = [

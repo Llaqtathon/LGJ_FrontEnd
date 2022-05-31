@@ -8,7 +8,7 @@ export class Status {
     'RECHAZADO'   : 's-rejected',
     'CANCELADO'   : 's-canceled',
   }
-  public static getStatusClass(status:string):string {
-    return this.status[status];
+  public static getStatusClass(status:string | undefined):string {
+    return this.status[status || 'NULO'];
   }
 }

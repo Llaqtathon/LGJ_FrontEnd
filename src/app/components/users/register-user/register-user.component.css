@@ -1,4 +1,7 @@
-
+.container{
+    width:100%;
+    background: linear-gradient(107.12deg, #006991 2.1%, #007E8E 34.95%, #009192 49.96%, #00A596 64.04%, #00B899 80.93%, #00CC9C 95.94%);
+}
 .titulo{
     width: 389px;
     height: 76px;

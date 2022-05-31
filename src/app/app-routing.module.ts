@@ -16,7 +16,6 @@ import { CurrentEventsComponent } from './components/current-events/current-even
 import { GamesListComponent } from './components/games/games-list/games-list.component';
 import { GameDetailComponent } from './components/games/game-detail/game-detail.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '', component: CurrentEventsComponent,

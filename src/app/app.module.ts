@@ -35,8 +35,8 @@ import {
   GroupAddComponent, GroupDetailsComponent, 
   GroupsListComponent, GroupsComponent, GroupDeleteConfirmationDialog
 } from './components/groups';
-
-// import { MatFormFieldModule } from '@angular/material/form-field';
+import { RegisterUserComponent } from './components/users';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 

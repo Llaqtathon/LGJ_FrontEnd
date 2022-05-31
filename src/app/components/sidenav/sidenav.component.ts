@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UserGlobalService } from './../../services/user-global.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,20 +12,24 @@ export class SidenavComponent implements OnInit {
   // crrMenu: { path: string; label: string}[] = []; // make type
   activeTab: string = '/';
   
-  constructor(private ugs: UserGlobalService) {
+  constructor(private ugs: UserGlobalService, private router: Router) {
     // const menuPar = [
-    //   {path: '/', label: 'General'},
-    //   {path: '/cronogram', label: 'Cronograma'},
-    //   {path: '/mentors', label: 'Mentores'},
-    //   {path: '/groups', label: 'Grupos'},
-    //   {path: '/participants', label: 'Participantes'},
-    //   {path: '/media', label: 'Media'},
-    //   {path: '/sponsors', label: 'Sponsors'},
-    // ]
-  }
-
+      //   {path: '/', label: 'General'},
+      //   {path: '/cronogram', label: 'Cronograma'},
+      //   {path: '/mentors', label: 'Mentores'},
+      //   {path: '/groups', label: 'Grupos'},
+      //   {path: '/participants', label: 'Participantes'},
+      //   {path: '/media', label: 'Media'},
+      //   {path: '/sponsors', label: 'Sponsors'},
+      // ]
+    }
+    
   ngOnInit(): void {
-    this.getCurrTab();
+    // this.router.events.subscribe((data:any) => { this.activeTab = data.url; });
+    this.ugs.updateCurrTab(window.location.pathname);
+    this.activeTab = this.ugs.currentTab;
+    // console.log(this.ugs.currentTab, this.router.url);
+    // this.getCurrTab();
 
     const gral = [
       {path: '/', label: 'General', icon: 'info'},
