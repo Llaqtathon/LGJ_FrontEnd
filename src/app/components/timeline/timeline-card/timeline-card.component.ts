@@ -1,6 +1,6 @@
 import { ItemTime } from './../../../models/item-time.model';
 import { Status } from 'src/app/common/status';
-import { Areas } from './../../../common/areas-icons';
+import { AreaUtils } from '../../../common/areas-utils';
 import { Component, Input, OnInit } from '@angular/core';
 
 
@@ -19,8 +19,8 @@ export class TimelineCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.getAreaIcons();
-    this.getStatusClass();
+    this.areaIcons = AreaUtils.getAreaIcons(this.item?.areas);
+    this.statusClass = Status.getStatusClass(this.item?.status);
     this.rangeTime = this.toTime(this.item.time.inicio) + " - " + this.toTime(this.item.time.fin);
     console.log('TLC',this.item);
   }
@@ -28,16 +28,6 @@ export class TimelineCardComponent implements OnInit {
   toTime(date?:Date) {
     return date ? date.toLocaleTimeString().substring(0,5)
             : (new Date()).toLocaleTimeString().substring(0,5);
-  }
-  getAreaIcons() {
-    this.item?.areas?.forEach(area => {
-      this.areaIcons.push(Areas.areaIcons[area]);
-    });
-  }
-  getStatusClass() {
-    if (this.item?.status) {
-      this.statusClass = Status.status[this.item?.status];
-    }
   }
 
 }
