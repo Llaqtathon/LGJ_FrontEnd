@@ -37,6 +37,8 @@ import {
 } from './components/groups';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
 import { MatMenuModule } from '@angular/material/menu';
@@ -48,7 +50,6 @@ import { CardGroupComponent } from './components/components/card-group/card-grou
 import { GamesListComponent } from './components/games/games-list/games-list.component';
 import { CurrentEventsComponent } from './components/current-events/current-events.component';
 import { GameDetailComponent } from './components/games/game-detail/game-detail.component';
-
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { GameDetailComponent } from './components/games/game-detail/game-detail.
     MatNativeDateModule,
     MatMenuModule,
     MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},

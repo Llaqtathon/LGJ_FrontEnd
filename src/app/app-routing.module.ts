@@ -31,9 +31,9 @@ const routes: Routes = [
         ],
       },
       { path: 'mentors', component: MentorsComponent },
-      { path: 'users', component: RegisterUserComponent}
-    ]
+    ],
   },
+  { path: 'users', component: RegisterUserComponent},
   { path: 'pastEditions', component: PastEditionsComponent },
   { path: 'games', component: GamesListComponent },
   { path: 'games/:id', component: GameDetailComponent },

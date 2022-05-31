@@ -41,3 +41,7 @@
     </mat-grid-tile>
 </mat-grid-list>
 
+<mat-spinner *ngIf="groups === undefined"></mat-spinner>
+<h1 *ngIf="groups?.length === 0">
+    No hay grupos
+</h1>

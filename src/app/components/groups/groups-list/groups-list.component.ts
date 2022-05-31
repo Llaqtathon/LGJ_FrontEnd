@@ -36,7 +36,7 @@ export class GroupsListComponent implements OnInit {
 
   joinGroup = (groupId: number | undefined): void => {
     if (!groupId) return;
-    this.groupService.join(groupId, '5').subscribe({
+    this.groupService.join(groupId, '1').subscribe({
       next: (data: Group) => {
         this.getGroups();
       },
@@ -46,7 +46,7 @@ export class GroupsListComponent implements OnInit {
 
   leaveGroup = (groupId: number | undefined): void => {
     if (!groupId) return;
-    this.groupService.leave(groupId, '2').subscribe({
+    this.groupService.leave(groupId, '1').subscribe({
       next: (data: Group) => {
         this.getGroups();
       },

@@ -48,8 +48,6 @@ export class GameAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.imageURL = this.initialImage;
-
-    this.checkboxes = new Array(this.platforms.length).fill(false);
   }
 
   onBack() {
@@ -60,9 +58,13 @@ export class GameAddComponent implements OnInit {
     console.log(this.checkboxes)
 
     if (this.uploadForm.valid) {
-      this.crrGame = this.uploadForm.value;
-      this.service._state.game = this.uploadForm.value;
+      this.crrGame = {
+        ...this.uploadForm.value,
+        platforms: this.checkboxes
+      };
+      this.service._state.game = this.crrGame;
       this.service._modified = true;
+
       this.addGame();
 
       console.log('Servicio: ', this.service._state.game)

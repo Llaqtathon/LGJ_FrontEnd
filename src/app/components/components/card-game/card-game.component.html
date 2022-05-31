@@ -4,7 +4,7 @@
             <span *ngIf="!url.includes('games') && !url.includes('pastEditions')">
                 {{ game.name }}
             </span>
-            <a class="url-game" *ngIf="url.includes('games') || url.includes('pastEditions')" [routerLink]="['/games', game.id]">
+            <a class="url-game" *ngIf="url.includes('games') || url.includes('pastEditions')" [routerLink]="[game.id]">
                 {{ game.name }}
             </a>
         </mat-card-title>

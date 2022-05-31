@@ -34,7 +34,7 @@ export class GroupsComponent implements OnInit {
 
       if (!path) { 
         this.title = 'Grupos';
-      } else if (edit.includes('edit')) {
+      } else if (edit && edit.includes('edit')) {
         this.title = 'Editar Grupo';
       } else if (path.split('=')[1]){
         this.title = decodeURIComponent(path.split('=')[1]);
