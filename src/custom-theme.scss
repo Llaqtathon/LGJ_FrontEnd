@@ -73,9 +73,9 @@ $LGJ_FrontEnd-dark-theme: mat.define-dark-theme((
   color: (
     primary: $LGJ_FrontEnd-primary,
     accent: $LGJ_FrontEnd-accent,
-    warn: $LGJ_FrontEnd-warn
-  ),
-  typography: $LGJ_FrontEnd-typography,
+    warn: $LGJ_FrontEnd-warn,
+    // background: mat.define-palette(mat.$blue-gray-palette)
+  )
 ));
 
 
@@ -87,10 +87,11 @@ $LGJ_FrontEnd-dark-theme: mat.define-dark-theme((
 @include mat.core($LGJ_FrontEnd-typography);
 @include mat.sidenav-theme($LGJ_FrontEnd-dark-theme);
 
-.dark-theme {
+.dark-mode {
   // $LGJ_FrontEnd-primary: mat.define-palette($corporative-palette, 300, 500);  
-  @include mat.core-theme($LGJ_FrontEnd-dark-theme);
-  @include mat.all-component-themes($LGJ_FrontEnd-dark-theme);
+  // @include mat.core-theme($LGJ_FrontEnd-dark-theme);
+  @include mat.input-theme($LGJ_FrontEnd-dark-theme);
+  // @include mat.all-component-themes($LGJ_FrontEnd-dark-theme);
 }
 
 .mat-corporative-normal{

@@ -91,6 +91,6 @@ import { TimelineCardComponent } from './components/timeline/timeline-card/timel
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
     {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}
   ],
-  bootstrap: [AppComponent, UserGlobalService]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

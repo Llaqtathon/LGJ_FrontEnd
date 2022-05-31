@@ -1,11 +1,11 @@
+import { MentorAvailab } from './../../models/mentor-availab.model';
 import { Time } from './../../common/time';
 import { UserGlobalService } from './../../services/user-global.service';
-import { MentorAvailab } from '../../models/mentor-time.model';
+import { MentorTime } from '../../models/mentor-time.model';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
-import { Mentor } from 'src/app/models/mentor.model';
+import { MentorEd } from 'src/app/models/mentor-edition.model';
 import { MentorsService } from 'src/app/services/mentors.service';
-import { first } from 'rxjs';
 
 @Component({
   selector: 'app-mentors',
@@ -18,8 +18,8 @@ export class MentorsComponent implements OnInit {
            {id:0, inicio:this.week.start, fin:this.week.end};
   title = "Mentores";
   eventDates: FormGroup = new FormGroup({});
-  mentorsPending: Mentor[] = [];
-  mentorsAvailables: MentorAvailab[] = [];
+  mentorsPending: MentorEd[] = [];
+  mentorsAvailables: MentorTime[] = [];
   editable: boolean = false;
 
   constructor(
@@ -31,16 +31,28 @@ export class MentorsComponent implements OnInit {
   ngOnInit(): void {
     this.editable = this.ugs.isOrg;
     this.setEventDates();
-    // this.getMentors();
-    this.mentorsPending = [
-      {id:1, nombres:"Juan", apellidos:"Perez", areas:["ARTE", "NARRATIVA"], status:"PENDIENTE"},
-      {id:3, nombres:"MAria", apellidos:"VBBB", areas:["MUSICA", "NARRATIVA"], status:"PENDIENTE"},
-    ];
-    this.mentorsAvailables = [
-      {id:2, responsible:"Carlos Ggggg", areas:["PROGRAMACION", "GAME DESIGN"], status:"CONFIRMADO", time:{inicio:new Date("2022-05-30T19:22"), fin:new Date("2022-05-30T21:22")}, type:'MENTOR'},
-      {id:4, responsible:"Josefa AAA", areas:["PROGRAMACION", "GAME DESIGN"], status:"CONFIRMADO", time:{inicio:new Date("2022-06-03T19:30"), fin:new Date("2022-05-30T23:22")}, type:'MENTOR'},
-    ]
-      // static type: string = 'MENTOR';
+    this.getMentors();
+    // this.mentorsPending = [
+    //   { mentorId:1, nombres:"Juan", apellidos:"Perez", areas:[
+    //     {areaName: 'ARTE', yearsOfExperience: 3, priority: 'TOP'},
+    //     {areaName: 'NARRATIVA', yearsOfExperience: 3, priority: 'TOP'},
+    //   ], status:"PENDIENTE"},
+    //   { mentorId:3, nombres:"MAria", apellidos:"VBBB", areas:[
+    //     {areaName: 'MUSICA', yearsOfExperience: 3, priority: 'TOP'},
+    //     {areaName: 'NARRATIVA', yearsOfExperience: 3, priority: 'TOP'},
+    //   ], status:"PENDIENTE"},
+    // ];
+    // this.mentorsAvailables = [
+    //   {id:2, responsible:"Carlos Ggggg", areas:[
+    //     {areaName: 'PROGRAMACION', yearsOfExperience: 3, priority: 'TOP'},
+    //     {areaName: 'GAME DESIGN', yearsOfExperience: 3, priority: 'TOP'},
+    //   ], status:"CONFIRMADO", time:{inicio:new Date("2022-05-30T19:22"), fin:new Date("2022-05-30T21:22")}, type:'MENTOR'},
+    //   {id:4, responsible:"Josefa AAA", areas:[
+    //     {areaName: 'PROGRAMACION', yearsOfExperience: 3, priority: 'TOP'},
+    //     {areaName: 'GAME DESIGN', yearsOfExperience: 3, priority: 'TOP'},
+    //   ], status:"CONFIRMADO", time:{inicio:new Date("2022-06-03T19:30"), fin:new Date("2022-05-30T23:22")}, type:'MENTOR'},
+    // ]
+    // static type: string = 'MENTOR';
     console.log('M',this.event.inicio, this.mentorsAvailables, this.mentorsPending);
   }
   
@@ -56,27 +68,34 @@ export class MentorsComponent implements OnInit {
 
   getMentors() {
     this.mentorsService
-      .getAll()
-      .subscribe((_mentors: Mentor[]) => (
-        _mentors.forEach((m: Mentor) => {
-          if (m.tiempos === undefined || m.tiempos.length === 0) {
+      .getByEdition(0)
+      .subscribe((_mentors: MentorEd[]) => (
+        _mentors.forEach((m: MentorEd) => {
+          if (m.availabilities === undefined || m.availabilities.length === 0) {
             if (this.ugs.isOrg) this.mentorsPending.push( m );
           } else {
-            m.tiempos.forEach(t => {
-              // this.mentorsAvailables.push( this.mToMAvailab(m, t) );
+            m.availabilities.forEach(t => {
+              this.mentorsAvailables.push( this.mToMTime(m, t) );
             });
           }
         })
       ));
   }
 
-  mToMAvailab(mentor: Mentor, tiempo?: {inicio:Date, fin:Date}) {
-    if (tiempo === undefined) {
-      return {id:mentor.id, responsible:mentor.nombres + ' ' + mentor.apellidos,
-      areas:mentor.areas, status:mentor.status};
-    } 
-    return {id:mentor.id, responsible:mentor.nombres + ' ' + mentor.apellidos,
-      areas:mentor.areas, status:mentor.status, time:tiempo, type:'MENTOR'};
+  mToMTime(mentor: MentorEd, av?: MentorAvailab) {
+    if (av !== undefined) {
+      return {
+        id:mentor.mentorId ? mentor.mentorId : 0,
+        responsible:mentor.nombres + ' ' + mentor.apellidos,
+        areas:mentor.areas ? mentor.areas : [],
+        status:mentor.status,
+        time:{
+          inicio:av.dateStart ? av.dateStart : new Date(),
+          fin:av.dateEnd ? av.dateEnd : new Date()
+        },
+        type:'MENTOR'};
+    }
+    return new MentorTime();
   }
 
 }
