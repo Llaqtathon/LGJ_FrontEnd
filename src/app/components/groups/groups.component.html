@@ -2,12 +2,28 @@
     <mat-card-title>
         {{ title }}
 
+        <ng-container *ngIf="isOrg && action === 'add'">
+            <button mat-button  color="warn">
+                <span class="material-icons">
+                    delete
+                </span>
+                Eliminar
+            </button>
+
+            <button mat-button color="rejected">
+                <span class="material-icons">
+                    auto_awesome
+                </span>
+                Generar Grupos
+            </button>
+        </ng-container>
+
         <a *ngIf="action === 'add'" 
             [routerLink]="['add']" mat-button color="gradient" class="participant-action">
             <span class="material-icons">
                 add
             </span>
-            Nuevo
+            {{isOrg ? 'Crear Grupo' : 'Nuevo'}}
         </a>
 
         <button *ngIf="action === 'back'" class="back" mat-button (click)="onBack()">

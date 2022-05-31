@@ -19,7 +19,7 @@ export class GameAddComponent implements OnInit {
   uploadForm: FormGroup;
   initialImage: string;
   platforms: string[] = ['Window', 'Mac', 'Web', 'Linux', 'iOS', 'Android', 'Other'];
-  checkboxes: boolean[] = [];
+  checkboxes: number[] = []
 
   constructor(public fb: FormBuilder, private groupService: GroupService, private _location: Location, private route: ActivatedRoute, private service: GroupFormsService) { 
     this.initialImage = "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876";
@@ -57,6 +57,8 @@ export class GameAddComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.checkboxes)
+
     if (this.uploadForm.valid) {
       this.crrGame = this.uploadForm.value;
       this.service._state.game = this.uploadForm.value;
@@ -82,6 +84,14 @@ export class GameAddComponent implements OnInit {
   showPreview(event: Event) {
     const url = (event.target as HTMLInputElement).value;
     this.imageURL = url.startsWith('http') ? url : this.initialImage;
+  }
+
+  togglePlatform(index: number) {
+    if (this.checkboxes.includes(index)) {
+      this.checkboxes.splice(this.checkboxes.indexOf(index), 1);
+    } else {
+      this.checkboxes.push(index);
+    }
   }
 }
 

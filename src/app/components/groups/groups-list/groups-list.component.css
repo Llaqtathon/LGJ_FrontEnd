@@ -1,20 +1,45 @@
-.mat-grid-tile{
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 1px 1px rgba(51, 61, 65, 0.25);
-    border-radius: 8px;
-    gap: 8px;
-    width: 100%;
+mat-grid-list {
+    max-width: 1110px;
+    margin: auto;
 }
 
-.mat-grid-list a{
+mat-grid-tile{
+    box-shadow: 0px 1px 1px rgba(51, 61, 65, 0.25);
+    border-radius: 8px;
+    max-width: 330px;
+    gap: 8px;
+}
+
+mat-grid-list .title{
     font-size: 16px;
     line-height: 19px;
     color: var(--primary-text-color);
     text-decoration: none;
+    font-weight: 600;
 }
 
-.mat-grid-list a:hover{
+mat-grid-list .title:hover{
     color: var(--primary-text-color);
 }
 
+div.mat-grid-tile{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 4px;
+    width: calc(100%-8px);
+}
+
+.tile-head{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    gap: 0 12px;
+}
+
+mat-grid-list > button{
+    width: 250px;
+    box-shadow: 0px 1px 1px rgba(51, 61, 65, 0.25);
+}

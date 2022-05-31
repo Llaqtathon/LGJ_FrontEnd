@@ -1,15 +1,26 @@
-<mat-grid-list cols="3" rowHeight="2:1" [gutterSize]="'24px'"
-    [style]="'padding: 24px;'"
->
+<mat-grid-list [cols]="columns" rowHeight="2:1" [gutterSize]="'24px'"
+    [style]="'padding: 24px;'" (window:resize)="onBoxResize()">
     <mat-grid-tile *ngFor="let group of groups"
-        style="background-color: #fff; border-radius: 5px;">
+         style="background-color: #fff; border-radius: 5px;">
         <div class="mat-grid-tile">
-            <a class="title" [routerLink]="[group.id]">
-                {{ group.name }}
-            </a>
-            <span *ngFor="let user of group.users"> 
+            <div class="tile-head">
+                <mat-checkbox [color]="'primary'" [checked]="group.id !== undefined && selectedGroups.includes(group.id)" (change)="onSelect(group.id)"></mat-checkbox>
+                <a class="title" [routerLink]="[group.id]"
+                    [queryParams]="{name: group.name}">
+                    
+                    {{ group.name }}
+                </a>
+                
+                <a mat-icon-button *ngIf="isOrg" [routerLink]="[group.id, 'edit']">
+                    <mat-icon>edit</mat-icon>
+                </a>
+                <button mat-icon-button *ngIf="isOrg"c olor="warn" (click)="openDialog(group.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+            <ng-component *ngFor="let user of group.users"> 
                 {{ user.nombres }},
-            </span>
+            </ng-component>
             
             <ng-template *ngIf="userInGroup(group.id, 1); then thenBlock else elseBlock"></ng-template>
             <ng-template #thenBlock>
