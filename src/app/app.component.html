@@ -9,18 +9,18 @@
 </style>
 
 <!-- Toolbar -->
-<app-toolbar></app-toolbar>
+<app-toolbar [(selectedEdition)]="selectedEdition"></app-toolbar>
 
 <mat-sidenav-container class="container">
     <!-- Sidenav -->
     <mat-sidenav mode="side" opened [disableClose]="true" #sidenav> 
-      <app-sidenav></app-sidenav>
+      <app-sidenav [currEdition]="selectedEdition"></app-sidenav>
     </mat-sidenav>
 
     <!-- Main content -->
     <mat-sidenav-content>
       <div class="inner-container">
-        <router-outlet></router-outlet>
+        <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
       </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

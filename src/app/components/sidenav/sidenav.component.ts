@@ -1,16 +1,25 @@
+import { Edition } from 'src/app/models/edition.model';
 import { Router } from '@angular/router';
 import { UserGlobalService } from './../../services/user-global.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent implements OnInit { //, OnChanges
+  @Input() currEdition!: Edition;
+  
   links: { path: string; label: string; icon: string; active?:boolean; }[] = []; // make type
   // crrMenu: { path: string; label: string}[] = []; // make type
   activeTab: string = '/';
+  currEd?: Edition;
+  currParentPath = '/edition/';
+  // ngOnChanges() {
+  //   this.currEd = this.currEdition;
+  //   console.log('Ochs',this.currEdition, this.currEd);
+  // }
   
   constructor(private ugs: UserGlobalService, private router: Router) {
     // const menuPar = [
@@ -28,6 +37,7 @@ export class SidenavComponent implements OnInit {
     // this.router.events.subscribe((data:any) => { this.activeTab = data.url; });
     this.ugs.updateCurrTab(window.location.pathname);
     this.activeTab = this.ugs.currentTab;
+    this.currParentPath += this.currEdition.id + '/';
     // console.log(this.ugs.currentTab, this.router.url);
     // this.getCurrTab();
 
@@ -41,7 +51,7 @@ export class SidenavComponent implements OnInit {
     const menuPar = [
       {path: '/', label: 'General', icon: 'info'},
       {path: '/cronogram', label: 'Cronograma', icon: 'date_range'},
-      {path: '/mentors', label: 'Mentores', icon: 'school'},
+      {path: this.currParentPath+'/mentors', label: 'Mentores', icon: 'school'},
       {path: '/groups', label: 'Grupos', icon: 'groups'},
       {path: '/participants', label: 'Participantes', icon: 'group'},
       {path: '/media', label: 'Media', icon: 'camera_alt'},
@@ -52,7 +62,7 @@ export class SidenavComponent implements OnInit {
       {path: '/', label: 'General', icon: 'info'},
       {path: '/cronogram', label: 'Cronograma', icon: 'date_range'},
       {path: '/sponsors', label: 'Sponsors', icon: 'work'},
-      {path: '/mentors', label: 'Mentores', icon: 'school'},
+      {path: this.currParentPath+'/mentors', label: 'Mentores', icon: 'school'},
       {path: '/participants', label: 'Participantes', icon: 'group'},
       {path: '/groups', label: 'Grupos', icon: 'groups'},
       {path: '/media', label: 'Media', icon: 'camera_alt'},

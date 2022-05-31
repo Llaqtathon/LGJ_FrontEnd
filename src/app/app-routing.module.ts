@@ -13,6 +13,12 @@ import { PastEditionsComponent } from './components/past-editions/past-editions.
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: 'edition/:id',
+    children: [
+      // { path: '' },  //general
+      { path: 'mentors', component: MentorsComponent, data: { title: 'Mentores :id' } },
+    ]
+  },
   { path: 'groups', component: GroupsComponent, 
     children: [
       { path: '', component: GroupsListComponent },
@@ -24,7 +30,6 @@ const routes: Routes = [
     ]
   },
   { path: 'pastEditions', component: PastEditionsComponent },
-  { path: 'mentors', component: MentorsComponent },
 ];
 
 @NgModule({

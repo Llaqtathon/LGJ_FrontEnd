@@ -2,11 +2,11 @@ import { MentorArea } from './../models/mentor-area.model';
 export class AreaUtils {
   public static areaIcons:any = {
     'GAME DESIGN'  : 'extension',
-    'PROGRAMACION' : 'code',
-    'ARTE'         : 'color_lens',
-    'MUSICA'       : 'music_note',
-    'PRODUCCION'   : 'trending_up',
-    'NARRATIVA'    : 'edit_note',
+    'PROGRAMMING' : 'code',
+    'ART'         : 'color_lens',
+    'MUSIC'       : 'music_note',
+    'PRODUCTION'   : 'trending_up',
+    'NARRATIVE'    : 'edit_note',
     'OTROS'        : 'alt_route',
   }
   public static getAreaIcon(area:string):string {

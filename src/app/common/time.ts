@@ -19,9 +19,10 @@ export class Time {
   public static getDiasOrd ( dIni:Date, dFin:Date,
     abr:Boolean = true, withDate:Boolean = true
     ) : string[] {
+    console.log('getDiasOrd', dIni, dFin);
 
-    let posIni = dIni.getDay();
-    let posFin = dFin.getDay();
+    let posIni = new Date(dIni).getDay();
+    let posFin = new Date(dFin).getDay();
     let dias:string[] = [];
     let cday = new Date(dIni);
     

@@ -22,11 +22,11 @@ export class TimelineCardComponent implements OnInit {
     this.areaIcons = AreaUtils.getAreaIcons(this.item?.areas);
     this.statusClass = Status.getStatusClass(this.item?.status);
     this.rangeTime = this.toTime(this.item.time.inicio) + " - " + this.toTime(this.item.time.fin);
-    console.log('TLC',this.item);
+    console.log('TLCC',this.item);
   }
 
   toTime(date?:Date) {
-    return date ? date.toLocaleTimeString().substring(0,5)
+    return date ? new Date(date).toLocaleTimeString().substring(0,5)
             : (new Date()).toLocaleTimeString().substring(0,5);
   }
 
