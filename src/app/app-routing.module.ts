@@ -1,3 +1,4 @@
+import { ParticipantUserComponent } from './components/participants/participants.component';
 import { MentorsComponent } from './components/mentors';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -26,7 +27,8 @@ const routes: Routes = [
   },
   { path: 'pastEditions', component: PastEditionsComponent },
   { path: 'mentors', component: MentorsComponent },
-  { path: 'users', component: RegisterUserComponent}
+  { path: 'users', component: RegisterUserComponent},
+  { path:'participants', component: ParticipantUserComponent}
 ];
 
 @NgModule({
