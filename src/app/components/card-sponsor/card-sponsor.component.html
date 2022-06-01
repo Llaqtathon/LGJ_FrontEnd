@@ -1,0 +1,9 @@
+<mat-card class ="sponsor-card">
+<mat-card-header>
+    <mat-card-title>{{sponsor.nombre}}</mat-card-title>
+</mat-card-header>
+<img class ="mat-card-image" mat-card-image *ngIf="sponsor.logo" src="{{sponsor.logo}}">
+<mat-card-content *ngIf="sponsor.descripcion"> 
+    {{sponsor.descripcion}}
+</mat-card-content>
+</mat-card>

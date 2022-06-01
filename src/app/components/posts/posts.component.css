@@ -1,0 +1,27 @@
+.header mat-card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.back{
+    font-size: 12px;
+    line-height: 1.5;
+}
+.back .button-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    cursor:pointer;
+}
+
+.sponsor-content{
+    padding: 24px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}

@@ -1,0 +1,11 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+.example-header-image {
+   background-image: url('https://i2.wp.com/lamiradafotografia.es/wp-content/uploads/2014/07/foto-perfil-psicologo-180x180.jpg?resize=180%2C180');
+   background-size: cover; 
+}
+.inline-block {
+    display: inline-block;
+}

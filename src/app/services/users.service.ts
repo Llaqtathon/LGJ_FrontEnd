@@ -25,5 +25,8 @@ export class UserService {
     }
     update(id:number, data:any):Observable<any>{
         return this.http.put(`${this.baseUrl}/${id}`, data);
+
+    loginUser(data: any){
+        return this.http.post<User>(this.baseUrl,data);
     }
 }

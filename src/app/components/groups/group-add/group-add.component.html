@@ -19,12 +19,12 @@
 
         <div class="participants-section">
             <p>Participantes</p>
-            <mat-chip-list aria-label="Participantes" class="participants" *ngFor="let participant of participants; let i = index">
+            <mat-chip-list aria-label="Participantes" class="participants" *ngFor="let user of crrGroup.users; let i = index">
                 <mat-chip class="participant-label" color="#DCEBEB">
                     <mat-chip-avatar>
-                        <img class="avatar" [src]="participant.image"/>
+                        <img class="avatar" [src]="'https://i.guim.co.uk/img/media/d0105731685e5b2b3daecf2fa00c9affaba832f1/0_0_2560_1536/master/2560.jpg?width=620&quality=85&auto=format&fit=max&s=b4d412898da99d35144de08ca97d6f4d'"/>
                     </mat-chip-avatar>
-                    {{participant.name}}
+                    {{user.nombres}}
                 </mat-chip>
                 
                 <ng-container *ngIf="i === 0;else action">
