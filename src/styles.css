@@ -131,12 +131,15 @@ table {
 app-timeline .cards > * {
     display: block;
 }
-app-timeline .cards app-timeline-card mat-card {
-    width: calc(100% - 1em);
-    height: calc(100% - 1em);
-    padding: 0.5em;
-    font-size: 0.8em;
+app-timeline .cards app-timeline-card > .mat-card {
+    padding: 0px;
     text-align: center;
+}
+app-timeline .cards app-timeline-card > .mat-card > :first-child {
+    margin-top: 0.5em !important;
+}
+app-timeline .cards app-timeline-card > .mat-card > * {
+    font-size: 0.8em;
 }
 
 .ncols-1 > * { width: 100%; }

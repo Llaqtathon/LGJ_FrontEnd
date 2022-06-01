@@ -1,3 +1,5 @@
+import { GroupDeleteConfirmationDialog } from './components/groups/groups-list/groups-list.component';
+import { MicroeventsComponent } from './components/microevents/microevents.component';
 import { UserGlobalService } from './services/user-global.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,7 +35,7 @@ import { MentorsComponent, MentorsListComponent,
     MentorsDetailSmComponent } from './components/mentors';
 import { 
   GroupAddComponent, GroupDetailsComponent, 
-  GroupsListComponent, GroupsComponent, GroupDeleteConfirmationDialog
+  GroupsListComponent, GroupsComponent,// GroupDeleteConfirmationDialog
 } from './components/groups';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -46,6 +48,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { TimelineCardComponent } from './components/timeline/timeline-card/timeline-card.component';
+import { MicroeventsDetailSmComponent } from './components/microevents/microevents-detail-sm/microevents-detail-sm.component';
+import { MicroeventsListComponent } from './components/microevents/microevents-list/microevents-list.component';
+import { HeaderComponent } from './components/header.component';
 
 import { LoginUserComponent } from './components/users/login-user/login-user.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
@@ -77,10 +82,14 @@ import { GameDetailComponent } from './components/games/game-detail/game-detail.
     TimelineCardComponent,
     LoginUserComponent,
     CardGroupComponent,
-    GroupDeleteConfirmationDialog,
+    // GroupDeleteConfirmationDialog,
     GamesListComponent,
     GameDetailComponent,
-    CurrentEventsComponent
+    CurrentEventsComponent,
+    MicroeventsComponent,
+    MicroeventsDetailSmComponent,
+    MicroeventsListComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

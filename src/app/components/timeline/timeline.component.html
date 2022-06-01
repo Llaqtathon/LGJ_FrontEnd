@@ -18,11 +18,13 @@
   </tbody>
 </table>
 <div class="cards ncols-{{days.length}}">
-  <app-timeline-card *ngFor="let item of items; let i = index" [item]="item"
-    [ngStyle]="{
-      'width.%' : item.size?.w ,  'height.em' : item.size?.h,
-      'left.%'   : item.pos?.x,  'top.em'  : item.pos?.y
-    }">
+  <app-timeline-card *ngFor="let item of itemsOrd; let i = index" [item]="item"
+    [qdays]="days.length" [dStart]="days[0].substring(4)" [dEnd]="days[0].substring(4)">
+    <!-- [ngStyle]="{
+      'width.%' : (item.size?.w??100) ,  'height.em' : (item.size?.h??1) * 4,
+      'left.%'  : (item.pos?.x??1),  'top.em'  : (item.pos?.y??i)*4
+    }" -->
+    <!-- item.pos?.y : -->
   </app-timeline-card>
   <!-- attr.data-numdays="{{days.length}}" -->
   <!-- <ng-content></ng-content> -->

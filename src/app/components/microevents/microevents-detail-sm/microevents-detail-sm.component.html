@@ -1,0 +1,22 @@
+<mat-card matRipple class="mentor-card {{statusClass}}" >
+  <!-- [routerLink]="editable ? ['/'] : []"> -->
+  <!-- <mat-card-subtitle *ngIf=" time.inicio !== '' ">
+    <span>{{mentor.tiempo?.inicio}}</span> - <span>{{mentor.tiempo?.inicio}}</span>
+  </mat-card-subtitle> -->
+  <mat-card-content class="text-center">
+    <mat-chip-list>
+      <mat-chip>{{event.tipo}}</mat-chip>
+    </mat-chip-list>
+    <!-- <p>{{event.imInscripted}}</p> -->
+    <p>{{event.name}}</p>
+    <p>{{event.nombrePonente}}</p>
+    <p>{{event.description}}</p>
+    <p>{{event.cantInscritos}}</p>
+    <p>{{event.inicio}} - {{event.fin}}</p>
+    <p>
+      <span *ngFor="let ee of event.enlaces" >
+        {{ee}}
+      </span>
+    </p>
+  </mat-card-content>
+</mat-card>

@@ -7,4 +7,6 @@ export class Edition {
     theme?: string;
     location?: string;
     locationUrlGmaps?: string;
+    spaceAvailable?:number;
+    isActive?:Boolean;
 }
