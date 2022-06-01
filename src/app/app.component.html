@@ -20,6 +20,7 @@
     <!-- Main content -->
     <mat-sidenav-content>
       <div class="inner-container">
+        <app-header [title]="title"></app-header>
         <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
       </div>
     </mat-sidenav-content>

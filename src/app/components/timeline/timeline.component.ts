@@ -28,7 +28,8 @@ export class TimelineComponent implements OnInit, OnChanges { //AfterContentInit
   days:string[] = [];
   daysTime:ItemTime[][] = [];
   hours:string[] = [];
-  itemsOrd: ItemTime[] = [];
+  // itemsOrd: ItemTime[] = [];
+  itemsOrd: any[] = [];
   @Input() filteredResp: string = '';
   // @ContentChildren('item') items!: QueryList<Component>;
   // bar : Promise<ItemTime[]>|undefined;
@@ -53,6 +54,7 @@ export class TimelineComponent implements OnInit, OnChanges { //AfterContentInit
     if(this.items !== undefined) {
       this.sort();
       // this.setSizePos();
+      this.itemsOrd = this.items;
       // this.itemsOrd = this.items.map(i => ItemTime.toItemTime(i, this.dateStart));
       if(this.items) this.upDateItems(this.items);
     };
@@ -154,12 +156,13 @@ export class TimelineComponent implements OnInit, OnChanges { //AfterContentInit
     if (changes['filteredResp']) {
       if (this.items && this.filteredResp !== undefined && this.filteredResp.length > 2) {
         this.itemsOrd = this.itemsOrd
-              .filter(m =>
-                m.responsible?.toLowerCase().includes(this.filteredResp.toLowerCase())
-              );
+        .filter(m =>
+            (m.m.nombres? m.m.nombres + ' ' + m.m.apellidos :
+            m.nombrePonente ?? '')?.toLowerCase().includes(this.filteredResp.toLowerCase())
+        );
         console.log('TL LST cf',this.items,this.itemsOrd,this.filteredResp);
       } else {
-        // this.itemsOrd = this.items ? this.items : [];
+        this.itemsOrd = this.items ?? [];
         // this.itemsOrd = this.items?.map(i => ItemTime.toItemTime(i, this.dateStart)) ??[];
         if(this.items) this.upDateItems(this.items);
         console.log('TL LST cn',this.items,this.itemsOrd,this.filteredResp);
@@ -170,7 +173,7 @@ export class TimelineComponent implements OnInit, OnChanges { //AfterContentInit
   }
 
   upDateItems(items:MentorTime[]|MicroEvento[]) {
-    this.itemsOrd;
+    // this.itemsOrd;
     items.forEach(i => {
       // this.itemsOrd.push(ItemTime.toItemTime(i, this.dateStart));
     });

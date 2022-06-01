@@ -1,3 +1,4 @@
+import { MicroeventsComponent } from './components/microevents/microevents.component';
 import { MentorsComponent } from './components/mentors';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,6 +18,7 @@ const routes: Routes = [
     children: [
       // { path: '' },  //general
       { path: 'mentors', component: MentorsComponent, data: { title: 'Mentores :id' } },
+      { path: 'timeline', component: MicroeventsComponent, data: { title: 'Charlas y Talleres :id' } },
     ]
   },
   { path: 'groups', component: GroupsComponent, 

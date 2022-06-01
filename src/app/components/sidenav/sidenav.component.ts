@@ -43,14 +43,14 @@ export class SidenavComponent implements OnInit { //, OnChanges
 
     const gral = [
       {path: '/', label: 'General', icon: 'info'},
-      {path: '/cronogram', label: 'Cronograma', icon: 'date_range'},
+      {path: this.currParentPath+'/timeline', label: 'Cronograma', icon: 'date_range'},
       {path: '/media', label: 'Media', icon: 'camera_alt'},
       {path: '/sponsors', label: 'Sponsors', icon: 'work'}
     ]
 
     const menuPar = [
       {path: '/', label: 'General', icon: 'info'},
-      {path: '/cronogram', label: 'Cronograma', icon: 'date_range'},
+      {path: this.currParentPath+'/timeline', label: 'Cronograma', icon: 'date_range'},
       {path: this.currParentPath+'/mentors', label: 'Mentores', icon: 'school'},
       {path: '/groups', label: 'Grupos', icon: 'groups'},
       {path: '/participants', label: 'Participantes', icon: 'group'},
@@ -60,7 +60,7 @@ export class SidenavComponent implements OnInit { //, OnChanges
     
     const menuOrg = [
       {path: '/', label: 'General', icon: 'info'},
-      {path: '/cronogram', label: 'Cronograma', icon: 'date_range'},
+      {path: this.currParentPath+'/timeline', label: 'Cronograma', icon: 'date_range'},
       {path: '/sponsors', label: 'Sponsors', icon: 'work'},
       {path: this.currParentPath+'/mentors', label: 'Mentores', icon: 'school'},
       {path: '/participants', label: 'Participantes', icon: 'group'},

@@ -18,7 +18,7 @@
   </tbody>
 </table>
 <div class="cards ncols-{{days.length}}">
-  <app-timeline-card *ngFor="let item of items; let i = index" [item]="item"
+  <app-timeline-card *ngFor="let item of itemsOrd; let i = index" [item]="item"
     [qdays]="days.length" [dStart]="days[0].substring(4)" [dEnd]="days[0].substring(4)">
     <!-- [ngStyle]="{
       'width.%' : (item.size?.w??100) ,  'height.em' : (item.size?.h??1) * 4,

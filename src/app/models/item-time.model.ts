@@ -1,25 +1,25 @@
-import { Time } from './../common/time';
-import { MicroEvento } from './microevento.model';
+// import { Time } from './../common/time';
+// import { MicroEvento } from './microevento.model';
 import { MentorArea } from './mentor-area.model';
-import { MentorTime } from './mentor-edition.model';
+// import { MentorTime } from './mentor-edition.model';
 let today = new Date();
 let later = new Date(today.setHours(today.getHours() + 2));
 
-export class ItemTime {
+export interface ItemTime {
   id?: number;
   status?: string; //statusclass?
-  time: {inicio:Date, fin:Date} = {inicio: today, fin: later};
-  type: string = 'MENTOR';
+  time: {inicio:Date, fin:Date};// = {inicio: today, fin: later};
+  type: string;// = 'MENTOR';
   social?: string[];
   ninscip?: number;
   title?: string;
   areas?: MentorArea[];
   responsible?: string;
   assigned?: string[];
-  pos?:{x:number, y:number} = {x:0, y:0};
-  size?:{w:number, h:number} = {w:2, h:2};
+  pos?:{x:number, y:number};// = {x:0, y:0};
+  size?:{w:number, h:number};// = {w:2, h:2};
   description?: string;
-  iminsc?: Boolean = false;
+  iminsc?: Boolean;// = false;
 
   // FROM MENTOR
   // constructor(obj: MentorTime|MicroEvento, dateStart?:Date) { //, dateEnd?:Date

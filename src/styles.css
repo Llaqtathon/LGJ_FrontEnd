@@ -139,8 +139,6 @@ app-timeline .cards app-timeline-card > .mat-card > :first-child {
     margin-top: 0.5em !important;
 }
 app-timeline .cards app-timeline-card > .mat-card > * {
-    /* width: calc(100% - 1em);
-    height: calc(100% - 1em); */
     font-size: 0.8em;
 }
 

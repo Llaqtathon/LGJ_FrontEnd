@@ -2,8 +2,8 @@ import { User } from './user.model';
 export class MicroEvento {  
   static today = new Date();
   tipo          : 'CHARLA'|'TALLER'   = 'CHARLA';
-  inicio        : Date     = MicroEvento.today;
-  fin           : Date     = MicroEvento.today;
+  inicio?       : Date     ;
+  fin?          : Date     ;
   name          : string   = '';
   nombrePonente : string   = '';
   description   : string   = '';

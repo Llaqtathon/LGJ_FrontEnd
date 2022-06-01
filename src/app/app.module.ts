@@ -1,7 +1,7 @@
 import { UserGlobalService } from './services/user-global.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
@@ -44,6 +44,8 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 import { TimelineCardComponent } from './components/timeline/timeline-card/timeline-card.component';
 import { MicroeventsComponent } from './components/microevents/microevents.component';
 import { MicroeventsDetailSmComponent } from './components/microevents/microevents-detail-sm/microevents-detail-sm.component';
+import { MicroeventsListComponent } from './components/microevents/microevents-list/microevents-list.component';
+import { HeaderComponent } from './components/header.component';
 
 
 @NgModule({
@@ -68,6 +70,8 @@ import { MicroeventsDetailSmComponent } from './components/microevents/microeven
     TimelineCardComponent,
     MicroeventsComponent,
     MicroeventsDetailSmComponent,
+    MicroeventsListComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +94,7 @@ import { MicroeventsDetailSmComponent } from './components/microevents/microeven
     MatTabsModule,
     MatNativeDateModule,
     MatMenuModule,
+    FormsModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},

@@ -50,7 +50,7 @@ export class Time {
   }
 
   //SEMANA
-  public static getSemana(dia?:Date) {
+  public static getSemana(dia?:Date):{start:Date, end:Date} {
     let today     = dia? dia : new Date();
     let weekStart = today.getDate() - today.getDay() + 1; //+1 to make Monday the first day of the week
     let weekEnd   = weekStart + 6;
