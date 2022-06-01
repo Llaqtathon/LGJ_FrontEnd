@@ -1,0 +1,64 @@
+
+<!-- 
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Banco de Crédito del Perú</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="https://storage.googleapis.com/codigo_bucket/wp-content/uploads/2014/04/bcp1.jpg" alt="Photo of a Sponsor">
+    <mat-card-content>
+      <p>
+        Banco líder en el Perú para préstamos, inversiones y operaciones crediticias.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <a mat-button href="https://www.viabcp.com" target="_blank">PAGINA WEB</a>
+    </mat-card-actions>
+</mat-card>
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Universidad Peruana de Ciencias Aplicadas</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="https://www.eduopinions.com/wp-content/uploads/2017/09/Universidad-Peruana-de-Ciencias-Aplicadas-UPC-logo.png" alt="Photo of a Sponsor">
+    <mat-card-content>
+      <p>
+        La UPC es una institución educativa basada en la exigencia e innovación orientada a formar a líderes íntegros que transformen el Perú.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <a mat-button href="https://www.upc.edu.pe" target="_blank">PAGINA WEB</a>
+    </mat-card-actions>
+</mat-card>
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Leap Game Studios</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="https://www.leapgs.com/assets/images/logo2.png" alt="Photo of a Sponsor">
+    <mat-card-content>
+      <p>
+        We make games. LEAP Game Studios is a videogame development company. We focus on creating fun and engaging experiences for different platforms and users.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <a mat-button href="https://www.leapgs.com" target="_blank">PAGINA WEB</a>
+    </mat-card-actions>
+</mat-card>
+-->
+
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="25%" *ngFor="let sponsor of sponsors">
+            <mat-card class="example-card">
+                
+                <mat-card-title>{{sponsor.nombre}}</mat-card-title>
+                <img mat-card-image src="{{sponsor.logo}}">
+                <mat-card-content>
+                  {{sponsor.descripcion}}
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>VISITAR</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
+

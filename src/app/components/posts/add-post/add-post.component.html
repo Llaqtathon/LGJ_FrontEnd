@@ -1,0 +1,30 @@
+
+<div class="content">
+    <div>
+        <form [formGroup]="uploadForm" class="form">
+            <mat-form-field class="input-container">
+                <input matInput placeholder="username" type="text"
+                formControlName="username"
+                >
+            </mat-form-field>
+            <mat-form-field class="input-container">
+                <input matInput placeholder="Url imagen a agregar" type="url" (change)="showPreview($event)"
+                formControlName="foto_post"
+                >
+            </mat-form-field>
+            <mat-form-field class="input-container">
+                <input matInput placeholder="Descripcion" type="url" (change)="showPreview($event)"
+                formControlName="description"
+                >
+            </mat-form-field>
+        </form>
+    </div>
+    <button mat-button color="gradient" class="participant-action" (click)="onSubmit()">
+        <span class="material-icons">
+            check
+        </span>
+        Aceptar
+    </button>
+</div>
+
+
