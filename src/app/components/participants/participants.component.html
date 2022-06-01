@@ -1,0 +1,8 @@
+<div class="list row">
+    <div class="userParticipante" formGroupName="userParticipante"> 
+        <span>Buscar Participante</span>
+        <select id="userParticipante" formControlName="id" required>
+            <option *ngFor="let userParticipante of users" value={{userParticipante.id}}>{{userParticipante.nombre}}</option>
+        </select>
+    </div>
+</div>

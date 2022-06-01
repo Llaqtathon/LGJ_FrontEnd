@@ -1,3 +1,5 @@
+
+import { userListComplement } from './components/participants/participants.component';
 import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
 import { MentorsComponent } from './components/mentors';
 import { NgModule } from '@angular/core';
@@ -44,6 +46,8 @@ const routes: Routes = [
   { path: 'pastEditions', component: PastEditionsComponent },
   { path: 'mentors', component: MentorsComponent },
   { path: 'users', component: RegisterUserComponent},
+  { path:'participants', component: userListComplement}
+=======
   { path: 'sponsors', component: SponsorsComponent, 
     children:[
       { path: '', component: SponsorsListComponent},
