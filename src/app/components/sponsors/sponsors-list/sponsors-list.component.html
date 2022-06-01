@@ -47,14 +47,12 @@
 <div class="content">
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
         <div fxFlex="25%" *ngFor="let sponsor of sponsors">
-            <mat-card class="mat-elevarion-z4">
+            <mat-card class="example-card">
                 
                 <mat-card-title>{{sponsor.nombre}}</mat-card-title>
                 <img mat-card-image src="{{sponsor.logo}}">
                 <mat-card-content>
-                    <p>
-                        {{sponsor.descripcion}}
-                    </p>
+                  {{sponsor.descripcion}}
                 </mat-card-content>
             </mat-card>
         </div>

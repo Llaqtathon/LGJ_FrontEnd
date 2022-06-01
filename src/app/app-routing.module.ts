@@ -16,7 +16,6 @@ import { RegisterUserComponent } from './components/users/register-user/register
 import { SponsorsComponent } from './components/sponsors/sponsors.component';
 import { SponsorsListComponent } from './components/sponsors/sponsors-list/sponsors-list.component';
 import { AddSponsorsComponent } from './components/sponsors/add-sponsors/add-sponsors.component';
-import { SponsorDetailsComponent } from './components/sponsors/sponsor-details/sponsor-details.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostsListComponent } from './components/posts/posts-list/posts-list.component';
 import { AddPostComponent } from './components/posts/add-post/add-post.component';
@@ -39,10 +38,9 @@ const routes: Routes = [
     children:[
       { path: '', component: SponsorsListComponent},
       { path: 'add', component: AddSponsorsComponent, data: {title: 'Nuevo Sponsor'}},
-      {path: ':id', component: SponsorDetailsComponent}
     ]
   },
-  {path: '', component: PostsComponent, 
+  {path: 'media', component: PostsComponent, 
     children:[
       {path: '', component: PostsListComponent},
       {path: 'add', component: AddPostComponent, data: {title: 'Nuevo Post'}},

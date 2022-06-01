@@ -1,1 +1,15 @@
-<p>posts works!</p>
+<mat-card class="header">
+    <mat-card-title>
+        {{title}}
+        <a *ngIf="action === 'add'" 
+            [routerLink]="['add']" mat-button color="gradient" class="participant-action">
+            <span class="material-icons">
+                add
+            </span>
+            Nuevo
+        </a>
+    </mat-card-title>
+</mat-card>
+<div class = "post-content">
+    <router-outlet></router-outlet>
+</div>
