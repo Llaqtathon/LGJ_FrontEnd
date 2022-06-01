@@ -7,7 +7,7 @@ import {Post} from './../models/post.model';
     providedIn: 'root'
 })
 export class PostService {
-    private baseUrl: string= `${environment.baseUrl}/posts`;
+    private baseUrl: string= `${environment.baseUrl}/post`;
 
     constructor(private http: HttpClient){} 
     getAll(): Observable<Post[]> {

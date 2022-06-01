@@ -1,4 +1,5 @@
-import { Mentor } from './../models/mentor.model';
+import { MentorAvailab } from './../models/mentor-availab.model';
+import { MentorEd } from '../models/mentor-edition.model';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
@@ -12,8 +13,18 @@ export class MentorsService {
 
   constructor (private http: HttpClient) {}
 
-  getAll(): Observable<Mentor[]> {
-      return this.http.get<Mentor[]>(this.baseUrl);
+  getByEdition(editionId: number): Observable<MentorEd[]> {
+    return this.http.get<MentorEd[]>(`${this.baseUrl}/edition/${editionId}`);
+  }
+
+  getOne(mentorID: number): Observable<MentorEd[]> {
+      return this.http.get<MentorEd[]>(`${this.baseUrl}/${mentorID}`);
+  }
+  getOneByEdition(editionId: number, mentorID: number): Observable<MentorEd[]> {
+      return this.http.get<MentorEd[]>(`${this.baseUrl}/${editionId}/${mentorID}`);
+  }
+  getAvailab(editionId: number, mentorID: number): Observable<MentorAvailab[]> {
+      return this.http.get<MentorAvailab[]>(`${this.baseUrl}/availability/${editionId}/${mentorID}`);
   }
 
   // getAllByEdition(editionId: string): Observable<Group[]> {

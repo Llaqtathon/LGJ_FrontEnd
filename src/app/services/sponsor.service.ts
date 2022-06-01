@@ -8,7 +8,7 @@ import { environment } from "src/environments/environment";
     providedIn: 'root'
 })
 export class SponsorService{
-    private baseUrl: string= `${environment.baseUrl}/sponsors`;
+    private baseUrl: string= `${environment.baseUrl}/sponsor`;
 
     constructor(private http: HttpClient){} 
     getAll(): Observable<Sponsors[]> {

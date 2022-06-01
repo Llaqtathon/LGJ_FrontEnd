@@ -1,88 +1,89 @@
 <body>
-<div class="card">
-    <h1 class="titulo">
-        ¡LGJ WebApp te da la bienvenida!
-    </h1>
-    <h2 class="text1">
-        Por favor rellena los datos para poder registrarte como usuario.
-    </h2>
-    <div class="text2">
-        Datos de registro
-    </div>
-    <div>
-        <form class="form" #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
-            <div class="inputBox">
-                <input type="text" id="username" name="username" required [(ngModel)]="userModel.username" />
-                <span>Nombre de usuario</span>
-            </div>
-
-            <div class="inputBox">
-                <input type="password" name="password" id="contraseña" required [(ngModel)]="userModel.password">
-                <span>Contraseña</span>
-            </div>
-
-            <div class="inputBox">
-                <input type="text" id="nombres" name="nombres" required [(ngModel)]="userModel.nombres">
-                <span>Nombres</span>
-            </div>
-
-            <div class="inputBox">
-                <input type="text" id="apellidos" name="apellidos" required [(ngModel)]="userModel.apellidos">
-                <span>Apellidos</span>
-            </div>
-
-            <div class="inputBox">
-                <input type="email" id="email" name="email" required [(ngModel)]="userModel.email">
-                <span>Email</span>
-            </div>
-
-            <div class="inputBox">
-                <input type="date" id="nacimiento" name="nacimiento" required [(ngModel)]="userModel.nacimiento">
-                <span>Fecha de nacimiento</span>
-            </div>
-            <div class="inputBox" >
-                <input type="tel" id="telefono"  name="telefono" required  [(ngModel)]="userModel.telefono">
-                <span>Telefono</span>
-            </div>
-            <div class="distrito" ngModelGroup = "distrito"> 
-                <span>Distrito</span>
-                <select name="id" id="distrito" [(ngModel)]="userModel.distrito">
-                    <option *ngFor="let distrito of distritos" value={{distrito.id}}>{{distrito.nombre}}</option>
-                </select>
-            </div>
-            <div class="inputBox">
-                <input type="text"  id="dni" name="dni" required [(ngModel)]="userModel.dni">
-                <span>DNI</span>
-            </div>
-
-            <div class="radiogroup"  name="genero">
-                <div>
-                    <span>Genero</span>
+    <div class="container">
+    <div class="card">
+        <h1 class="titulo">
+            ¡LGJ WebApp te da la bienvenida!
+        </h1>
+        <h2 class="text1">
+            Por favor rellena los datos para poder registrarte como usuario.
+        </h2>
+        <div class="text2">
+            Datos de registro
+        </div>
+        <div>
+            <form class="form" [formGroup]="registroForm" (ngSubmit)="onSubmit()" novalidate>
+                <div class="inputBox">
+                    <input type="text" id="username" formControlName="username" required />
+                    <span>Nombre de usuario</span>
                 </div>
-                <div>
-                    <input type="radio" class="option-input radio"  name="genero" value="MASCULINO" [ngModel]="userModel.genero"/>
-                    <span>Masculino</span>
+    
+                <div class="inputBox">
+                    <input type="password" formControlName="password" id="contraseña" required/>
+                    <span>Contraseña</span>
                 </div>
-                <div>
-                    <input type="radio" class="option-input radio" name="genero" value="FEMENINO" [ngModel]="userModel.genero"/>
-                    <span>Femenino</span>
+    
+                <div class="inputBox">
+                    <input type="text" id="nombres" formControlName="nombres" required/>
+                    <span>Nombres</span>
                 </div>
-                <div>
-                    <input type="radio" class="option-input radio"  name="genero" value="OTRO" [ngModel]="userModel.genero"/>
-                    <span>Otro</span>
+    
+                <div class="inputBox">
+                    <input type="text" id="apellidos" formControlName="apellidos" required/>
+                    <span>Apellidos</span>
                 </div>
-                <div>
-                    <input type="radio" class="option-input radio"  name="genero" value="NA" [ngModel]="userModel.genero"/>
-                    <span>NA</span>
+    
+                <div class="inputBox">
+                    <input type="email" id="email" formControlName="email" required/>
+                    <span>Email</span>
                 </div>
-            </div>
-            <button type="submit">
-                Registrarme
-            </button>
-        </form>
-    </div>
-</div>  
-</body>
-
+    
+                <div class="inputBox">
+                    <input type="date" id="nacimiento" formControlName="nacimiento" required />
+                    <span>Fecha de nacimiento</span>
+                </div>
+                <div class="inputBox" >
+                    <input type="tel" id="telefono"  formControlName="telefono" required />
+                    <span>Telefono</span>
+                </div>
+                <div class="distrito" formGroupName="distrito"> 
+                    <span>Distrito</span>
+                    <select id="distrito" formControlName="id" required>
+                        <option *ngFor="let distrito of distritos" value={{distrito.id}}>{{distrito.nombre}}</option>
+                    </select>
+                </div>
+                <div class="inputBox">
+                    <input type="text"  id="dni" formControlName="dni" required/>
+                    <span>DNI</span>
+                </div>
+    
+                <div class="radiogroup" name="genero" >
+                    <div>
+                        <span>Genero</span>
+                    </div>
+                    <div>
+                        <input type="radio" class="option-input radio" formControlName="genero" value="MASCULINO" />
+                        <span>Masculino</span>
+                    </div>
+                    <div>
+                        <input type="radio" class="option-input radio" formControlName="genero" value="FEMENINO" />
+                        <span>Femenino</span>
+                    </div>
+                    <div>
+                        <input type="radio" class="option-input radio" formControlName="genero" value="OTRO" />
+                        <span>Otro</span>
+                    </div>
+                    <div>
+                        <input type="radio" class="option-input radio" formControlName="genero" value="NA" />
+                        <span>NA</span>
+                    </div>
+                </div>
+                <button type="submit">
+                    Registrarme
+                </button>
+            </form>
+        </div>
+    </div>  
+</div>
+    </body>
 
 

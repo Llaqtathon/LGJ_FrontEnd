@@ -1,3 +1,4 @@
+import { MentorArea } from './mentor-area.model';
 let today = new Date();
 let later = new Date(today.setHours(today.getHours() + 2));
 export class ItemTime {
@@ -7,7 +8,7 @@ export class ItemTime {
   social?: string[];
   ninscip?: number;
   title?: string;
-  areas?: string[];
+  areas?: MentorArea[];
   responsible?: string;
   assigned?: string[];
   pos?:{x:number, y:number} = {x:0, y:0};
