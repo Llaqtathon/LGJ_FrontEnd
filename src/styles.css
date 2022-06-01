@@ -52,6 +52,8 @@
 
 html, body { height: 100%; }
 body {
+    background-color: var(--background-paper);
+    color: var(--text-color-primary);
     font-family: var(--font-family);
     margin: 0;
 }
@@ -90,6 +92,9 @@ mat-card.header mat-card-title {
 .mat-form-field.no-padding > .mat-form-field-wrapper {
     margin-bottom: -1.25em;
     /* padding-bottom: 0; */
+}
+.mat-form-field-wrapper * {
+    color: var(--text-color-primary) !important;
 }
 
 .content{

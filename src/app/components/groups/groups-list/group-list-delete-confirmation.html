@@ -1,0 +1,16 @@
+<h2 mat-dialog-title color="primary">Eliminar grupo(s)</h2>
+<div mat-dialog-content style="display: flex; flex-direction:column; gap:12px;">
+    ¿Seguro que desea eliminar al/los grupo(s)?
+
+    <button mat-raised-button color="warn" style="width: max-content;align-self: center;" (click)="delete()">
+        <span class="material-icons">
+            delete
+        </span>
+        Eliminar
+    </button>
+</div>
+
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancelar</button>
+</div>

@@ -15,6 +15,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -24,7 +25,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { GameAddComponent } from './components/groups/game-add/game-add.component';
+import { GameAddComponent } from './components/games/game-add/game-add.component';
 import { CardGameComponent } from './components/components/card-game/card-game.component';
 
 import { MentorsComponent, MentorsListComponent, 
@@ -32,19 +33,26 @@ import { MentorsComponent, MentorsListComponent,
     MentorsDetailSmComponent } from './components/mentors';
 import { 
   GroupAddComponent, GroupDetailsComponent, 
-  GroupsListComponent, GroupsComponent 
+  GroupsListComponent, GroupsComponent, GroupDeleteConfirmationDialog
 } from './components/groups';
 
-// import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { TimelineCardComponent } from './components/timeline/timeline-card/timeline-card.component';
-import { RegisterUserComponent } from './components/users';
 
+import { LoginUserComponent } from './components/users/login-user/login-user.component';
+import { RegisterUserComponent } from './components/users/register-user/register-user.component';
+import { CardGroupComponent } from './components/components/card-group/card-group.component';
+import { GamesListComponent } from './components/games/games-list/games-list.component';
+import { CurrentEventsComponent } from './components/current-events/current-events.component';
+import { GameDetailComponent } from './components/games/game-detail/game-detail.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +75,12 @@ import { RegisterUserComponent } from './components/users';
     PastEditionsComponent,
     TimelineComponent,
     TimelineCardComponent,
+    LoginUserComponent,
+    CardGroupComponent,
+    GroupDeleteConfirmationDialog,
+    GamesListComponent,
+    GameDetailComponent,
+    CurrentEventsComponent
   ],
   imports: [
     BrowserModule,
@@ -90,11 +104,14 @@ import { RegisterUserComponent } from './components/users';
     MatTabsModule,
     MatNativeDateModule,
     MatMenuModule,
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
     {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}
   ],
-  bootstrap: [AppComponent, UserGlobalService]
+  bootstrap: [AppComponent, UserGlobalService],
+  entryComponents: [GroupDeleteConfirmationDialog]
 })
 export class AppModule { }

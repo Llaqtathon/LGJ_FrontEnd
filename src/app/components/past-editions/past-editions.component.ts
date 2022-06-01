@@ -17,8 +17,6 @@ export class PastEditionsComponent implements OnInit {
 
   ngOnInit(): void {
       this.getEditions();
-      
-
   }
 
 
@@ -26,7 +24,7 @@ export class PastEditionsComponent implements OnInit {
     //change to be by edition
     this.editionService.getAll().subscribe({
       next: (data: Edition[]) => {
-        this.editions = data;
+        this.editions = data.reverse();
 
         if (this.editions[0].id) {
           this.getGames(this.editions[0].id);

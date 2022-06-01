@@ -17,13 +17,17 @@
     
         <mat-form-field class="input-container">
             <textarea  matInput placeholder="Descripción" type="text"
-            formControlName="description" rows="8" style="resize:none;"></textarea>
+            maxlength="240" formControlName="description" rows="4" style="resize:none;"></textarea>
         </mat-form-field>
     </div>
     <div>
         <h3 class>Plataforma(s)</h3>
         <section class="checkboxes" > 
-            <mat-checkbox color="primary" class="example-margin" *ngFor="let platform of platforms; let i = index">
+            <mat-checkbox color="primary" 
+                *ngFor="let platform of platforms; let i = index"
+                [checked]="checkboxes.includes(i)"
+                (change)="togglePlatform(i)"
+            >
                 {{ platform }}
             </mat-checkbox>
         </section>

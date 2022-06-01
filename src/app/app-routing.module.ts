@@ -13,16 +13,26 @@ import {
 from './components/groups';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
+
 import { SponsorsComponent } from './components/sponsors/sponsors.component';
 import { SponsorsListComponent } from './components/sponsors/sponsors-list/sponsors-list.component';
 import { AddSponsorsComponent } from './components/sponsors/add-sponsors/add-sponsors.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostsListComponent } from './components/posts/posts-list/posts-list.component';
 import { AddPostComponent } from './components/posts/add-post/add-post.component';
+=======
+import { LoginUserComponent } from './components/users/login-user/login-user.component';
+import { CurrentEventsComponent } from './components/current-events/current-events.component';
+import { GamesListComponent } from './components/games/games-list/games-list.component';
+import { GameDetailComponent } from './components/games/game-detail/game-detail.component';
+
+
+
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'groups', component: GroupsComponent, 
+  { path: '', component: CurrentEventsComponent,
     children: [
+
       { path: '', component: GroupsListComponent },
       { path: 'add', component: GroupAddComponent, data: { title: 'Nuevo Grupo' } },
       { path: 'add/game', component: GameAddComponent, data: { title: 'Juego' } },
@@ -47,6 +57,28 @@ const routes: Routes = [
       {path: ':id', component: PostDetailsComponent}
     ]
   }
+
+      { path: 'groups', component: GroupsComponent, 
+        children: [
+          { path: '', component: GroupsListComponent },
+          { path: 'add', component: GroupAddComponent, data: { title: 'Nuevo Grupo' } },
+          { path: 'add/game', component: GameAddComponent, data: { title: 'Juego' } },
+          { path: ':id', component: GroupDetailsComponent },
+          { path: ':id/edit', component: GroupAddComponent },
+          { path: ':id/game', component: GameAddComponent },
+        ],
+      },
+      { path: 'mentors', component: MentorsComponent },
+    ],
+  },
+  { path: 'pastEditions', component: PastEditionsComponent },
+  { path: 'mentors', component: MentorsComponent },
+  { path: 'register', component: RegisterUserComponent},
+  { path: 'login', component: LoginUserComponent},
+  { path: 'games', component: GamesListComponent },
+  { path: 'games/:id', component: GameDetailComponent },
+  { path: '**', redirectTo: '/' }
+
 ];
 
 @NgModule({
