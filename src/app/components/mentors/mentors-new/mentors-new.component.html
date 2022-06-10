@@ -1,1 +1,90 @@
-<p>mentors-new works!</p>
+<mat-card class="header">
+  <mat-card-title>{{title}}</mat-card-title>
+  <button class="back" mat-button (click)="onBack()">
+    <span class="button-content">
+      <span class="material-icons material-icons--outline">
+          close
+      </span>
+      ESC.
+    </span>
+  </button>
+</mat-card>
+
+
+<div class="content">
+  <form>
+
+    <div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nombres</mat-label>
+        <input type="text" matInput [formControl]="textReq" placeholder="Nombres completos">
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Por favor, ingrese al menos un nombre.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Apellidos</mat-label>
+        <input type="text" matInput [formControl]="textReq" placeholder="Apellidos completos">
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Por favor, ingrese al menos un apellido.
+        </mat-error>
+      </mat-form-field>
+      
+      <img src="{{photourl.value !== '' ? photourl.value : 'https://pbs.twimg.com/media/FEwlAJxX0A4KrQa?format=png&name=small'}}"
+        class="photo" alt="foto de mentor">
+      <mat-form-field appearance="fill">
+        <mat-label>URL de foto</mat-label>
+        <input type="url" #photourl matInput placeholder="https://dominio.com/nombreimagen.png">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Celular</mat-label>
+        <input matInput placeholder="987654321" minlength="9">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" placeholder="Ej. pat@example.com">
+        <mat-error *ngIf="emailFormControl.hasError('email')">
+          Por favor, ingrese un correo válido.
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+    
+
+    <div>
+
+      <mat-form-field appearance="fill" class="textarea">
+        <mat-label>Breve descripción</mat-label>
+        <textarea matInput #input placeholder="Especialidad..."></textarea>
+        <!-- <mat-hint align="end">{{input.value?.length || 0}}/250</mat-hint> -->
+      </mat-form-field>
+  
+      <div>
+        <mat-label>Áreas de experiencia</mat-label>
+        <app-item-priority *ngFor="let area of areas"
+        [checked]="area.checked" [priority]="area.priority"
+        [label]="area.label" [icon]="area.icon"
+        (click)="setChecked(area)">
+          <mat-form-field appearance="fill" class="no-padding"
+            *ngIf = "area.checked" (click)="$event.stopPropagation()">
+            <mat-label>Años de experiencia</mat-label>
+            <input type="text" matInput>
+          </mat-form-field>
+        </app-item-priority>
+      </div>
+
+    </div>
+    
+    <div>
+      <button mat-button color="gradient">
+        <mat-icon>save</mat-icon>
+        Guardar
+      </button>
+    </div>
+
+  </form>
+</div>

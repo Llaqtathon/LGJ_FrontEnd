@@ -1,8 +1,6 @@
-import { MicroevetTime } from './../../models/microevent-time.model';
 import { MentorTime } from './../../models/mentor-edition.model';
 import { Time } from '../../common/time';
 import { AfterContentInit, Component, ContentChildren, Directive, Input, OnInit, QueryList, OnChanges, SimpleChanges } from '@angular/core';
-import { MentorsDetailSmComponent } from '../mentors';
 import { ItemTime } from '../../models/item-time.model';
 import { MicroEvento } from 'src/app/models/microevento.model';
 // @Directive({selector: 'mat-card'})
@@ -23,6 +21,11 @@ export class TimelineComponent implements OnInit, OnChanges { //AfterContentInit
   // @Input() items?: ItemTime[] = [];
   // @Input() items?: MentorTime[]|MicroEvento[] = [];
   @Input() items?: any[] = [];
+  @Input() filteredResp: string = '';
+  @Input() checks: string[] = [];
+  @Input() editable!: boolean;
+  // @Input() bar: Promise<ItemTime[]>;
+  // resolve: (items: ItemTime[]) => void;
   week = Time.getSemana();
   drange = {start: this.week.start, end: this.week.end};
   days:string[] = [];
@@ -30,7 +33,6 @@ export class TimelineComponent implements OnInit, OnChanges { //AfterContentInit
   hours:string[] = [];
   // itemsOrd: ItemTime[] = [];
   itemsOrd: any[] = [];
-  @Input() filteredResp: string = '';
   // @ContentChildren('item') items!: QueryList<Component>;
   // bar : Promise<ItemTime[]>|undefined;
   // private resolve: Function|undefined;

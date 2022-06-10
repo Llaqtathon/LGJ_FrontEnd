@@ -36,6 +36,8 @@ import {
 
 // import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
 import { MatMenuModule } from '@angular/material/menu';
@@ -46,6 +48,7 @@ import { MicroeventsComponent } from './components/microevents/microevents.compo
 import { MicroeventsDetailSmComponent } from './components/microevents/microevents-detail-sm/microevents-detail-sm.component';
 import { MicroeventsListComponent } from './components/microevents/microevents-list/microevents-list.component';
 import { HeaderComponent } from './components/header.component';
+import { ItemPriorityComponent } from './components/elements/item-priority/item-priority.component';
 
 
 @NgModule({
@@ -72,6 +75,7 @@ import { HeaderComponent } from './components/header.component';
     MicroeventsDetailSmComponent,
     MicroeventsListComponent,
     HeaderComponent,
+    ItemPriorityComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,7 +98,9 @@ import { HeaderComponent } from './components/header.component';
     MatTabsModule,
     MatNativeDateModule,
     MatMenuModule,
-    FormsModule
+    FormsModule,
+    MatAutocompleteModule,
+    MatTooltipModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},

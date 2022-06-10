@@ -21,18 +21,14 @@
     </span>
   </div>
 
-  <!-- <a *ngIf="editable" [routerLink]="['add']" mat-button
-      color="gradient">
-    <mat-icon>add</mat-icon> Nuevo
-  </a> -->
 </mat-card>
 
 
 <div class="content">
   <app-microevents-list *ngIf="editable" [events]="eventsPending"
   [types]="selectedOptions"></app-microevents-list>
-  <app-timeline [items]="eventsAvailables" [filteredResp]="selectedOptions.join(',')"
-    [dateStart]="week.dateStart" [dateEnd]="week.dateEnd">
+  <app-timeline [items]="eventsAvailables" [checks]="selectedOptions"
+    [dateStart]="week.dateStart" [dateEnd]="week.dateEnd" [editable]="editable">
     <!-- [filteredResp]="nameFiltered" -->
   </app-timeline>
 </div>

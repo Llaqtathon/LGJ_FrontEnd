@@ -1,0 +1,59 @@
+:host {
+  display: flex;
+  align-items: center;
+  grid-gap: 0.5em;
+  padding: 0.2em;
+  padding-right: 0.5em;
+  background-color: var(--background-paper);
+  color: var(--text-color-secondary);
+  box-shadow: var(--shadow-lvl1);
+  border-radius: 2em;
+  cursor: pointer;
+}
+:host:hover {
+  color: var(--text-color-primary);
+  box-shadow: var(--shadow-lvl2);
+}
+:host .priority {
+  border: 1px solid;
+  width: 2em;
+  height: 2em;
+  border-radius: 2em;
+  text-align: center;
+  line-height: 2em;
+  font-weight: bold;
+}
+:host .priority span {
+  color: var(--background-paper);
+}
+:host.active .priority {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--background-paper);
+}
+:host.active:hover .priority {
+  background-color: var(--primary-color-dark);
+  border-color: var(--primary-color-dark);
+  color: var(--background-paper);
+}
+
+.darkmode :host {
+  background-color: var(--corporative-color-darkest-25);
+}
+.darkmode :host:hover {
+  background-color: var(--corporative-color-darkest-50);
+}
+.darkmode :host.active {
+  background-color: var(--primary-color);
+  color: var(--navbar-background-color);
+}
+.darkmode :host.active:hover {
+  background-color: var(--primary-color-dark);
+}
+.darkmode :host.active .priority {
+  background-color: var(--corporative-color-lightest);
+}
+
+:host :not(.priority,.mat-icon) {
+  flex-grow: 1;
+}

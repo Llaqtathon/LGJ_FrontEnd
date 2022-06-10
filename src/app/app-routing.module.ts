@@ -1,3 +1,4 @@
+import { MentorsNewComponent } from './components/mentors/mentors-new/mentors-new.component';
 import { MicroeventsComponent } from './components/microevents/microevents.component';
 import { MentorsComponent } from './components/mentors';
 import { NgModule } from '@angular/core';
@@ -17,7 +18,12 @@ const routes: Routes = [
   { path: 'edition/:id',
     children: [
       // { path: '' },  //general
-      { path: 'mentors', component: MentorsComponent, data: { title: 'Mentores :id' } },
+      { path: 'mentors',
+        children: [
+          { path: '', component: MentorsComponent, data: { title: "Mentores :id" } },
+          { path: 'add', component: MentorsNewComponent, data: { title: "Nuevo mentor" } },
+        ]
+      },
       { path: 'timeline', component: MicroeventsComponent, data: { title: 'Charlas y Talleres :id' } },
     ]
   },
