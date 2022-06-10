@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { ItemTime } from './../../models/item-time.model';
 import { Edition } from './../../models/edition.model';
 import { MentorAvailab } from './../../models/mentor-availab.model';
@@ -8,6 +9,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 import { MentorEd } from 'src/app/models/mentor-edition.model';
 import { MentorsService } from 'src/app/services/mentors.service';
+import {map, startWith} from 'rxjs/operators';
+import { MatOptionSelectionChange } from '@angular/material/core';
+import { AreaUtils } from 'src/app/common/areas-utils';
 
 @Component({
   selector: 'app-mentors',
@@ -20,11 +24,22 @@ export class MentorsComponent implements OnInit {
   title = "Mentores";
   currEdition: Edition = {id:0};
   eventDates: FormGroup = new FormGroup({});
+  editable: boolean = false;
   mentorsPending: MentorEd[] = [];
   // mentorsAvailables: ItemTime[] = [];
   mentorsAvailables: MentorTime[] = [];
-  editable: boolean = false;
+  
   nameFiltered: string = '';
+  fcNames = new FormControl('');
+  mentorNames: string[] = [];
+  filteredNames?: Observable<string[]>;
+  panelClosingActions?: Observable<MatOptionSelectionChange | null>
+
+  checked: boolean[] = [];
+  areasFilter = Object.entries(AreaUtils.areaIcons).map( ([key, val]) => {
+    return {label : key, icon : val, checked : true}
+  });
+  
 
   constructor(
     private ugs: UserGlobalService,
@@ -37,6 +52,10 @@ export class MentorsComponent implements OnInit {
     console.log('E',this.currEdition);
     this.setEventDates();
     this.getMentors();
+    this.filteredNames = this.fcNames.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
     // this.mentorsPending = [
     //   { mentorId:1, nombres:"Juan", apellidos:"Perez", areas:[
     //     {areaName: 'ARTE', yearsOfExperience: 3, priority: 'TOP'},
@@ -77,6 +96,7 @@ export class MentorsComponent implements OnInit {
         .getByEdition(this.currEdition.id)
         .subscribe((_mentors: MentorEd[]) => (
           _mentors.forEach((m: MentorEd) => {
+            this.mentorNames.push(m.nombres + ' ' + m.apellidos);
             if (m.availabilities === undefined || m.availabilities.length === 0) {
               if (this.ugs.isOrg) this.mentorsPending.push( m );
             } else {
@@ -114,6 +134,11 @@ export class MentorsComponent implements OnInit {
   getByFname(event: any) {
     this.nameFiltered = event.target.value;
     console.log('M gbf',this.nameFiltered);
+  }
+
+  private _filter(name: string): string[] {
+    const filterValue = name.toLowerCase();
+    return this.mentorNames.filter(option => option.toLowerCase().includes(filterValue));
   }
 
 }

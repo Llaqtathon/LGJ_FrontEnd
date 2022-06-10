@@ -7,21 +7,41 @@
       <input matStartDate placeholder="Fecha de inicio" formControlName="start">
       <input matEndDate placeholder="Fecha de fin" formControlName="end">
     </mat-date-range-input>
-    <mat-datepicker-toggle matSuffix></mat-datepicker-toggle>
+    <mat-datepicker-toggle matSuffix disabled></mat-datepicker-toggle>
   </mat-form-field>
 
-  <!-- FILTER BY AREA -->
-  <mat-form-field class="example-full-width no-padding" appearance="fill">
+  <div class="filters" class="row">
+    <span *ngFor="let option of areasFilter">
+      <mat-checkbox  name="options" value="{{option.label}}"
+      [(ngModel)]="option.checked" matTooltip="{{option.label}}">
+        <mat-icon>{{option.icon}}</mat-icon>
+      </mat-checkbox>
+    </span>
+  </div>
+
+  <mat-form-field class="no-padding" appearance="fill">
     <mat-label>Filtrar por nombre</mat-label>
-    <input type="text" matInput (change)="getByFname($event)">
-    <mat-icon matSuffix>search</mat-icon>
+    <input type="text" placeholder="Escribir nombre"
+           aria-label="Filtrar por nombre" matInput
+           [(ngModel)]="nameFiltered"
+           [formControl]="fcNames"
+           [matAutocomplete]="auto" (change)="getByFname($event)">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='getByFname($event.option.value)'>
+      <mat-option *ngFor="let option of mentorNames" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+    <button *ngIf="nameFiltered" matSuffix mat-icon-button aria-label="Clear" (click)="nameFiltered=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
+
 </mat-card>
 
 
 <div class="content">
   <app-mentors-list *ngIf="editable" [mentors]="mentorsPending" [filteredName]="nameFiltered"></app-mentors-list>
-  <app-timeline [items]="mentorsAvailables" [filteredResp]="nameFiltered"
+  <app-timeline [items]="mentorsAvailables" [filteredResp]="nameFiltered" [editable]="editable"
     [dateStart]="currEdition.dateStart" [dateEnd]="currEdition.dateEnd">
     <!-- <app-mentors-detail-sm #item [mentor]="mentor" [editable]="editable"
       *ngFor="let mentor of mentorsAvailables">

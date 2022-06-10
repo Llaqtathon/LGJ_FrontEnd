@@ -1,3 +1,4 @@
+import { User } from './../../../models/user.model';
 import { Time } from './../../../common/time';
 import { MicroEvento } from './../../../models/microevento.model';
 import { MentorTime } from './../../../models/mentor-edition.model';
@@ -20,7 +21,9 @@ export class TimelineCardComponent implements OnInit {
   @Input() qdays!: number;
   @Input() dStart!: string;
   @Input() dEnd!: string;
+  @Input() editable!: boolean;
   // @Input() item?: Component;
+  id:number = 0;
   areaIcons:string[] = [];
   rangeTime:string = "";
   statusClass:string = "";
@@ -29,7 +32,8 @@ export class TimelineCardComponent implements OnInit {
   responsible:string = "";
   assigned:string[] = [];
   social:string[] = [];
-  ninscip:number  = 0;
+  ninscrip:number  = 0;
+  iminscrip:boolean = false;
   pos: {x:number, y:number} = {x:0, y:0};
   size: {width:number, height:number} = {width: 100, height:0};
 
@@ -38,10 +42,12 @@ export class TimelineCardComponent implements OnInit {
   ngOnInit(): void {
     // if(this.item instanceof MentorTime) {
     // }
-    if(this.item.m !== undefined) {
+    let state = "";
+
+    if (this.item.m !== undefined) {
       this.responsible = this.item?.m.nombres + " " + this.item?.m.apellidos;
       this.areaIcons = AreaUtils.getAreaIcons(this.item?.m.areas);
-      this.statusClass = Status.getStatusClass(this.item?.m.status);
+      state = this.item?.m.status;
       this.rangeTime = this.toTime(this.item?.t.dateStart) + " - " + this.toTime(this.item?.t.dateEnd);
       // this.rangeTime = this.item?.t.dateStart.substring(11,20) + " - " + this.item?.t.dateEnd.substring(11,20);
       this.pos.y = this.toY(this.item?.t.dateStart);
@@ -50,6 +56,27 @@ export class TimelineCardComponent implements OnInit {
       this.type = "MENTOR";
       console.log('TLCC',this.item, this.rangeTime);
     }
+    else if (this.item.cantInscritos != undefined) {
+      this.id = this.item.id;
+      this.responsible = this.item.nombrePonente;
+      this.type = this.item.tipo;
+      if (this.item.tipo === 'CHARLA') {}
+      else if (this.item.tipo === 'TALLER') {}
+      this.rangeTime = this.toTime(this.item.inicio) + " - " + this.toTime(this.item.fin);
+      this.title = this.item.name;
+      this.pos.y = this.toY(this.item.inicio);
+      this.pos.x = this.toX(this.item.inicio);
+      this.size.height = this.toY(this.item.fin) - this.pos.y;
+      // description
+      // enlaces       : string[] = [];
+      this.social = this.item.enlaces;
+
+      this.ninscrip = this.item.cantInscritos;
+      this.iminscrip = this.item.imInscripted;
+      state = this.item.status;
+      this.assigned = this.item.asignados.map((u:User) => u.nombres + " " + u.apellido);
+    }
+    this.statusClass = this.editable? Status.getStatusClass(state) : 's-null';
     this.size.width = 100/this.qdays;
   }
 

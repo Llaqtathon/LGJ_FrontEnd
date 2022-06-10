@@ -2,6 +2,7 @@ import { GameAddComponent } from './components/games/game-add/game-add.component
 
 // import { userListComplement } from './components/participants/participants.component';
 import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
+import { MentorsNewComponent } from './components/mentors/mentors-new/mentors-new.component';
 import { MicroeventsComponent } from './components/microevents/microevents.component';
 import { MentorsComponent } from './components/mentors';
 import { NgModule } from '@angular/core';
@@ -35,7 +36,12 @@ const routes: Routes = [
   { path: 'edition/:id',
     children: [
       // { path: '' },  //general
-      { path: 'mentors', component: MentorsComponent, data: { title: 'Mentores :id' } },
+      { path: 'mentors',
+        children: [
+          { path: '', component: MentorsComponent, data: { title: "Mentores :id" } },
+          { path: 'add', component: MentorsNewComponent, data: { title: "Nuevo mentor" } },
+        ]
+      },
       { path: 'timeline', component: MicroeventsComponent, data: { title: 'Charlas y Talleres :id' } },
     ]
   },
