@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Login } from 'src/app/models/login-user.model';
+import { IdentityService } from 'src/app/services/identity.service';
+import { UserStorageService } from 'src/app/services/user-storage.service';
 
 @Component({
   selector: 'app-login-user',
@@ -7,9 +11,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginUserComponent implements OnInit {
 
-  constructor() { }
+  public model: Login = new Login();
+  public invalid?: boolean;
 
-  ngOnInit(): void {
+  constructor(
+    private identityService: IdentityService,
+    private userStorageService: UserStorageService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {}
+
+  onSubmit(): void {
+    let self = this;
+
+    this.identityService.login(this.model).subscribe({
+      next(data) {
+        //console.log(data);
+        self.userStorageService.set(data);
+        self.router.navigate(['/']);
+      },
+      error() {
+        self.invalid = true;
+      },
+    });
   }
 
 }
