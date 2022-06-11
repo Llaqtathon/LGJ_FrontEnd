@@ -1,4 +1,9 @@
+import { GameAddComponent } from './components/games/game-add/game-add.component';
+
+// import { userListComplement } from './components/participants/participants.component';
 import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
+import { MentorsNewComponent } from './components/mentors/mentors-new/mentors-new.component';
+import { MicroeventsComponent } from './components/microevents/microevents.component';
 import { MentorsComponent } from './components/mentors';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,7 +12,6 @@ import {
   GroupAddComponent, 
   GroupDetailsComponent, 
   GroupsListComponent, 
-  GameAddComponent, 
   GroupsComponent
 } 
 from './components/groups';
@@ -20,7 +24,6 @@ import { AddSponsorsComponent } from './components/sponsors/add-sponsors/add-spo
 import { PostsComponent } from './components/posts/posts.component';
 import { PostsListComponent } from './components/posts/posts-list/posts-list.component';
 import { AddPostComponent } from './components/posts/add-post/add-post.component';
-=======
 import { LoginUserComponent } from './components/users/login-user/login-user.component';
 import { CurrentEventsComponent } from './components/current-events/current-events.component';
 import { GamesListComponent } from './components/games/games-list/games-list.component';
@@ -30,7 +33,19 @@ import { GameDetailComponent } from './components/games/game-detail/game-detail.
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: '', component: CurrentEventsComponent,
+  { path: 'edition/:id',
+    children: [
+      // { path: '' },  //general
+      { path: 'mentors',
+        children: [
+          { path: '', component: MentorsComponent, data: { title: "Mentores :id" } },
+          { path: 'add', component: MentorsNewComponent, data: { title: "Nuevo mentor" } },
+        ]
+      },
+      { path: 'timeline', component: MicroeventsComponent, data: { title: 'Charlas y Talleres :id' } },
+    ]
+  },
+  { path: 'groups', component: GroupsComponent, 
     children: [
 
       { path: '', component: GroupsListComponent },
@@ -42,8 +57,8 @@ const routes: Routes = [
     ]
   },
   { path: 'pastEditions', component: PastEditionsComponent },
-  { path: 'mentors', component: MentorsComponent },
   { path: 'users', component: RegisterUserComponent},
+  // { path:'participants', component: userListComplement},
   { path: 'sponsors', component: SponsorsComponent, 
     children:[
       { path: '', component: SponsorsListComponent},
@@ -56,23 +71,7 @@ const routes: Routes = [
       {path: 'add', component: AddPostComponent, data: {title: 'Nuevo Post'}},
       {path: ':id', component: PostDetailsComponent}
     ]
-  }
-
-      { path: 'groups', component: GroupsComponent, 
-        children: [
-          { path: '', component: GroupsListComponent },
-          { path: 'add', component: GroupAddComponent, data: { title: 'Nuevo Grupo' } },
-          { path: 'add/game', component: GameAddComponent, data: { title: 'Juego' } },
-          { path: ':id', component: GroupDetailsComponent },
-          { path: ':id/edit', component: GroupAddComponent },
-          { path: ':id/game', component: GameAddComponent },
-        ],
-      },
-      { path: 'mentors', component: MentorsComponent },
-    ],
   },
-  { path: 'pastEditions', component: PastEditionsComponent },
-  { path: 'mentors', component: MentorsComponent },
   { path: 'register', component: RegisterUserComponent},
   { path: 'login', component: LoginUserComponent},
   { path: 'games', component: GamesListComponent },

@@ -22,7 +22,7 @@ export class RegisterUserComponent implements OnInit {
         this.distritos=resp;
       })
    }
-
+   submitted = false;
    registroForm = this.fb.group({
     username: [''],
     password: [''],
@@ -40,18 +40,14 @@ export class RegisterUserComponent implements OnInit {
     foto_perfil_url: [''],
     descripcion: ['']
   })
-
-
   ngOnInit():void {
     
   }
-  
-onSubmit() {
-  //let registro = JSON.stringify(this.registroForm.value);
-  this.registroService.create(this.registroForm.value).subscribe(
-    data=>console.log('Success!',data),
-    error=>console.error('Error!',error)
-  )
-  console.log(this.registroForm.value)
-}
+  onSubmit(){
+    this.registroService.create(this.registroForm.value).subscribe(
+      data=>console.log('Success!',data),
+      error=>console.error('Error!',error)
+    )
+    console.log(this.registroForm.value)
+  }
 }

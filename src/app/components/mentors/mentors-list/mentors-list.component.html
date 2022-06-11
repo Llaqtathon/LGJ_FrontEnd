@@ -2,7 +2,7 @@
   <mat-icon>add</mat-icon>
 </button>
 <mat-menu #menu="matMenu" yPosition="above">
-  <button mat-menu-item>
+  <button mat-menu-item [routerLink]="['add']">
     <mat-icon>note_add</mat-icon>
     <span>Nuevo</span>
   </button>
@@ -13,6 +13,6 @@
 </mat-menu>
 
 
-<app-mentors-detail-sm *ngFor="let mentor of mentors"
+<app-mentors-detail-sm *ngFor="let mentor of mentFiltered"
   [mentor]="mentor" [editable]="true" >
 </app-mentors-detail-sm>
