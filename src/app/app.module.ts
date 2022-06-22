@@ -61,6 +61,11 @@ import { CardGroupComponent } from './components/components/card-group/card-grou
 import { GamesListComponent } from './components/games/games-list/games-list.component';
 import { CurrentEventsComponent } from './components/current-events/current-events.component';
 import { GameDetailComponent } from './components/games/game-detail/game-detail.component';
+import { SponsorDetailsComponent, SponsorsComponent, SponsorsListComponent } from './components/sponsors';
+import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { PostsListComponent } from './components/posts/posts-list/posts-list.component';
+import { AddPostComponent } from './components/posts/add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +90,7 @@ import { GameDetailComponent } from './components/games/game-detail/game-detail.
     TimelineCardComponent,
     LoginUserComponent,
     CardGroupComponent,
-    // GroupDeleteConfirmationDialog,
+    GroupDeleteConfirmationDialog,
     GamesListComponent,
     GameDetailComponent,
     CurrentEventsComponent,
@@ -94,6 +99,13 @@ import { GameDetailComponent } from './components/games/game-detail/game-detail.
     MicroeventsListComponent,
     HeaderComponent,
     ItemPriorityComponent,
+    SponsorsComponent,
+    SponsorDetailsComponent,
+    SponsorsListComponent,
+    PostsComponent,
+    PostsListComponent,
+    AddPostComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,

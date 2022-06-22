@@ -74,7 +74,7 @@ export class TimelineCardComponent implements OnInit {
       this.ninscrip = this.item.cantInscritos;
       this.iminscrip = this.item.imInscripted;
       state = this.item.status;
-      this.assigned = this.item.asignados.map((u:User) => u.nombres + " " + u.apellido);
+      this.assigned = this.item.asignados.map((u:User) => u.nombres + " " + u.apellidos);
     }
     this.statusClass = this.editable? Status.getStatusClass(state) : 's-null';
     this.size.width = 100/this.qdays;
@@ -84,7 +84,7 @@ export class TimelineCardComponent implements OnInit {
     // console.log('TLCC tt',date.substring(0,19));
     return date.substring(11,16);
     // return date!==undefined ? moment(date.substring(0,20)).format('HH:mm') : "";
-    // return date ? new Date(date).toLocaleTimeString().substring(0,5) : "";
+    // return date ? new Date(date).toLocaleTeString().substring(0,5) : "";
   }
   
   toY(date?:any) {
