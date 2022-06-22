@@ -14,16 +14,22 @@ export class UserService {
     create(data: any): Observable<User> {
         return this.http.post<User>(this.baseUrl, data);
     }
-    getAll():Observable<User[]>{
-        return this.http.get<User[]>(this.baseUrl);
+    getAll(params:any):Observable<any>{
+        return this.http.get<any[]>(this.baseUrl,{params});
     }
     get(id: number): Observable<User> {
         return this.http.get(`${this.baseUrl}/${id}`);
     }
-    findParticipant(id:number, rol:string):Observable<User[]>{
-        return this.http.get<User[]>(`${this.baseUrl}/${id}/${rol}`);
+    findParticipantByRol(rol:any):Observable<User[]>{
+        return this.http.get<User[]>(`${this.baseUrl}/${rol}`);
+    }
+    findParticipantByName(id:any, nombres:any):Observable<User[]>{
+        return this.http.get<User[]>(`${this.baseUrl}${id}/${nombres}`);
     }
     update(id:number, data:any):Observable<any>{
         return this.http.put(`${this.baseUrl}/${id}`, data);
+    }
+    loginUser(data: any){
+        return this.http.post<User>(this.baseUrl,data);
     }
 }

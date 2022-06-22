@@ -1,5 +1,5 @@
 import { UserGlobalService } from './services/user-global.service';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -35,10 +35,10 @@ import {
   GroupsListComponent, GroupsComponent 
 } from './components/groups';
 import { RegisterUserComponent } from './components/users';
+import { ParticipantsListComponent } from './components/participants';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
-
 import { MatMenuModule } from '@angular/material/menu';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
@@ -58,6 +58,7 @@ import { TimelineCardComponent } from './components/timeline/timeline-card/timel
     SidenavComponent,
     GroupsListComponent,
     RegisterUserComponent,
+    ParticipantsListComponent,
     GameAddComponent,
     CardGameComponent,
     MentorsComponent,
@@ -90,6 +91,7 @@ import { TimelineCardComponent } from './components/timeline/timeline-card/timel
     MatDatepickerModule,
     // MatFormFieldModule,
     MatTabsModule,
+    FormsModule,
     MatNativeDateModule,
     MatMenuModule,
   ],
