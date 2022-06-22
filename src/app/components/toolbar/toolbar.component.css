@@ -90,3 +90,9 @@
 .t-submenu {
     margin-top: 1em;
 }
+
+.user-info{
+    color: var(--text-color-primary);
+}
+
+

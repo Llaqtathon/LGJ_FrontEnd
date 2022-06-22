@@ -1,8 +1,10 @@
 <!-- Sidenav -->
-<p class="mat-title title" [innerText]="currEdition.name"></p>
+<p class="mat-title title">
+    {{ 'Edicion' }}
+</p>
 <mat-nav-list class="light-mode">
     <a *ngFor="let link of links" mat-list-item class="link"
-         [routerLink]="link.path"
+         [routerLink]="[this.editionUrl + link.path]"
          [ngClass]="{'active': link.path === activeTab || link.active}"
             (click)="onTabClick(link)"
          >

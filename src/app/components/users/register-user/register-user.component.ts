@@ -28,6 +28,7 @@ export class RegisterUserComponent implements OnInit {
         this.distritos=resp;
       })
    }
+
    submitted = false;
    registroForm = this.fb.group({
     username: [''],
@@ -38,7 +39,7 @@ export class RegisterUserComponent implements OnInit {
     nacimiento: [''],
     telefono: [''],
     distrito: this.fb.group({
-      "id": ['']
+      "id": ['0']
     }),
     dni: [''],
     genero: [''],
@@ -46,6 +47,7 @@ export class RegisterUserComponent implements OnInit {
     foto_perfil_url: [''],
     descripcion: ['']
   })
+  
   ngOnInit():void {
     
   }

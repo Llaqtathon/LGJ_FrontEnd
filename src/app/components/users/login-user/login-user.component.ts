@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Login } from 'src/app/models/login-user.model';
-import { IdentityService } from 'src/app/services/identity.service';
-import { UserStorageService } from 'src/app/services/user-storage.service';
+import { UserGlobalService } from 'src/app/services/user-global.service';
 
 @Component({
   selector: 'app-login-user',
@@ -10,30 +9,24 @@ import { UserStorageService } from 'src/app/services/user-storage.service';
   styleUrls: ['./login-user.component.css']
 })
 export class LoginUserComponent implements OnInit {
-
-  public model: Login = new Login();
-  public invalid?: boolean;
+  loginForm = this.fb.group({
+    username: [''],
+    password: [''],
+  });
 
   constructor(
-    private identityService: IdentityService,
-    private userStorageService: UserStorageService,
+    private fb: FormBuilder,
+    private ugs: UserGlobalService,
     private router: Router
-  ) {}
+  ) {
 
-  ngOnInit(): void {}
+    
+   }
 
-  onSubmit(): void {
-    let self = this;
+  ngOnInit(): void { }
 
-    this.identityService.login(this.model).subscribe({
-      next(data) {
-        //console.log(data);
-        self.userStorageService.set(data);
-        self.router.navigate(['/']);
-      },
-      error() {
-        self.invalid = true;
-      },
-    });
+  onSubmit() {
+    this.ugs.login(this.loginForm.value);
+    this.router.navigate(['/']);
   }
 }

@@ -28,7 +28,7 @@ export class ToolbarComponent implements OnInit {
   eds: Edition[] = [];
 
   isLoggedIn() {
-    return false;
+    return this.ugs.isLogged;
   }
 
   constructor(private router: Router,
@@ -68,7 +68,6 @@ export class ToolbarComponent implements OnInit {
           this.eds.push(ed);
           // this.edsMenu.push({path: '/edition-active/', label: ed.name, id: ed.id});
         })
-        console.log('TB gae',data, this.edsMenu);
         return true;
       },
       error: (err) => { console.log(err) }
@@ -129,6 +128,9 @@ export class ToolbarComponent implements OnInit {
 
   onEditionSelection(i:number) {
     this.selectedEditionChange.emit(this.eds[i]);
-    console.log('TB es', this.eds[i], this.selectedEdition);
+  }
+
+  onLogout() {
+    this.ugs.logout();
   }
 }
