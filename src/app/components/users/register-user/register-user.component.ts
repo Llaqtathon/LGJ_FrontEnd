@@ -42,7 +42,7 @@ export class RegisterUserComponent implements OnInit {
     }),
     dni: [''],
     genero: [''],
-    rol: ['PARTICIPANTE'],
+    rol: ['USER'],
     foto_perfil_url: [''],
     descripcion: ['']
   })
