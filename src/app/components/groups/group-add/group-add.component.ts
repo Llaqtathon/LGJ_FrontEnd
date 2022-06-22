@@ -124,12 +124,11 @@ export class GroupAddComponent implements OnInit {
         ...this.crrGroup,
         ...this.uploadForm.value, 
         game: this.crrGroup.game, 
-        editionId: 2
+        editionId: 8
       };
   
       this.crrGroup = group;
 
-      console.log(this.crrGroup)
       this.createGroup();
       this.router.navigate(['/groups']);
     }

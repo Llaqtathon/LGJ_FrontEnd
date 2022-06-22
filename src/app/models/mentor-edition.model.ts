@@ -16,3 +16,8 @@ export class MentorEd {
   areas?:MentorArea[];
   availabilities?:MentorAvailab[];  //NoEnSimple
 }
+
+export class MentorTime {
+  m?: MentorEd; //= new MentorEd();
+  t?: MentorAvailab; //= new MentorAvailab();
+}

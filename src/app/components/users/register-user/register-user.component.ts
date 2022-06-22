@@ -49,6 +49,7 @@ export class RegisterUserComponent implements OnInit {
   ngOnInit():void {
     
   }
+
   onSubmit(): void{
     let self = this;
     this.registroService.create(this.registroForm.value).subscribe({

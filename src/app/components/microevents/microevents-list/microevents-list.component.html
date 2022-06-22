@@ -1,0 +1,18 @@
+<button mat-button [matMenuTriggerFor]="menu">
+  <mat-icon>add</mat-icon>
+</button>
+<mat-menu #menu="matMenu" yPosition="above">
+  <button mat-menu-item>
+    <mat-icon>assignment</mat-icon>
+    <span>Nuevo Taller</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>notifications</mat-icon>
+    <span>Nueva Charla</span>
+  </button>
+</mat-menu>
+
+
+<app-microevents-detail-sm *ngFor="let event of evntFiltered"
+  [event]="event" [editable]="true" >
+</app-microevents-detail-sm>

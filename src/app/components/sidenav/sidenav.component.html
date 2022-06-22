@@ -1,5 +1,5 @@
 <!-- Sidenav -->
-<p class="mat-title title">Lima Board Game Jam 2022</p>
+<p class="mat-title title" [innerText]="currEdition.name"></p>
 <mat-nav-list class="light-mode">
     <a *ngFor="let link of links" mat-list-item class="link"
          [routerLink]="link.path"

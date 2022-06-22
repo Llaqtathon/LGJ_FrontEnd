@@ -19,9 +19,10 @@ export class Time {
   public static getDiasOrd ( dIni:Date, dFin:Date,
     abr:Boolean = true, withDate:Boolean = true
     ) : string[] {
+    console.log('getDiasOrd', dIni, dFin);
 
-    let posIni = dIni.getDay();
-    let posFin = dFin.getDay();
+    let posIni = new Date(dIni).getDay();
+    let posFin = new Date(dFin).getDay();
     let dias:string[] = [];
     let cday = new Date(dIni);
     
@@ -49,11 +50,37 @@ export class Time {
   }
 
   //SEMANA
-  public static getSemana(dia?:Date) {
+  public static getSemana(dia?:Date):{start:Date, end:Date} {
     let today     = dia? dia : new Date();
     let weekStart = today.getDate() - today.getDay() + 1; //+1 to make Monday the first day of the week
     let weekEnd   = weekStart + 6;
     return { start: new Date(today.setDate(weekStart)),
               end : new Date(today.setDate(weekEnd))};
+  }
+
+  public static getHHMM(d:Date) {
+    return (d.getHours()*100 + ((d.getMinutes()*10)/6))/100;
+  }
+  public static formatHHMM(hh:number, mm:number) {
+    return (hh*100 + ((mm*10)/6))/100;
+  }
+  
+  public static getDateDiff(d1:Date, d2:Date, by:string='DAY') {
+    switch (by) {
+      case 'DAY':
+        return Math.floor((d2.getTime() - d1.getTime())/(1000*60*60*24));
+      case 'HOUR':
+        return Math.floor((d2.getTime() - d1.getTime())/(1000*60*60));
+      case 'MIN':
+        return Math.floor((d2.getTime() - d1.getTime())/(1000*60));
+      case 'SEC':
+        return Math.floor((d2.getTime() - d1.getTime())/(1000));
+      case 'MONTH':
+        return Math.floor((d2.getTime() - d1.getTime())/(1000*60*60*24*30));
+      case 'YEAR':
+        return Math.floor((d2.getTime() - d1.getTime())/(1000*60*60*24*365));
+      default:
+        return 0;
+    }
   }
 }

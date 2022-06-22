@@ -10,7 +10,14 @@
         <li *ngFor="let link of crrMenu" class="link" 
             [ngClass]="{'active': link.path === activeTab || link.active}"
             (click)="onTabClick(link)">
-            <a [routerLink]="link.path">{{ link.label }}</a>
+            <a [routerLink]="link.path" [matMenuTriggerFor]="subMenu">{{ link.label }}</a>
+            <mat-menu #subMenu="matMenu" xPosition="before">
+                <button mat-menu-item *ngFor="let sm of link.submenu; let i = index"
+                class="t-submenu" id="{{sm.id}}"
+                [routerLink]="sm.path" (click)="onTabClick(sm, i)">
+                    {{sm.label}}
+                </button>
+            </mat-menu>
         </li>
     </ul>
     <div class="accesibility">
