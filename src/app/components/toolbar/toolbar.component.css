@@ -90,3 +90,32 @@
 .t-submenu {
     margin-top: 1em;
 }
+
+.menu-container{
+    padding:4px;
+    gap: 2px;
+    width: 120px;
+    height: 30px;
+    background: #00CC9C;
+    border-radius: 20px;
+}
+
+.menu-toggler{
+    padding: 8px;
+}
+
+.menu2{
+    background-color: var(--navbar-background-color);
+    color: #fff;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.menu-item{
+    cursor: pointer;
+    padding: 1px;
+}
+
+.menu-item:hover{
+    text-decoration: underline;
+}
