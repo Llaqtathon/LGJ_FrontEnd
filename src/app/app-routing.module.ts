@@ -1,3 +1,4 @@
+import { MentorsAvailabEditComponent } from './components/mentors/mentors-availab-edit/mentors-availab-edit.component';
 import { MentorsNewComponent } from './components/mentors/mentors-new/mentors-new.component';
 import { MicroeventsComponent } from './components/microevents/microevents.component';
 import { MentorsComponent } from './components/mentors';
@@ -22,6 +23,7 @@ const routes: Routes = [
         children: [
           { path: '', component: MentorsComponent, data: { title: "Mentores :id" } },
           { path: 'add', component: MentorsNewComponent, data: { title: "Nuevo mentor" } },
+          { path: 'availab', component: MentorsAvailabEditComponent, data: { title: "Disponibilidad", id: ":id", name: ":name" } },
         ]
       },
       { path: 'timeline', component: MicroeventsComponent, data: { title: 'Charlas y Talleres :id' } },
