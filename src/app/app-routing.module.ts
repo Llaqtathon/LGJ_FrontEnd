@@ -30,48 +30,49 @@ import { GamesListComponent } from './components/games/games-list/games-list.com
 import { GameDetailComponent } from './components/games/game-detail/game-detail.component';
 
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'edition/:id',
+    component: CurrentEventsComponent,
     children: [
-      // { path: '' },  //general
       { path: 'mentors',
         children: [
           { path: '', component: MentorsComponent, data: { title: "Mentores :id" } },
           { path: 'add', component: MentorsNewComponent, data: { title: "Nuevo mentor" } },
         ]
       },
-      { path: 'timeline', component: MicroeventsComponent, data: { title: 'Charlas y Talleres :id' } },
-    ]
-  },
-  { path: 'groups', component: GroupsComponent, 
-    children: [
-
-      { path: '', component: GroupsListComponent },
-      { path: 'add', component: GroupAddComponent, data: { title: 'Nuevo Grupo' } },
-      { path: 'add/game', component: GameAddComponent, data: { title: 'Juego' } },
-      { path: ':id', component: GroupDetailsComponent },
-      { path: ':id/edit', component: GroupAddComponent },
-      { path: ':id/game', component: GameAddComponent },
+      { path: 'timeline', 
+        component: MicroeventsComponent, 
+        data: { title: 'Charlas y Talleres :id' } 
+      },
+      { path: 'groups', component: GroupsComponent, 
+        children: [
+          { path: '', component: GroupsListComponent },
+          { path: 'add', component: GroupAddComponent, data: { title: 'Nuevo Grupo' } },
+          { path: 'add/game', component: GameAddComponent, data: { title: 'Juego' } },
+          { path: ':id', component: GroupDetailsComponent },
+          { path: ':id/edit', component: GroupAddComponent },
+          { path: ':id/game', component: GameAddComponent },
+        ]
+      },
+      { path: 'sponsors', component: SponsorsComponent, 
+        children:[
+          { path: '', component: SponsorsListComponent},
+          { path: 'add', component: AddSponsorsComponent, data: {title: 'Nuevo Sponsor'}},
+        ]
+      },
+      {path: 'media', component: PostsComponent, 
+        children:[
+          {path: '', component: PostsListComponent},
+          {path: 'add', component: AddPostComponent, data: {title: 'Nuevo Post'}},
+          {path: ':id', component: PostDetailsComponent}
+        ]
+      },
     ]
   },
   { path: 'pastEditions', component: PastEditionsComponent },
   { path: 'users', component: RegisterUserComponent},
   // { path:'participants', component: userListComplement},
-  { path: 'sponsors', component: SponsorsComponent, 
-    children:[
-      { path: '', component: SponsorsListComponent},
-      { path: 'add', component: AddSponsorsComponent, data: {title: 'Nuevo Sponsor'}},
-    ]
-  },
-  {path: 'media', component: PostsComponent, 
-    children:[
-      {path: '', component: PostsListComponent},
-      {path: 'add', component: AddPostComponent, data: {title: 'Nuevo Post'}},
-      {path: ':id', component: PostDetailsComponent}
-    ]
-  },
   { path: 'register', component: RegisterUserComponent},
   { path: 'login', component: LoginUserComponent},
   { path: 'games', component: GamesListComponent },

@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class UserGlobalService {
   public globalVarUpdate?:Observable<string>;
   public globalVarObserver?:Observer<any>;
-  public isLogged = true;
+  public isLogged = sessionStorage.getItem('isLogged') ? true : false;;
   public isOrg = true;
   public areEvntActs = true;
   public currentPag = '/home';
@@ -31,5 +31,14 @@ export class UserGlobalService {
   updateActiveEdicions(newValue:Edition[]) {
     this.activeEdicions = newValue;
     this.globalVarObserver?.next(this.activeEdicions);
+  }
+
+  login(){
+    this.isLogged = true;
+    sessionStorage.setItem('isLogged', 'true');
+  }
+  logout(){
+    this.isLogged = false;
+    sessionStorage.removeItem('isLogged');
   }
 }

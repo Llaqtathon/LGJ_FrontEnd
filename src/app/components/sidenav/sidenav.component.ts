@@ -16,6 +16,7 @@ export class SidenavComponent implements OnInit { //, OnChanges
   activeTab: string = '/';
   currEd?: Edition;
   currParentPath = '/edition/';
+  editionUrl: string = '';
   // ngOnChanges() {
   //   this.currEd = this.currEdition;
   //   console.log('Ochs',this.currEdition, this.currEd);
@@ -37,21 +38,21 @@ export class SidenavComponent implements OnInit { //, OnChanges
     // this.router.events.subscribe((data:any) => { this.activeTab = data.url; });
     this.ugs.updateCurrTab(window.location.pathname);
     this.activeTab = this.ugs.currentTab;
-    this.currParentPath += this.currEdition.id + '/';
     // console.log(this.ugs.currentTab, this.router.url);
     // this.getCurrTab();
+    this.editionUrl = location.pathname.split('/').slice(0, 3).join('/');
 
     const gral = [
       {path: '/', label: 'General', icon: 'info'},
-      {path: this.currParentPath+'/timeline', label: 'Cronograma', icon: 'date_range'},
+      {path: '/timeline', label: 'Cronograma', icon: 'date_range'},
       {path: '/media', label: 'Media', icon: 'camera_alt'},
       {path: '/sponsors', label: 'Sponsors', icon: 'work'}
     ]
 
     const menuPar = [
       {path: '/', label: 'General', icon: 'info'},
-      {path: this.currParentPath+'/timeline', label: 'Cronograma', icon: 'date_range'},
-      {path: this.currParentPath+'/mentors', label: 'Mentores', icon: 'school'},
+      {path: '/timeline', label: 'Cronograma', icon: 'date_range'},
+      {path: '/mentors', label: 'Mentores', icon: 'school'},
       {path: '/groups', label: 'Grupos', icon: 'groups'},
       {path: '/participants', label: 'Participantes', icon: 'group'},
       {path: '/media', label: 'Media', icon: 'camera_alt'},
@@ -60,9 +61,9 @@ export class SidenavComponent implements OnInit { //, OnChanges
     
     const menuOrg = [
       {path: '/', label: 'General', icon: 'info'},
-      {path: this.currParentPath+'/timeline', label: 'Cronograma', icon: 'date_range'},
+      {path: '/timeline', label: 'Cronograma', icon: 'date_range'},
       {path: '/sponsors', label: 'Sponsors', icon: 'work'},
-      {path: this.currParentPath+'/mentors', label: 'Mentores', icon: 'school'},
+      {path: '/mentors', label: 'Mentores', icon: 'school'},
       {path: '/participants', label: 'Participantes', icon: 'group'},
       {path: '/groups', label: 'Grupos', icon: 'groups'},
       {path: '/media', label: 'Media', icon: 'camera_alt'},
