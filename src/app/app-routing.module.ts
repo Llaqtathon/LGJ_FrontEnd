@@ -15,8 +15,9 @@ import { RegisterUserComponent } from './components/users/register-user/register
 import { ParticipantsListComponent, ParticipantsEditComponent } from './components/participants';
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'groups', component: GroupsComponent, 
+  { path: '', component: CurrentEventsComponent,
     children: [
+
       { path: '', component: GroupsListComponent },
       { path: 'add', component: GroupAddComponent, data: { title: 'Nuevo Grupo' } },
       { path: 'add/game', component: GameAddComponent, data: { title: 'Juego' } },
