@@ -1,0 +1,9 @@
+:host {
+  box-shadow: var(--shadow-lvl1);
+  border-radius: 2pt;
+  display: flex;
+  align-items: center;
+}
+:host:hover {
+  box-shadow: var(--shadow-lvl2);
+}

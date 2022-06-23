@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs';
 import { ItemTime } from './../../models/item-time.model';
 import { Edition } from './../../models/edition.model';
-import { MentorAvailab } from './../../models/mentor-availab.model';
 import { Time } from './../../common/time';
 import { UserGlobalService } from './../../services/user-global.service';
 import { MentorTime } from '../../models/mentor-edition.model';
@@ -50,6 +49,7 @@ export class MentorsComponent implements OnInit {
   ngOnInit(): void {
     this.editable = this.ugs.isOrg;
     console.log('E',this.currEdition);
+    this.currEdition = JSON.parse(localStorage.getItem("currEdition")??"");
     this.setEventDates();
     this.getMentors();
     this.filteredNames = this.fcNames.valueChanges.pipe(
@@ -101,8 +101,6 @@ export class MentorsComponent implements OnInit {
               if (this.ugs.isOrg) this.mentorsPending.push( m );
             } else {
               m.availabilities.forEach(t => {
-                // this.mentorsAvailables.push( this.mToMTime(m, t) );
-                console.log('M av b', m,t);
                 this.mentorsAvailables.push( {m: m, t: t} );
                 console.log('M av a', this.mentorsAvailables);
               });
@@ -112,33 +110,23 @@ export class MentorsComponent implements OnInit {
     }
   }
 
-  mToMTime(mentor: MentorEd, av: MentorAvailab) {
-    // return ItemTime.toItemTime({m: mentor, t: av}, this.currEdition?.dateStart);
-    // if (av !== undefined) {
-      // if( this.currEdition )
-      // return {
-      //   id:mentor.mentorId ? mentor.mentorId : 0,
-      //   responsible:mentor.nombres + ' ' + mentor.apellidos,
-      //   areas:mentor.areas ? mentor.areas : [],
-      //   status:mentor.status,
-      //   time:{
-      //     inicio:av.dateStart ? av.dateStart : new Date(),
-      //     fin:av.dateEnd ? av.dateEnd : new Date()
-      //   },
-      //   type:'MENTOR'
-      // };
-    // }
-    // return new ItemTime(undefined, this.currEdition?.dateStart);
-  }
 
   getByFname(event: any) {
-    this.nameFiltered = event.target.value;
+    console.log('F event', event);
+    this.nameFiltered = event; //.target.value;
     console.log('M gbf',this.nameFiltered);
   }
 
   private _filter(name: string): string[] {
     const filterValue = name.toLowerCase();
     return this.mentorNames.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  
+  get selectedOptions() { // right now: ['1','3']
+    return this.areasFilter
+              .filter(opt => opt.checked)
+              .map(opt => opt.label)
   }
 
 }

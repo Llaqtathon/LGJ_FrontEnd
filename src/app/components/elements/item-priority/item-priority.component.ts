@@ -1,5 +1,13 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 
+export interface ItemPriority {
+  label : string,
+  icon : string,
+  checked : boolean,
+  priority : number | undefined,
+  other?: any
+}
+
 @Component({
   selector: 'app-item-priority',
   templateUrl: './item-priority.component.html',

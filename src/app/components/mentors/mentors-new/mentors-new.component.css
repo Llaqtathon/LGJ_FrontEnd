@@ -30,6 +30,7 @@ form .mat-button {
   width: 16em;
   height: 16em;
   object-fit: cover;
+  border-radius: 16em;
 }
 
 .textarea {

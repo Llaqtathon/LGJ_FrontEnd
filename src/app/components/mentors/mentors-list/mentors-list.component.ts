@@ -9,6 +9,7 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 export class MentorsListComponent implements OnInit, OnChanges {
   @Input() mentors?: MentorEd[];
   @Input() filteredName: string = '';
+  @Input() checks: string[] = [];
   mentFiltered: MentorEd[] = [];
   //siempre es editable //solo aparece a los Orgs
 

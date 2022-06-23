@@ -1,13 +1,13 @@
 export class Time {
   // Dias
   public static dias:string[] = [
-    'domingo',
-    'lunes',
-    'martes',
-    'miércoles',
-    'jueves',
-    'viernes',
-    'sábado',
+    'Domingo',
+    'Lunes',
+    'Martes',
+    'Miércoles',
+    'Jueves',
+    'Viernes',
+    'Sábado',
   ]
   public static diasAbr:string[] = [
     'DOM', 'LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB',
@@ -49,6 +49,29 @@ export class Time {
     return dias;
   }
 
+  public static getDatesOrd ( dIni:Date, dFin:Date) : Date[] {
+    console.log('getDatesOrd', dIni, dFin);
+
+    let posIni = new Date(dIni).getDay();
+    let posFin = new Date(dFin).getDay();
+    let dias: Date[] = [];
+    let cday = new Date(dIni);
+    
+    let push = (d:number) => { //dia: 25 | pini: 5 | d: 0
+      dias.push(new Date(cday));
+      cday.setDate(cday.getDate() + 1);
+    }
+
+    if (posFin < posIni) {
+      for (let i = posIni; i < 7; i++) push(i) ;
+      for (let i = 0; i <= posFin; i++) push(i) ;
+    }
+    else {
+      for (let i = posIni; i <= posFin; i++) push(i) ;
+    }
+    return dias;
+  }
+
   //SEMANA
   public static getSemana(dia?:Date):{start:Date, end:Date} {
     let today     = dia? dia : new Date();
@@ -61,7 +84,7 @@ export class Time {
   public static getHHMM(d:Date) {
     return (d.getHours()*100 + ((d.getMinutes()*10)/6))/100;
   }
-  public static formatHHMM(hh:number, mm:number) {
+  public static toNumHHMM(hh:number, mm:number) {
     return (hh*100 + ((mm*10)/6))/100;
   }
   

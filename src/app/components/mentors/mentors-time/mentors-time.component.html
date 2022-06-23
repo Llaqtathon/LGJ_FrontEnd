@@ -1,0 +1,13 @@
+<button mat-icon-button aria-label="remove" color="warn" (click)="remove()">
+  <mat-icon>remove</mat-icon>
+</button>
+<mat-form-field appearance="fill" class="no-padding short">
+  <mat-label>Inicio</mat-label>
+  <input type="time" matInput placeholder="HH:MM"
+    value="{{mentorAvailab.dateStart}}" onchange="console.log('mt',mentorAvailab.dateStart)">
+</mat-form-field>
+<mat-form-field appearance="fill" class="no-padding short">
+  <mat-label>Fin</mat-label>
+  <input type="time" matInput placeholder="HH:MM"
+    value="{{mentorAvailab.dateEnd}}" onchange="console.log('mt',mentorAvailab.dateEnd)">
+</mat-form-field>

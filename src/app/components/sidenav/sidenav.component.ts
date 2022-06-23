@@ -34,6 +34,7 @@ export class SidenavComponent implements OnInit { //, OnChanges
     }
     
   ngOnInit(): void {
+    this.currEdition = JSON.parse(localStorage.getItem("currEdition")??"");
     // this.router.events.subscribe((data:any) => { this.activeTab = data.url; });
     this.ugs.updateCurrTab(window.location.pathname);
     this.activeTab = this.ugs.currentTab;

@@ -1,4 +1,4 @@
-import { MentorAvailab } from './mentor-availab.model';
+// import { MentorAvailab } from './mentor-availab.model';
 import { MentorArea } from "./mentor-area.model";
 
 export class MentorEd {
@@ -15,6 +15,12 @@ export class MentorEd {
   status?:string;                   //NoEnSimple
   areas?:MentorArea[];
   availabilities?:MentorAvailab[];  //NoEnSimple
+}
+
+export class MentorAvailab {
+  id?:number;
+  dateStart?:Date;
+  dateEnd?:Date;
 }
 
 export class MentorTime {

@@ -25,7 +25,7 @@
            aria-label="Filtrar por nombre" matInput
            [(ngModel)]="nameFiltered"
            [formControl]="fcNames"
-           [matAutocomplete]="auto" (change)="getByFname($event)">
+           [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)='getByFname($event.option.value)'>
       <mat-option *ngFor="let option of mentorNames" [value]="option">
         {{option}}
@@ -40,9 +40,10 @@
 
 
 <div class="content">
-  <app-mentors-list *ngIf="editable" [mentors]="mentorsPending" [filteredName]="nameFiltered"></app-mentors-list>
+  <app-mentors-list *ngIf="editable" [mentors]="mentorsPending"
+  [filteredName]="nameFiltered" [checks]="selectedOptions"></app-mentors-list>
   <app-timeline [items]="mentorsAvailables" [filteredResp]="nameFiltered" [editable]="editable"
-    [dateStart]="currEdition.dateStart" [dateEnd]="currEdition.dateEnd">
+    [dateStart]="currEdition.dateStart" [dateEnd]="currEdition.dateEnd" [checks]="selectedOptions">
     <!-- <app-mentors-detail-sm #item [mentor]="mentor" [editable]="editable"
       *ngFor="let mentor of mentorsAvailables">
     </app-mentors-detail-sm> -->

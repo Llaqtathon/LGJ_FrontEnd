@@ -26,6 +26,9 @@
 :host .priority span {
   color: var(--background-paper);
 }
+:host .priority span.material-icons {
+  line-height: 2rem !important;
+}
 :host.active .priority {
   background-color: var(--primary-color);
   border-color: var(--primary-color);

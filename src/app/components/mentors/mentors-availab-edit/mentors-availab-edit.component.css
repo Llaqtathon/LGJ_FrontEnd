@@ -1,0 +1,10 @@
+:host form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: flex-start;
+}
+
+:host form .row {
+  gap: 1em;
+}

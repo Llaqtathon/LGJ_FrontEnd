@@ -1,12 +1,12 @@
 <!-- <div class="item-priority" [class.active]="checked==true" (click)="checked=!checked">
 </div> -->
 <div class="priority">
-  <span *ngIf="priority">{{priority}}</span>
+  <span *ngIf="checked" [ngClass]="{'material-icons':priority === undefined}">{{priority??'check'}}</span>
 </div>
 <span class="label">
   {{label}}
 </span>
-<ng-content></ng-content>
+<ng-content *ngIf="checked"></ng-content>
 <mat-icon>
   {{icon}}
 </mat-icon>

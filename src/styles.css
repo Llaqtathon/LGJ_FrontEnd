@@ -34,8 +34,8 @@
     --text-color-terciary: #6F838B80;
 
     --background-paper: #FFFFFF;
-    --shadow-lvl1: 0px 1px 1px rgba(51, 61, 65, 0.25);
-    --shadow-lvl2: 0px 2px 2px rgba(51, 61, 65, 0.25);
+    --shadow-lvl1: 0px 1px 2px 0px rgba(51, 61, 65, 0.25);
+    --shadow-lvl2: 0px 2px 3px 1px rgba(51, 61, 65, 0.25);
 }
 .dark-mode * {
     --primary-color: #00CC9C;
@@ -46,8 +46,8 @@
     --text-color-terciary: #C6D4DD20;
 
     --background-paper: #1E2430;
-    --shadow-lvl1: 0px 1px 1px rgba(0, 0, 0, 0.33);
-    --shadow-lvl2: 0px 2px 2px rgba(0, 0, 0, 0.33);
+    --shadow-lvl1: 0px 1px 2px 0px rgba(0, 0, 0, 0.33);
+    --shadow-lvl2: 0px 2px 3px 1px rgba(0, 0, 0, 0.33);
 }
 
 html, body { height: 100%; }
@@ -146,29 +146,8 @@ table {
 .s-completed { background-color: var(--status-color-done); }
 
 
-app-timeline .cards > * {
-    display: block;
-}
-
-app-timeline .cards app-timeline-card ::-webkit-scrollbar {
-  width: 0px;
-}
-app-timeline .cards app-timeline-card > .mat-card {
-    padding: 0px;
-    text-align: center;
-    overflow-y: auto;
-    transition: 0.2s;
-    box-shadow: var(--shadow-lvl2);
-    cursor: default;
-}
-app-timeline .cards app-timeline-card > .mat-card:hover {
-    z-index: 100;
-}
-app-timeline .cards app-timeline-card > .mat-card > :first-child {
-    margin-top: 0.5em !important;
-}
-app-timeline .cards app-timeline-card > .mat-card > * {
-    font-size: 0.8em;
+app-timeline .cards ::-webkit-scrollbar {
+    width: 0px;
 }
 
 .ncols-1 > * { width: 100%; }
@@ -178,3 +157,8 @@ app-timeline .cards app-timeline-card > .mat-card > * {
 .ncols-5 > * { width: 20%; }
 .ncols-6 > * { width: 16.66%; }
 .ncols-7 > * { width: 14.28%; }
+
+
+.mat-form-field.short {
+    max-width: 6em;
+}

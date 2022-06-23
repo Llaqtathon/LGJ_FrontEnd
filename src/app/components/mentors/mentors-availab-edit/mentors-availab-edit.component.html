@@ -1,1 +1,58 @@
-<p>mentors-availab-edit works!</p>
+<mat-card class="header">
+  <button mat-button color="warn">
+    <mat-icon>remove</mat-icon>
+    Quitar de edición
+  </button>
+  <mat-card-title>{{title}}</mat-card-title>
+  <button class="back" mat-button (click)="onBack()">
+    <span class="button-content">
+      <span class="material-icons material-icons--outline">
+          close
+      </span>
+      ESC.
+    </span>
+  </button>
+</mat-card>
+
+
+<div class="content">
+  
+  <form>
+
+    <div class="row">
+      <button mat-button> <mat-icon>edit</mat-icon> Edit </button>
+      <h2>{{nomMentor}}</h2>
+    </div>
+    
+    <mat-form-field appearance="fill" class="no-padding">
+      <mat-label>Status</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let s of states" [value]="mentor.status">
+          {{s}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <h3>Disponibilidad</h3>
+
+    <div *ngFor="let dt of daysAvailab">
+      <h5>{{dt.day}}</h5>
+      <div class="row">
+        <app-mentors-time
+          *ngFor="let a of dt.times"
+         [mentorAvailab]="a" (toRemove)="remove(a, dt.date)"></app-mentors-time>
+        <button mat-button (click)="addElement(dt.date)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+    
+    <div class="row">
+      <button mat-button color="gradient" (click)="save()">
+        <mat-icon>save</mat-icon>
+        Guardar
+      </button>
+    </div>
+
+  </form>
+</div>
