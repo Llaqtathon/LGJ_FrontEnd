@@ -1,10 +1,10 @@
 import { GroupDeleteConfirmationDialog } from './components/groups/groups-list/groups-list.component';
 import { MicroeventsComponent } from './components/microevents/microevents.component';
 import { UserGlobalService } from './services/user-global.service';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -37,7 +37,7 @@ import {
   GroupAddComponent, GroupDetailsComponent, 
   GroupsListComponent, GroupsComponent,// GroupDeleteConfirmationDialog
 } from './components/groups';
-
+import { ParticipantsListComponent, ParticipantsEditComponent } from './components/participants';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -45,7 +45,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
-
 import { MatMenuModule } from '@angular/material/menu';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
@@ -77,6 +76,8 @@ import { AddPostComponent } from './components/posts/add-post/add-post.component
     SidenavComponent,
     GroupsListComponent,
     RegisterUserComponent,
+    ParticipantsListComponent,
+    ParticipantsEditComponent,
     GameAddComponent,
     CardGameComponent,
     MentorsComponent,
@@ -117,6 +118,7 @@ import { AddPostComponent } from './components/posts/add-post/add-post.component
     MatChipsModule,
     MatCardModule,
     MatButtonModule,
+    RouterModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
@@ -127,6 +129,7 @@ import { AddPostComponent } from './components/posts/add-post/add-post.component
     MatDatepickerModule,
     // MatFormFieldModule,
     MatTabsModule,
+    FormsModule,
     MatNativeDateModule,
     MatMenuModule,
     MatDialogModule,

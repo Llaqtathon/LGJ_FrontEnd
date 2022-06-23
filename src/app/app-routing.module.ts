@@ -1,5 +1,5 @@
-import { GameAddComponent } from './components/games/game-add/game-add.component';
 
+import { GameAddComponent } from './components/games/game-add/game-add.component';
 // import { userListComplement } from './components/participants/participants.component';
 import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
 import { MentorsNewComponent } from './components/mentors/mentors-new/mentors-new.component';
@@ -15,9 +15,10 @@ import {
   GroupsComponent
 } 
 from './components/groups';
+import { CurrentEventsComponent } from './components/current-events/current-events.component';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
-
+import { ParticipantsListComponent, ParticipantsEditComponent } from './components/participants';
 import { SponsorsComponent } from './components/sponsors/sponsors.component';
 import { SponsorsListComponent } from './components/sponsors/sponsors-list/sponsors-list.component';
 import { AddSponsorsComponent } from './components/sponsors/add-sponsors/add-sponsors.component';
@@ -35,6 +36,19 @@ const routes: Routes = [
   { path: 'edition/:id',
     component: CurrentEventsComponent,
     children: [
+      { path: '', component: GroupsListComponent },
+      { path: 'add', component: GroupAddComponent, data: { title: 'Nuevo Grupo' } },
+      { path: 'add/game', component: GameAddComponent, data: { title: 'Juego' } },
+      { path: ':id', component: GroupDetailsComponent },
+      { path: ':id/edit', component: GroupAddComponent },
+      { path: ':id/game', component: GameAddComponent },
+    ]
+  },
+  { path: 'pastEditions', component: PastEditionsComponent },
+  { path: 'mentors', component: MentorsComponent },
+  { path: 'users', component: RegisterUserComponent},
+  { path:'participants', component: ParticipantsListComponent},
+  { path: 'update/:id', component:ParticipantsEditComponent}
       { path: 'mentors',
         children: [
           { path: '', component: MentorsComponent, data: { title: "Mentores :id" } },

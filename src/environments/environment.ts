@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
 
-  baseUrl: 'https://llanqathon.herokuapp.com/api/v1'
+  baseUrl: 'http://localhost:9090/api/v1'
 };
 
 /*

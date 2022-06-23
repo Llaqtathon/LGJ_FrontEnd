@@ -11,6 +11,15 @@ export class UserService {
 
     constructor (private http: HttpClient) {}
 
+    create(data: any): Observable<User> {
+        return this.http.post<User>(this.baseUrl, data);
+    }
+    getAll(params:any):Observable<any>{
+        return this.http.get<any[]>(this.baseUrl,{params});
+    }
+    findParticipantByRol(rol:any):Observable<User[]>{
+        return this.http.get<User[]>(`${this.baseUrl}/${rol}`);
+    }
     getAll():Observable<User[]>{
         return this.http.get<User[]>(this.baseUrl);
     }
@@ -20,6 +29,7 @@ export class UserService {
     }
     findParticipant(id:number, rol:string):Observable<User[]>{
         return this.http.get<User[]>(`${this.baseUrl}/${id}/${rol}`);
+
     }
     update(id:number, data:any):Observable<any>{
         return this.http.put(`${this.baseUrl}/${id}`, data);
@@ -27,4 +37,10 @@ export class UserService {
     loginUser(data: any){
         return this.http.post<User>(this.baseUrl,data);
     }
+    getStudentById(id:number){
+        return this.http.get(`${this.baseUrl}/${id}`);
+    }
+/*     loginUser(data: any){
+        return this.http.post<User>(this.baseUrl,data);
+    } */
 }
