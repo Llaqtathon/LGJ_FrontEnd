@@ -28,6 +28,7 @@ export class ToolbarComponent implements OnInit {
   eds: Edition[] = [];
 
   isLoggedIn() {
+
     if(localStorage.getItem("ng-auth")!= null)
       return true;
     else
@@ -147,6 +148,9 @@ export class ToolbarComponent implements OnInit {
 
   onEditionSelection(i:number) {
     this.selectedEditionChange.emit(this.eds[i]);
-    console.log('TB es', this.eds[i], this.selectedEdition);
+  }
+
+  onLogout() {
+    this.ugs.logout();
   }
 }

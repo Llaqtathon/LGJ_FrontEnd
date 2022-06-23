@@ -55,6 +55,7 @@ export class RegisterUserComponent implements OnInit {
     this.registroService.create(this.registroForm.value).subscribe({
       next(data) {
         console.log('Success!',data),
+        
         self.router.navigate(['/login']);
       },
       error() {
