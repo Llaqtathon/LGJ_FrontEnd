@@ -1,3 +1,27 @@
-/* :host {
+:host {
   position: absolute;
+  overflow-y: auto;
+  border-radius: 6px;
+  box-shadow: var(--shadow-lvl1);
+  text-align: center;
+  transition: 0.2s;
+  cursor: default;
+}
+:host:hover {
+  z-index: 100 !important;
+  box-shadow: var(--shadow-lvl2);
+}
+
+/* .mat-card {
+  padding: 0px;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
 } */
+
+:host > :first-child {
+  margin-top: 0.5em !important;
+}
+:host > * {
+  font-size: 0.8em;
+}

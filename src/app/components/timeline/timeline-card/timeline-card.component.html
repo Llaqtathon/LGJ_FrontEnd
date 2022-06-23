@@ -1,9 +1,10 @@
-<mat-card matRipple class="tcard {{statusClass}}" style="position: absolute;"
-[ngStyle]="{
-  'width.%' : size.width ,  'height.em' : size.height * 2.5,
+<!-- <mat-card matRipple class="tcard {{statusClass}}"> -->
+<!-- 
+   style="position: absolute;"
+  [ngStyle]="{
+  'width.%' : size.width - 5 ,  'height.em' : size.height * 2.5,
   'left.%'  : pos.x * size.width,  'top.em'  : pos.y * 2.5
-}"
->
+}" -->
   <!-- [routerLink]="editable ? ['/'] : []"> -->
   <!-- <ng-content></ng-content> -->
   <div class="row" *ngIf="type!=='MENTOR'">
@@ -36,4 +37,4 @@
     </div>
 
   </mat-card-content>
-</mat-card>
+<!-- </mat-card> -->

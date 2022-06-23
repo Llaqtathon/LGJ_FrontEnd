@@ -126,6 +126,8 @@ export class ToolbarComponent implements OnInit {
 
   onEditionSelection(i:number) {
     this.selectedEditionChange.emit(this.eds[i]);
+    localStorage.setItem('currEdition', JSON.stringify(this.selectedEdition));
+    //let data = JSON.parse(localStorage.getItem("currEdition"));
     console.log('TB es', this.eds[i], this.selectedEdition);
   }
 }

@@ -5,16 +5,20 @@ import { MentorTime } from './../../../models/mentor-edition.model';
 import { ItemTime } from './../../../models/item-time.model';
 import { Status } from 'src/app/common/status';
 import { AreaUtils } from '../../../common/areas-utils';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding } from '@angular/core';
 import * as moment from 'moment';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 
 @Component({
   selector: 'app-timeline-card',
   templateUrl: './timeline-card.component.html',
-  styleUrls: ['./timeline-card.component.css']
+  styleUrls: ['./timeline-card.component.css'],
 })
 export class TimelineCardComponent implements OnInit {
+  
+  @HostBinding('style') style: SafeStyle = '';
+  @HostBinding('class') statusClass: string = "";
   // @Input() item!: ItemTime;
   // @Input() item!: MentorTime | MicroEvento;
   @Input() item!: any;
@@ -24,20 +28,22 @@ export class TimelineCardComponent implements OnInit {
   @Input() editable!: boolean;
   // @Input() item?: Component;
   id:number = 0;
-  areaIcons:string[] = [];
   rangeTime:string = "";
-  statusClass:string = "";
   type:string = "";
   title:string = "";
   responsible:string = "";
+
+  areaIcons:string[] = [];
   assigned:string[] = [];
+  
   social:string[] = [];
   ninscrip:number  = 0;
   iminscrip:boolean = false;
+
   pos: {x:number, y:number} = {x:0, y:0};
   size: {width:number, height:number} = {width: 100, height:0};
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     // if(this.item instanceof MentorTime) {
@@ -54,7 +60,7 @@ export class TimelineCardComponent implements OnInit {
       this.pos.x = this.toX(this.item?.t.dateStart);
       this.size.height = this.toY(this.item?.t.dateEnd) - this.pos.y;
       this.type = "MENTOR";
-      console.log('TLCC',this.item, this.rangeTime);
+      // console.log('TLCC',this.item, this.rangeTime);
     }
     else if (this.item.cantInscritos != undefined) {
       this.id = this.item.id;
@@ -77,7 +83,20 @@ export class TimelineCardComponent implements OnInit {
       this.assigned = this.item.asignados.map((u:User) => u.nombres + " " + u.apellido);
     }
     this.statusClass = this.editable? Status.getStatusClass(state) : 's-null';
+
     this.size.width = 100/this.qdays;
+    let wrand = Math.random() * (this.size.width/200 - 0.01) + 0.01;
+    this.pos.x += wrand;
+
+    this.style = this.sanitizer.bypassSecurityTrustStyle(
+      `
+      z-index: ${Math.floor(this.pos.y)};
+      width: ${this.size.width - 5}%;
+      height: ${this.size.height * 2.5}em;
+      left: ${this.pos.x * this.size.width}%;
+      top: ${this.pos.y * 2.5}em;
+    `
+    );
   }
 
   toTime(date?:any) {
@@ -88,12 +107,12 @@ export class TimelineCardComponent implements OnInit {
   }
   
   toY(date?:any) {
-    console.log('y',parseInt(date.substring(11,13)), parseFloat(date.substring(14,16)));
-    return Time.formatHHMM(parseInt(date.substring(11,13)), parseFloat(date.substring(14,16)));
+    // console.log('y',parseInt(date.substring(11,13)), parseFloat(date.substring(14,16)));
+    return Time.toNumHHMM(parseInt(date.substring(11,13)), parseFloat(date.substring(14,16)));
   }
   toX(date?:any) { //aaaa-mm-dd
     let day = parseInt(date.substring(8,10));
-    console.log('x',day, this.dStart);
+    // console.log('x',day, this.dStart);
     if (day >= parseInt(this.dStart)) { // 1 2 3 | 31 1 2 | 30 31 1 | 29 30 31 |
       return day - parseInt(this.dStart);
     }
