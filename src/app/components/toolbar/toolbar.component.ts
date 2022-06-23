@@ -28,9 +28,28 @@ export class ToolbarComponent implements OnInit {
   eds: Edition[] = [];
 
   isLoggedIn() {
-    return this.ugs.isLogged;
-  }
 
+    if(localStorage.getItem("ng-auth")!= null)
+      return true;
+    else
+    return false;
+  }
+  isMenuOpened: boolean = false;
+  toggleMenu():void{
+    this.isMenuOpened = !this.isMenuOpened;
+  }
+ username(): string{
+    let user = localStorage.getItem("ng-auth");
+    if(user){
+    let ObjUser = JSON.parse(user);
+    return ObjUser.username;
+    }
+    return '';
+  }
+ logout():void{
+    localStorage.clear();
+    this.router.navigate(['/']);
+  }
   constructor(private router: Router,
               private ugs: UserGlobalService,
               private editionsService: EditionsService) { 
