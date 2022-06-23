@@ -1,3 +1,4 @@
+import { CurrentEventsComponent } from './components/current-events/current-events.component';
 import { MentorsComponent } from './components/mentors';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
