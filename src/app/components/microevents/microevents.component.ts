@@ -70,6 +70,7 @@ export class MicroeventsComponent implements OnInit {
 
   ngOnInit(): void {
     this.editable = this.ugs.isOrg;
+    this.currEdition = JSON.parse(localStorage.getItem("currEdition")??"");
     let w = Time.getSemana(new Date());
     this.week = { dateStart: this.currEdition.dateStart??w.start, dateEnd: this.currEdition.dateEnd??w.end };
     this.setEventDates();
