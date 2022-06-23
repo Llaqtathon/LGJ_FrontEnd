@@ -27,9 +27,6 @@ export class LoginUserComponent implements OnInit {
   onSubmit(): void {
     let self = this;
 
-    self.userGlobalService.login();
-    self.router.navigate(['/']);
-
     this.identityService.login(this.model).subscribe({
       next(data) {
         //console.log(data);
