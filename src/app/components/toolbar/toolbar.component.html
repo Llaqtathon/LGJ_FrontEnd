@@ -6,11 +6,18 @@
       alt="LGJ Logo"
       src="https://limagamejam.com/assets/images/logo_lgj.svg"
     />
-    <ul class="menu sitemap">
-        <li *ngFor="let link of crrMenu" class="link" 
+    <ul class="menu sitemap" [style.visibility]="isLoggedIn() ? 'visible' : 'hidden'">
+        <li *ngFor="let link of crrMenu" class="link"  
             [ngClass]="{'active': link.path === activeTab || link.active}"
             (click)="onTabClick(link)">
-            <a [routerLink]="link.path">{{ link.label }}</a>
+            <a [routerLink]="link.path" [matMenuTriggerFor]="subMenu">{{ link.label }}</a>
+            <mat-menu #subMenu="matMenu" xPosition="before">
+                <button mat-menu-item *ngFor="let sm of link.submenu; let i = index"
+                class="t-submenu" id="{{sm.id}}"
+                [routerLink]="sm.path" (click)="onTabClick(sm, i)">
+                    {{sm.label}}
+                </button>
+            </mat-menu>
         </li>
     </ul>
     <div class="accesibility">
@@ -25,12 +32,27 @@
         </button>
     </div>
 
-    <ul class="menu login-menu">
+
+    <ul class="menu login-menu" *ngIf="!(isLoggedIn())">
         <li class="link" >
             <a [routerLink]="['/login']">Login</a>
         </li>
         <li class="link">
             <a [routerLink]="['/register']">Register</a>
         </li>
+    </ul>
+
+    <ul class="menu-container" *ngIf="(isLoggedIn())">
+        <div class="menu-toggler" (click)="toggleMenu()">
+            <img src="">
+                {{username()}}
+        </div>
+        <div class="menu2" *ngIf="isMenuOpened">
+        <ul>
+            <li class="menu-item"><img src=""><a href="#">My Profile</a></li>
+            <li class="menu-item"><img src=""><a href="#">Settings</a></li>
+            <li class="menu-item" (click)="logout()"><img src=""><a href="#">Logout</a></li>
+        </ul>
+        </div>
     </ul>
 </mat-toolbar>

@@ -1,3 +1,5 @@
+import { GroupDeleteConfirmationDialog } from './components/groups/groups-list/groups-list.component';
+import { MicroeventsComponent } from './components/microevents/microevents.component';
 import { UserGlobalService } from './services/user-global.service';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,18 +35,24 @@ import { MentorsComponent, MentorsListComponent,
     MentorsDetailSmComponent } from './components/mentors';
 import { 
   GroupAddComponent, GroupDetailsComponent, 
-  GroupsListComponent, GroupsComponent, GroupDeleteConfirmationDialog
+  GroupsListComponent, GroupsComponent,// GroupDeleteConfirmationDialog
 } from './components/groups';
 import { ParticipantsListComponent, ParticipantsEditComponent } from './components/participants';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { MatMenuModule } from '@angular/material/menu';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { TimelineCardComponent } from './components/timeline/timeline-card/timeline-card.component';
+import { MicroeventsDetailSmComponent } from './components/microevents/microevents-detail-sm/microevents-detail-sm.component';
+import { MicroeventsListComponent } from './components/microevents/microevents-list/microevents-list.component';
+import { HeaderComponent } from './components/header.component';
+import { ItemPriorityComponent } from './components/elements/item-priority/item-priority.component';
 
 import { LoginUserComponent } from './components/users/login-user/login-user.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
@@ -52,6 +60,11 @@ import { CardGroupComponent } from './components/components/card-group/card-grou
 import { GamesListComponent } from './components/games/games-list/games-list.component';
 import { CurrentEventsComponent } from './components/current-events/current-events.component';
 import { GameDetailComponent } from './components/games/game-detail/game-detail.component';
+import { SponsorDetailsComponent, SponsorsComponent, SponsorsListComponent } from './components/sponsors';
+import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { PostsListComponent } from './components/posts/posts-list/posts-list.component';
+import { AddPostComponent } from './components/posts/add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +94,19 @@ import { GameDetailComponent } from './components/games/game-detail/game-detail.
     GroupDeleteConfirmationDialog,
     GamesListComponent,
     GameDetailComponent,
-    CurrentEventsComponent
+    CurrentEventsComponent,
+    MicroeventsComponent,
+    MicroeventsDetailSmComponent,
+    MicroeventsListComponent,
+    HeaderComponent,
+    ItemPriorityComponent,
+    SponsorsComponent,
+    SponsorDetailsComponent,
+    SponsorsListComponent,
+    PostsComponent,
+    PostsListComponent,
+    AddPostComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +133,9 @@ import { GameDetailComponent } from './components/games/game-detail/game-detail.
     MatNativeDateModule,
     MatMenuModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatAutocompleteModule,
+    MatTooltipModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},

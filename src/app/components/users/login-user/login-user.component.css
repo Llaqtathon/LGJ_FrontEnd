@@ -13,7 +13,7 @@
     position: absolute;
 width: 102px;
 height: 29px;
-left: 823px;
+left:43%;
 top: 155px;
 
 font-family: 'Urbanist';
@@ -36,13 +36,13 @@ color: #DCEBEB;
     align-items: center;
     padding: 40px 80px;
 
-    
+
     position: absolute;
     width: 360px;
     height: 241px;
     top: 220px;
     /* other/darker 25 */
-    
+
     background: rgba(0, 105, 145, 0.25);
     border-radius: 12px;
 }
@@ -126,4 +126,5 @@ letter-spacing: 0.05em;
 /* corporative/normal */
 
 color: #00A596;
-}
+} 
+
