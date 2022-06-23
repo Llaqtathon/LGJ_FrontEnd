@@ -28,6 +28,7 @@ import { LoginUserComponent } from './components/users/login-user/login-user.com
 import { CurrentEventsComponent } from './components/current-events/current-events.component';
 import { GamesListComponent } from './components/games/games-list/games-list.component';
 import { GameDetailComponent } from './components/games/game-detail/game-detail.component';
+import { ParticipantUserComponent } from './components/participants/participants.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'edition/:id',
     component: CurrentEventsComponent,
     children: [
+      { path:'participants', component: ParticipantUserComponent },
       { path: 'mentors',
         children: [
           { path: '', component: MentorsComponent, data: { title: "Mentores :id" } },
@@ -61,7 +63,7 @@ const routes: Routes = [
           { path: 'add', component: AddSponsorsComponent, data: {title: 'Nuevo Sponsor'}},
         ]
       },
-      {path: 'media', component: PostsComponent, 
+      { path: 'media', component: PostsComponent, 
         children:[
           {path: '', component: PostsListComponent},
           {path: 'add', component: AddPostComponent, data: {title: 'Nuevo Post'}},
@@ -72,7 +74,6 @@ const routes: Routes = [
   },
   { path: 'pastEditions', component: PastEditionsComponent },
   { path: 'users', component: RegisterUserComponent},
-  // { path:'participants', component: userListComplement},
   { path: 'register', component: RegisterUserComponent},
   { path: 'login', component: LoginUserComponent},
   { path: 'games', component: GamesListComponent },

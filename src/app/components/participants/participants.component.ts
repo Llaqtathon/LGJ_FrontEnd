@@ -1,7 +1,5 @@
 import { UserService } from './../../services/users.service';
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { Location } from '@angular/common';
-import { ActivatedRoute, NavigationEnd, Route, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { FormBuilder } from '@angular/forms';
 
