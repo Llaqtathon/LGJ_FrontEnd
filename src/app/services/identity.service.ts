@@ -16,12 +16,6 @@ export class IdentityService {
   }
 
   create(data: any): Observable<User> {
-    const send = {
-      ...data,
-        distrito: null,
-        distritoId: null,
-        rol: 0,
-    }
-    return this.http.post<User>(`${environment.baseUrl}/users`, send);
+    return this.http.post<User>(`${environment.baseUrl}/signup`, data);
 }
 }
