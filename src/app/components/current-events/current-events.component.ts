@@ -10,7 +10,6 @@ export class CurrentEventsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
   }
 
 }

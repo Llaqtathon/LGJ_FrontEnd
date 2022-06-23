@@ -6,7 +6,7 @@
       alt="LGJ Logo"
       src="https://limagamejam.com/assets/images/logo_lgj.svg"
     />
-    <ul class="menu sitemap" [style.visibility]="isLoggedIn() ? 'visible' : 'hidden'">
+    <ul class="menu sitemap">
         <li *ngFor="let link of crrMenu" class="link" 
             [ngClass]="{'active': link.path === activeTab || link.active}"
             (click)="onTabClick(link)">
@@ -32,7 +32,7 @@
         </button>
     </div>
 
-    <ul class="menu login-menu" *ngIf="!isLoggedIn()">
+    <ul class="menu login-menu">
         <li class="link" >
             <a [routerLink]="['/login']">Login</a>
         </li>
@@ -40,11 +40,4 @@
             <a [routerLink]="['/register']">Register</a>
         </li>
     </ul>
-
-    <div class="user-info" *ngIf="isLoggedIn()">
-        <span class="user-name">Usuario</span>
-        <button mat-button (click)="onLogout()">
-            <mat-icon>exit_to_app</mat-icon>
-        </button>
-    </div>
 </mat-toolbar>

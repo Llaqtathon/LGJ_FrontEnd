@@ -9,7 +9,27 @@
 .container svg{
     margin-top: 100px;
 }
+.title{
+    position: absolute;
+width: 102px;
+height: 29px;
+left: 823px;
+top: 155px;
 
+font-family: 'Urbanist';
+font-style: normal;
+font-weight: 900;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+text-align: center;
+letter-spacing: 0.05em;
+margin-left: 90px;
+/* LGJ/lightest */
+
+color: #DCEBEB;
+}
 .card{
     display: flex;
     flex-direction: column;
@@ -71,4 +91,39 @@
     transform: translateX(-10px) translateY(-32px);
     font-size: 12px;
 
+}
+button{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px;
+gap: 8px;
+
+width: 149px;
+height: 43px;
+
+/* gray scale/lightest */
+
+background: #FFFFFF;
+/* LGJ/Shadow Lvl1 dark */
+
+box-shadow: 0px 1px 1px rgba(33, 41, 44, 0.33);
+border-radius: 4px;
+/* Inside auto layout */
+
+flex: none;
+order: 2;
+flex-grow: 0;
+font-family: 'Urbanist';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+letter-spacing: 0.05em;
+
+/* corporative/normal */
+
+color: #00A596;
 }

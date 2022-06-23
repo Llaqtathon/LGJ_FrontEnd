@@ -11,15 +11,6 @@ export class UserService {
 
     constructor (private http: HttpClient) {}
 
-    create(data: any): Observable<User> {
-        const send = {
-            ...data,
-            distrito: null,
-            distritoId: null,
-            rol: 0,
-        }
-        return this.http.post<User>(this.baseUrl, send);
-    }
     getAll():Observable<User[]>{
         return this.http.get<User[]>(this.baseUrl);
     }
