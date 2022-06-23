@@ -1,48 +1,75 @@
-<div class = "container">
-    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Buscar por rol" [(ngModel)]="rol">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" (click)="searchRol()">
-                        Buscar
-                    </button>
+<div class="container-fluid">
+    <div class = "container">
+        <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Buscar por rol" [(ngModel)]="rol">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" (click)="searchRol()">
+                            Buscar
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<table class="table table bordered">
-    <thead>
-        <tr>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Email</th>
-            <th>Telefono</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of users">
-            <td>{{user.nombres}}</td>
-            <td>{{user.apellidos}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.telefono}}</td>
-        </tr>
-    </tbody>
+<table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Email</th>
+                <th scope="col">Dni</th>
+                <th scope="col">Rol</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <th>{{user.id}}</th>
+                <td>{{user.nombres}}</td>
+                <td>{{user.apellidos}}</td>
+                <td>{{user.telefono}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.dni}}</td>
+                <td>{{user.rol}}</td>
+                <td>
+                    &nbsp;
+                    <button type="button" class="btn btn-danger" (click)="update(user.id)">Update</button>
+                </td>
+            </tr>
+        </tbody>
 </table>
 
-<div class = "container">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Buscar por nombre" [(ngModel)]="nombres">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" (click)="searchNombres()">
-                        Buscar
-                    </button>
-                </div>
-            </div>
-        </div>
+
+<div class ="container-fluid">
+    <h3>Actualizar informacion de participante</h3>
+<form [formGroup]="participantForm" (ngSubmit)="updateData(participantForm.value)">
+    <div class="mb-3">  
+        <label class="form-label">Nombres</label>
+        <input type="text" class="form-control" placeholder="Ingrese nombres" formControlName="nombres">
     </div>
-</div>
+    <div class="mb-3">  
+        <label class="form-label">Apellidos</label>
+        <input type="text" class="form-control" placeholder="Ingrese apellidos" formControlName="apellidos">
+    </div>
+    <div class="mb-3">  
+        <label class="form-label">Telefono</label>
+        <input type="text" class="form-control" placeholder="Ingrese telefono" formControlName="telefono">
+    </div>
+    <div class="mb-3">  
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" placeholder="Ingrese email" formControlName="email">
+    </div>
+    <div class="mb-3">  
+        <label class="form-label">Dni</label>
+        <input type="text" class="form-control" placeholder="Ingrese dni" formControlName="dni">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Actualizar Datos">
+</form>
+</div> 

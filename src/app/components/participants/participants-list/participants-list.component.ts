@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { UserService } from 'src/app/services/users.service';
+import { ParticipantsService } from 'src/app/services/participants.service';
 import { User } from 'src/app/models/user.model';
-
+import { FormGroup, FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-participants-list',
@@ -10,13 +12,21 @@ import { User } from 'src/app/models/user.model';
 })
 export class ParticipantsListComponent implements OnInit {
     //tutorials?: Tutorial[];
-    users?: User[] = [];
+    users: User[] = [];
     id = '';
     rol = '';
     nombres = '';
+    editMode: boolean = false;
+    currentParticipantId: number = 0;
 
-    constructor(private userService: UserService){}
-
+    constructor(private participantsService: ParticipantsService, private router: Router){}
+    participantForm = new FormGroup({
+      nombres: new FormControl(''),
+      apellidos: new FormControl(''),
+      telefono: new FormControl(''),
+      email: new FormControl(''),
+      dni: new FormControl('')
+    })
     ngOnInit(): void {
         this.retrieveTutorials();
     }
@@ -46,7 +56,7 @@ export class ParticipantsListComponent implements OnInit {
           error: (e) => console.error(e),
         });*/
     
-        this.userService.getAll(params).subscribe(
+        this.participantsService.getAll(params).subscribe(
           (response) => {
             const {data} = response;
             this.users = data;
@@ -59,7 +69,7 @@ export class ParticipantsListComponent implements OnInit {
     }
 
     searchRol(): void {
-        this.userService.findParticipantByRol(this.rol).subscribe({
+        this.participantsService.findParticipantByrol(this.rol).subscribe({
           next: (data) => {
             this.users = data;
             console.log(data);
@@ -67,7 +77,24 @@ export class ParticipantsListComponent implements OnInit {
           error: (e) => console.error(e),
         });
     }
-    searchNombres(): void {
+    updateData(user:{nombres:string, apellidos:string, telefono:string, email:string, dni:string}){
+      this.participantsService.updateUser(this.currentParticipantId,user);
+    }
+    update(id:any){
+      this.currentParticipantId = id;
+      let currentProduct = this.users.find((p)=>{return p.id == id})
+      console.log(this.participantForm);
+      
+      this.participantForm.setValue({
+        nombres: currentProduct?.nombres,
+        apellidos: currentProduct?.apellidos,
+        telefono: currentProduct?.telefono,
+        email: currentProduct?.email,
+        dni: currentProduct?.dni
+      });
+      this.editMode=true;
+    }
+/*     searchNombres(): void {
         this.userService.findParticipantByName(this.id, this.nombres).subscribe({
           next: (data) => {
             this.users = data;
@@ -75,6 +102,6 @@ export class ParticipantsListComponent implements OnInit {
           },
           error: (e) => console.error(e),
         });
-    }
+    } */
     ///
   }

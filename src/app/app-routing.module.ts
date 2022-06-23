@@ -12,7 +12,7 @@ import {
 from './components/groups';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
-import { ParticipantsListComponent } from './components/participants/participants-list/participants-list.component';
+import { ParticipantsListComponent, ParticipantsEditComponent } from './components/participants';
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'groups', component: GroupsComponent, 
@@ -28,7 +28,8 @@ const routes: Routes = [
   { path: 'pastEditions', component: PastEditionsComponent },
   { path: 'mentors', component: MentorsComponent },
   { path: 'users', component: RegisterUserComponent},
-  { path:'participants', component: ParticipantsListComponent}
+  { path:'participants', component: ParticipantsListComponent},
+  { path: 'update/:id', component:ParticipantsEditComponent}
 ];
 
 @NgModule({

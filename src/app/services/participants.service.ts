@@ -1,30 +1,26 @@
 import { User } from './../models/user.model';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 @Injectable({
     providedIn: "root"
 })
-export class UserService {
-    private baseUrl: string = `${environment.baseUrl}/users`;
+export class ParticipantsService {
+    private baseUrl: string = `${environment.baseUrl}/participants`;
 
     constructor (private http: HttpClient) {}
 
-    create(data: any): Observable<User> {
-        return this.http.post<User>(this.baseUrl, data);
-    }
     getAll(params:any):Observable<any>{
         return this.http.get<any[]>(this.baseUrl,{params});
     }
-    findParticipantByRol(rol:any):Observable<User[]>{
+    findParticipantByrol(rol:any):Observable<User[]>{
         return this.http.get<User[]>(`${this.baseUrl}/${rol}`);
     }
-    update(id:number, data:any):Observable<any>{
-        return this.http.put(`${this.baseUrl}/${id}`, data);
-    }
-    getStudentById(id:number){
-        return this.http.get(`${this.baseUrl}/${id}`);
+    updateUser(id:number, value:User){
+        return this.http.patch(`${this.baseUrl}/${id}`, value)
+        .subscribe()
     }
 /*     loginUser(data: any){
         return this.http.post<User>(this.baseUrl,data);

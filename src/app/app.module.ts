@@ -2,7 +2,7 @@ import { UserGlobalService } from './services/user-global.service';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -35,7 +35,7 @@ import {
   GroupsListComponent, GroupsComponent 
 } from './components/groups';
 import { RegisterUserComponent } from './components/users';
-import { ParticipantsListComponent } from './components/participants';
+import { ParticipantsListComponent, ParticipantsEditComponent } from './components/participants';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
@@ -59,6 +59,7 @@ import { TimelineCardComponent } from './components/timeline/timeline-card/timel
     GroupsListComponent,
     RegisterUserComponent,
     ParticipantsListComponent,
+    ParticipantsEditComponent,
     GameAddComponent,
     CardGameComponent,
     MentorsComponent,
@@ -81,6 +82,7 @@ import { TimelineCardComponent } from './components/timeline/timeline-card/timel
     MatChipsModule,
     MatCardModule,
     MatButtonModule,
+    RouterModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
