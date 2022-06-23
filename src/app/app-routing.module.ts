@@ -1,5 +1,5 @@
-import { GameAddComponent } from './components/games/game-add/game-add.component';
 
+import { GameAddComponent } from './components/games/game-add/game-add.component';
 // import { userListComplement } from './components/participants/participants.component';
 import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
 import { MentorsNewComponent } from './components/mentors/mentors-new/mentors-new.component';
@@ -17,7 +17,7 @@ import {
 from './components/groups';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
-
+import { ParticipantsListComponent, ParticipantsEditComponent } from './components/participants';
 import { SponsorsComponent } from './components/sponsors/sponsors.component';
 import { SponsorsListComponent } from './components/sponsors/sponsors-list/sponsors-list.component';
 import { AddSponsorsComponent } from './components/sponsors/add-sponsors/add-sponsors.component';
@@ -28,7 +28,6 @@ import { LoginUserComponent } from './components/users/login-user/login-user.com
 import { CurrentEventsComponent } from './components/current-events/current-events.component';
 import { GamesListComponent } from './components/games/games-list/games-list.component';
 import { GameDetailComponent } from './components/games/game-detail/game-detail.component';
-import { ParticipantUserComponent } from './components/participants/participants.component';
 
 
 const routes: Routes = [
@@ -36,7 +35,8 @@ const routes: Routes = [
   { path: 'edition/:id',
     component: CurrentEventsComponent,
     children: [
-      { path:'participants', component: ParticipantUserComponent },
+      { path:'participants', component: ParticipantsListComponent},
+      { path: 'update/:id', component:ParticipantsEditComponent},
       { path: 'mentors',
         children: [
           { path: '', component: MentorsComponent, data: { title: "Mentores :id" } },
