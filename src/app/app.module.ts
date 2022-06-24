@@ -15,6 +15,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatSelectModule} from '@angular/material/select';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -49,6 +50,8 @@ import { MicroeventsDetailSmComponent } from './components/microevents/microeven
 import { MicroeventsListComponent } from './components/microevents/microevents-list/microevents-list.component';
 import { HeaderComponent } from './components/header.component';
 import { ItemPriorityComponent } from './components/elements/item-priority/item-priority.component';
+import { MentorsTimeComponent } from './components/mentors/mentors-time/mentors-time.component';
+import { MicroeventsNewComponent } from './components/microevents/microevents-new/microevents-new.component';
 
 
 @NgModule({
@@ -76,6 +79,8 @@ import { ItemPriorityComponent } from './components/elements/item-priority/item-
     MicroeventsListComponent,
     HeaderComponent,
     ItemPriorityComponent,
+    MentorsTimeComponent,
+    MicroeventsNewComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +101,7 @@ import { ItemPriorityComponent } from './components/elements/item-priority/item-
     MatDatepickerModule,
     // MatFormFieldModule,
     MatTabsModule,
+    MatSelectModule,
     MatNativeDateModule,
     MatMenuModule,
     FormsModule,

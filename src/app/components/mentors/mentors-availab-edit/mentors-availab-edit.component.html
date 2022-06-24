@@ -1,5 +1,5 @@
 <mat-card class="header">
-  <button mat-button color="warn">
+  <button mat-button color="warn" [routerLink]="['../edit/'+mentorId]">
     <mat-icon>remove</mat-icon>
     Quitar de edición
   </button>
@@ -22,25 +22,28 @@
     <div class="row">
       <button mat-button> <mat-icon>edit</mat-icon> Edit </button>
       <h2>{{nomMentor}}</h2>
+      <mat-form-field appearance="fill" class="no-padding">
+        <mat-label>Status</mat-label>
+        <mat-select [ngModel]="mentor.status" name="status">
+          <mat-option *ngFor="let s of states" [value]="s">
+            {{s}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     
-    <mat-form-field appearance="fill" class="no-padding">
-      <mat-label>Status</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let s of states" [value]="mentor.status">
-          {{s}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
 
     <h3>Disponibilidad</h3>
 
-    <div *ngFor="let dt of daysAvailab">
-      <h5>{{dt.day}}</h5>
-      <div class="row">
+    <div class="row">
+      <div *ngFor="let dt of daysAvailab" class="day">
+        <h4>{{dt.day}}</h4>
         <app-mentors-time
           *ngFor="let a of dt.times"
-         [mentorAvailab]="a" (toRemove)="remove(a, dt.date)"></app-mentors-time>
+          [mentorAvailab]="a"
+          (mentorAvailabChange)="a"
+          (toRemove)="remove(a, dt.date)">
+        </app-mentors-time>
         <button mat-button (click)="addElement(dt.date)">
           <mat-icon>add</mat-icon>
         </button>

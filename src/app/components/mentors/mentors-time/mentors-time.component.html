@@ -1,13 +1,23 @@
-<button mat-icon-button aria-label="remove" color="warn" (click)="remove()">
-  <mat-icon>remove</mat-icon>
-</button>
 <mat-form-field appearance="fill" class="no-padding short">
   <mat-label>Inicio</mat-label>
   <input type="time" matInput placeholder="HH:MM"
-    value="{{mentorAvailab.dateStart}}" onchange="console.log('mt',mentorAvailab.dateStart)">
-</mat-form-field>
-<mat-form-field appearance="fill" class="no-padding short">
+    required name="dateStart"
+    [(ngModel)]=" timeStart "
+    [max]="_mab.dateEnd"
+    [formControl]="dIniReq"
+    (change)="edit()"
+  >
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="no-padding short">
   <mat-label>Fin</mat-label>
   <input type="time" matInput placeholder="HH:MM"
-    value="{{mentorAvailab.dateEnd}}" onchange="console.log('mt',mentorAvailab.dateEnd)">
+    required name="dateEnd"
+    [(ngModel)]=" timeEnd "
+    [min]="_mab.dateStart"
+    [formControl]="dEndReq"
+    (change)="edit()"
+  >
 </mat-form-field>
+<button mat-icon-button aria-label="remove" color="warn" (click)="remove()">
+  <mat-icon>remove</mat-icon>
+</button>

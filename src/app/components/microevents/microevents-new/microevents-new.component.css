@@ -1,0 +1,15 @@
+:host form, :host form > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+  align-items: flex-start;
+}
+:host form > div {
+  flex-direction: column;
+}
+
+:host form > div.row {
+  flex-basis: 100%;
+  align-items: center;
+}

@@ -1,0 +1,112 @@
+<mat-card class="header">
+  <mat-card-title>{{title}}</mat-card-title>
+  <button class="back" mat-button (click)="onBack()">
+    <span class="button-content">
+      <span class="material-icons material-icons--outline">
+          close
+      </span>
+      ESC.
+    </span>
+  </button>
+</mat-card>
+
+
+<div class="content">
+  <form>
+
+    <div>
+      <mat-form-field appearance="fill" class="no-padding">
+        <mat-label>Tipo</mat-label>
+        <mat-select [(value)]="type" (selectionChange)="updateTitle()">
+          <mat-option value="CHARLA">Charla</mat-option>
+          <mat-option value="TALLER">Taller</mat-option>
+        </mat-select>
+      </mat-form-field> 
+
+      <h2>Datos Generales</h2>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre tema</mat-label>
+        <input type="text" matInput [formControl]="textReq"
+          placeholder="Nombre tema" [value]="mevent.name">
+        <mat-error *ngIf="textReq.hasError('required')">
+          Por favor, ingrese un tema.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre de Ponente</mat-label>
+        <input type="text" matInput 
+          placeholder="Ponente" [value]="mevent.nombrePonente">
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill" class="textarea">
+        <mat-label>Breve descripción</mat-label>
+        <textarea matInput #input placeholder="Especialidad..."></textarea>
+        <mat-hint align="end">{{input.value?.length || 0}}/250</mat-hint>
+      </mat-form-field>
+
+      <h2>Enlaces de Streaming</h2>
+
+      <mat-form-field class="no-padding" appearance="fill"
+        *ngFor="let e of mevent.enlaces">
+        <mat-label>Enlace</mat-label>
+        <input type="url" matInput placeholder="http://..." [value]="e">
+        <button matSuffix mat-icon-button aria-label="remove" color="warn" (click)="removeLink(e)">
+          <mat-icon>remove</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-button (click)="addLink()">
+        <mat-icon>add</mat-icon>
+      </button>
+
+    </div>
+    
+
+    <div>
+
+      <h2>Organización</h2>
+
+      <mat-form-field appearance="fill" class="no-padding">
+        <mat-label>Status</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let s of states" [value]="mevent.status">
+            {{s}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> 
+
+      <mat-form-field appearance="fill">
+        <mat-label>Organizadores asignados</mat-label>
+        <mat-chip-list #chipList aria-label="Selección de organizadores">
+          <mat-chip *ngFor="let org of orgs" (removed)="remove(org)">
+            {{org.nombres}} {{org.apellido}}
+            <button matChipRemove> <mat-icon>cancel</mat-icon> </button>
+          </mat-chip>
+          <input
+            placeholder="Organizador..." #orgInput
+            [formControl]="orgCtrl"
+            [matAutocomplete]="auto"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+          <mat-option *ngFor="let org of filteredOrgs | async" [value]="org.id">
+            {{org.nombres}} {{org.apellido}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+    </div>
+    
+    <div class="row">
+      <button mat-button color="gradient" (click)="save()">
+        <mat-icon>save</mat-icon>
+        Guardar
+      </button>
+    </div>
+
+  </form>
+</div>

@@ -2,11 +2,11 @@
   <mat-icon>add</mat-icon>
 </button>
 <mat-menu #menu="matMenu" yPosition="above">
-  <button mat-menu-item>
+  <button mat-menu-item [routerLink]="['add']" [queryParams]="{type: 'TALLER'}">
     <mat-icon>assignment</mat-icon>
     <span>Nuevo Taller</span>
   </button>
-  <button mat-menu-item>
+  <button mat-menu-item [routerLink]="['add']" [queryParams]="{type: 'CHARLA'}">
     <mat-icon>notifications</mat-icon>
     <span>Nueva Charla</span>
   </button>

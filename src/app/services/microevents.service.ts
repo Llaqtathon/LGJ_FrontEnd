@@ -3,6 +3,7 @@ import { environment } from './../../environments/environment';
 import { Observable } from 'rxjs';
 import { MicroEvento } from './../models/microevento.model';
 import { Injectable } from '@angular/core';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +28,14 @@ export class MicroeventsService {
   getAsignadosById(id: number): Observable<MicroEvento[]> {
     return this.http.get<MicroEvento[]>(`${this.baseUrl}/asignados/${id}`);
   }
+
+  create(mevent : MicroEvento): Observable<MicroEvento> {
+    return this.http.post<MicroEvento>(this.baseUrl,mevent);
+  }
+
+  
+  getOrgs(): Observable<User[]> {
+    return this.http.get<User[]>(`${environment.baseUrl}/users/ORGANIZADOR`);
+  }
+
 }
