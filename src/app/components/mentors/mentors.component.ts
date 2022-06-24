@@ -48,7 +48,6 @@ export class MentorsComponent implements OnInit {
     
   ngOnInit(): void {
     this.editable = this.ugs.isOrg;
-    console.log('E',this.currEdition);
     this.currEdition = JSON.parse(localStorage.getItem("currEdition")??"");
     this.setEventDates();
     this.getMentors();

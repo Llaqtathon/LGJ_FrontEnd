@@ -3,7 +3,28 @@
   border-radius: 2pt;
   display: flex;
   align-items: center;
+  position: relative;
 }
 :host:hover {
   box-shadow: var(--shadow-lvl2);
+}
+:host .mat-form-field-flex {
+  border-radius: 4em !important;
+}
+
+:host .mat-button-base {
+  height: 1.5em;
+  top: -1em;
+  right: 0px;
+  display: none;
+  position: absolute;
+  border-radius: 1em;
+  background: var(--background-paper);
+  box-shadow: var(--shadow-lvl2);
+  align-items: center;
+  z-index: 1;
+}
+
+:host:hover .mat-button-base {
+  display: flex;
 }

@@ -9,3 +9,13 @@ export class MentorUser {
   birthDate? : Date;
   areas? : MentorArea[];
 }
+
+export class Mentor {
+  mentorId? : string;
+  nombres? : string;
+  apellidos? : string;
+  urlPhoto : string = 'https://pbs.twimg.com/media/FEwlAJxX0A4KrQa?format=png&name=small';
+  telefono : string = '';
+  email? : string;
+  nacimiento? : Date;
+}

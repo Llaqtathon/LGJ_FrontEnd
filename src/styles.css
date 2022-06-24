@@ -162,3 +162,6 @@ app-timeline .cards ::-webkit-scrollbar {
 .mat-form-field.short {
     max-width: 6em;
 }
+form .row button {
+    width: fit-content;
+}

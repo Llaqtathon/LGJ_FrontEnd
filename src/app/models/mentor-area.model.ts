@@ -1,6 +1,7 @@
+import { AreaUtils } from 'src/app/common/areas-utils';
 export class MentorArea {
   areaId?: number;
-  mentorId?: number;
+  // mentorId?: number;
   areaName?: string;
   yearsOfExperience?: number;
   priority: string = 'TOP';

@@ -14,10 +14,10 @@ export class AreaUtils {
   }
   
   public static aPriority:any = {
-    'NONE'      : 0 ,
-    'TOP'       : 1 ,
-    'SECONDARY' : 2 ,
-    'TERTIARY'  : 3 ,
+    0 : 'NONE'     ,
+    1 : 'TOP'      ,
+    2 : 'SECONDARY',
+    3 : 'TERTIARY' ,
   }
   public static getAreaIcons(ma?: MentorArea[]) {
     if (ma == undefined) return [];
