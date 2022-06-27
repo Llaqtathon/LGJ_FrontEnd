@@ -17,6 +17,10 @@ export class EditionsService {
     return this.http.get<Edition[]>(this.baseUrl);
   }
 
+  getAllActive(): Observable<Edition[]> {
+    return this.http.get<Edition[]>(`${this.baseUrl}/actives`);
+  }
+
   getGames(id: number): Observable<Game[]> {
     return this.http.get<Game[]>(`${this.baseUrl}/${id}/games`);
   }

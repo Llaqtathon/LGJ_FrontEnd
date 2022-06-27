@@ -16,7 +16,7 @@ export class SponsorsComponent implements OnInit {
     private _location: Location, private router: Router, public route: ActivatedRoute) { 
       router.events.subscribe((val) => {
         if (val instanceof NavigationEnd){
-          const[,inicial, second]=val.url.split('/');
+          const[,_, second]=val.url.split('/');
           this.action=!second?'add':'back';
 
           if(!second){

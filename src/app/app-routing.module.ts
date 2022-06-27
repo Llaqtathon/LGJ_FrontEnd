@@ -1,4 +1,3 @@
-import { CurrentEventsComponent } from './components/current-events/current-events.component';
 import { MentorsComponent } from './components/mentors';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,6 +9,7 @@ import {
   GroupsComponent
 } 
 from './components/groups';
+import { CurrentEventsComponent } from './components/current-events/current-events.component';
 import { PastEditionsComponent } from './components/past-editions/past-editions.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
 import { ParticipantsListComponent, ParticipantsEditComponent } from './components/participants';
