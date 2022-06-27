@@ -1,29 +1,67 @@
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.back{
-    font-size: 10px;
-    line-height: 1.5;
-}
-
-.back .button-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    cursor: pointer;
-}
-
-.group-content{
-    padding: 24px;
-}
-
 .content{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
+}
+.btn{
+    text-align: center;
+    letter-spacing: 0.05em; 
+    color: #0f0f0f;
+    background: linear-gradient(107.12deg, #006991 2.1%, #007E8E 34.95%, #009192 49.96%, #00A596 64.04%, #00B899 80.93%, #00CC9C 95.94%);
+}
+
+.form-control{
+    margin-bottom: 20px;
+}
+.form{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+body{
+    background: linear-gradient(107.12deg, #006991 2.1%, #007E8E 34.95%, #009192 49.96%, #00A596 64.04%, #00B899 80.93%, #00CC9C 95.94%);
+}
+.container{
+    width:100%;
+    background: linear-gradient(107.12deg, #006991 2.1%, #007E8E 34.95%, #009192 49.96%, #00A596 64.04%, #00B899 80.93%, #00CC9C 95.94%);
+}
+.inputbox span{
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    padding: 10px;
+    display: inline-block;
+    transition: 0.5s;
+    pointer-events: none;
+    font-size: 16px;
+    color:#FFFFFF;
+    font-weight: 300;
+    font-family: 'Urbanist';
+}
+.inputBox{
+    position: relative;
+    width: 300px;
+    height: 46px;
+    margin-bottom: 25px;   
+}
+
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span{
+    transform: translateX(-10px) translateY(-32px);
+    font-size: 12px;
+
+}
+.text1{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    margin-bottom: 20px;
 }

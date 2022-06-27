@@ -22,6 +22,9 @@ export class ParticipantsService {
         return this.http.patch(`${this.baseUrl}/${id}`, value)
         .subscribe()
     }
+    findParticipantByNombres(nombres:any){
+        return this.http.get<User>(`${this.baseUrl}/${nombres}`);
+    }
 /*     loginUser(data: any){
         return this.http.post<User>(this.baseUrl,data);
     } */

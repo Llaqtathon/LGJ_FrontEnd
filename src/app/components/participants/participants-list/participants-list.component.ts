@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 export class ParticipantsListComponent implements OnInit {
     //tutorials?: Tutorial[];
     users: User[] = [];
+    user: User = new User;
     id = '';
     rol = '';
     nombres = '';
@@ -76,6 +77,15 @@ export class ParticipantsListComponent implements OnInit {
           },
           error: (e) => console.error(e),
         });
+    }
+    searchName(): void {
+      this.participantsService.findParticipantByNombres(this.nombres).subscribe({
+        next: (data) => {
+          this.user = data;
+          console.log(data);
+        },
+        error: (e) => console.error(e),
+      });
     }
     updateData(user:{nombres:string, apellidos:string, telefono:string, email:string, dni:string}){
       this.participantsService.updateUser(this.currentParticipantId,user);
